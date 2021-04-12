@@ -1,0 +1,85 @@
+/* html,
+body{
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+html{
+  
+} */
+html,
+body {
+  /* background: #151c2c; */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* background: url("../assets/back.jpg") no-repeat center;
+  background-size: auto auto; */
+  height: calc(100vh);
+  /* min-height: 1000px; */
+  /* max-height: 1920px; */
+  /* position: absolute; */
+}
+/* .v-modal {
+  z-index: 1 !important;
+} */
+.el-container:nth-child(2) {
+  background: url("../assets/back.jpg") no-repeat center;
+  background-size: cover;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* .el-card {
+  overflow-y: auto;
+} */
+#app {
+  height: 100%;
+  width: 100%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+ul li,
+ol,
+li {
+  list-style: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+.blockInfo {
+  color: red;
+}
+.el-table thead {
+  font-family: PingFang-SC-Bold;
+  font-size: 16px;
+  color: #151c2c;
+  text-align: center;
+  line-height: 16px;
+}
+.el-range-input {
+  background: #f5f5f5;
+}
+.el-input-number__increase {
+  border-top: 1px solid #dcdfe6;
+}
+.el-input-number__decrease {
+  border-bottom: 1px solid #dcdfe6;
+}
+
+/* .el-form-item__content {
+  line-height: 32px;
+}
+.el-form-item {
+  margin-bottom: 0;
+}
+.el-form-item__label {
+  line-height: 32px;
+}
+.el-input--small {
+  font-size: 14px;
+} */

@@ -1,0 +1,40 @@
+.hrefTxt {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.agreeInfoButton {
+  font-family: PingFang-SC-Regular;
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.agreeInfo {
+  vertical-align: middle;
+  font-size: 13px;
+}
+.agreeInfoButton {
+  font-family: PingFang-SC-Regular;
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.el-radio {
+  margin: 0;
+}
+@media screen and (max-width: 750px) {
+  .agreeInfo {
+    vertical-align: middle;
+    font-size: 12px;
+  }
+  .el-picker-panel__icon-btn {
+    font-size: 14px;
+  }
+  .el-picker-panel__link-btn {
+    font-size: 14px;
+  }
+  .el-time-panel {
+    width: 150px;
+  }
+}

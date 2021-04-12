@@ -1,0 +1,235 @@
+<template>
+  <div>
+    <!-- 注册登录 -->
+    <el-dialog
+      :title="title"
+      :visible.sync="visble"
+      width="30%"
+      class="loginDialog"
+      :before-close="handleClose"
+      :modal-append-to-body="false"
+    >
+      <!-- 登录（手机号登录/用户名密码登录） -->
+      <div v-if="tabStatus == '1'">
+        <login
+          @updateTitle="updateTitle"
+          @toAdd="toAdd"
+          @loginSuccess="loginSuccess"
+          @handleClose="handleClose"
+        />
+      </div>
+      <!-- 注册(普通身份/公安身份)-->
+      <div v-else-if="tabStatus == '0'">
+        <add @toLogin="toLogin" />
+      </div>
+    </el-dialog>
+  </div>
+</template>
+
+<script>
+import login from "./login";
+import add from "./add";
+export default {
+  props: {
+    visble: {
+      type: Boolean,
+      default: false
+    },
+    status: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    login,
+    add
+  },
+  data() {
+    return {
+      title: "",
+      tabStatus: ""
+    };
+  },
+  watch: {
+    // status(val) {
+    //   if (val == "1") {
+    //     this.title = "手机号登录";
+    //   } else {
+    //     this.title = "注册";
+    //   }
+    // }
+    status(val) {
+      this.tabStatus = val;
+      if (val == "1") {
+        this.title = "用户名密码登录";
+      } else {
+        this.title = "注册";
+      }
+    }
+  },
+  mounted() {
+    // if (this.status != "") {
+    //   if (this.status == "1") {
+    //     this.title = "手机号登录";
+    //   } else {
+    //     this.title = "注册";
+    //   }
+    // }
+    if (this.status != "") {
+      this.tabStatus = this.status;
+      if (this.status == "1") {
+        this.title = "用户名密码登录";
+      } else {
+        this.title = "注册";
+      }
+    }
+  },
+  methods: {
+    loginSuccess(val) {
+      this.$emit("loginSuccess", val);
+    },
+    handleClose(val) {
+      this.$emit("closeDialog", false);
+    },
+    updateTitle(val) {
+      this.title = val;
+    },
+    // 跳转注册
+    toAdd(val) {
+      console.log(val);
+      this.tabStatus = val;
+      this.title = "注册";
+    },
+    // 跳转登录
+    toLogin(val) {
+      this.tabStatus = val;
+      this.title = "用户名密码登录";
+    }
+  }
+};
+</script>
+
+<style scoped>
+.mechanismLogin {
+  font-size: 16px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 22px;
+  color: #0074f8;
+  opacity: 1;
+  text-align: right;
+}
+.mechanismLogin span {
+  cursor: pointer;
+}
+.loginButton {
+  height: 50px;
+  width: 100%;
+}
+.opButton {
+  text-align: center;
+  margin-top: 50px;
+}
+.opButton p {
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #0074f8;
+  opacity: 1;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.loginDialog {
+  z-index: 9999999999999999999999 !important;
+  /* text-align: center; */
+}
+/deep/ .el-dialog__title {
+  width: 120px;
+  height: 33px;
+  font-size: 24px;
+  font-family: PingFang SC;
+  font-weight: bold;
+  line-height: 24px;
+  color: #151c2c;
+  opacity: 1;
+}
+/* /deep/ .el- */
+/deep/ .el-input__inner {
+  height: 58px;
+}
+/deep/ .el-row {
+  margin-top: 20px;
+}
+.codeButton {
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  height: 58px;
+  color: #0074f8;
+}
+/* 移动端 */
+@media screen and (max-width: 750px) {
+  /deep/ .el-dialog__close {
+    font-size: 23px;
+  }
+  .mechanismLogin {
+    font-size: 16px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 22px;
+    color: #0074f8;
+    opacity: 1;
+    text-align: right;
+  }
+  .mechanismLogin span {
+    cursor: pointer;
+  }
+  .opButton {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .opButton p {
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #0074f8;
+    opacity: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .loginDialog {
+    z-index: 9999999999999999999999 !important;
+  }
+  /deep/ .el-dialog__title {
+    width: 120px;
+    height: 33px;
+    font-size: 24px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    line-height: 24px;
+    color: #151c2c;
+    opacity: 1;
+  }
+  /* /deep/ .el- */
+  /deep/ .el-input__inner {
+    height: 38px;
+    font-size: 20px;
+  }
+  /deep/ .el-row {
+    margin-top: 20px;
+  }
+  .codeButton {
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    height: 58px;
+    color: #0074f8;
+  }
+  /deep/ .el-dialog {
+    width: 80% !important;
+    padding: 8px;
+  }
+}
+</style>
