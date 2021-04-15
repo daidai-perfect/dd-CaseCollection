@@ -26,22 +26,22 @@
             </span>
           </template>
         </el-table-column>-->
-        <el-table-column prop="hash" label="交易哈希" width="200" align="left" show-overflow-tooltip>
+        <el-table-column prop="hash" label="交易哈希" width="160" align="left" show-overflow-tooltip>
           <template slot-scope="{ row }">
             <span @click="toDetail(row.hash)" class="hash">{{row.hash | getString}}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="blockNumber" label="所在区块" width="130"></el-table-column>
-        <el-table-column prop="blockTime" label="时间" width="180">
+        <el-table-column prop="blockNumber" label="所在区块" width="100"></el-table-column>
+        <el-table-column prop="blockTime" label="时间" width="100">
           <template slot-scope="{ row }">{{getTime(row.blockTime)}}</template>
         </el-table-column>
-        <el-table-column prop="fromAddr" label="发送地址" width="360" show-overflow-tooltip>
+        <el-table-column prop="fromAddr" label="发送地址" width="200" show-overflow-tooltip>
           <template slot-scope="{ row }">
             <span class="hash" @click="toDetailList(row.fromAddr)">{{row.fromAddr}}</span>
             <!-- {{row.fromAddr | getString}} -->
           </template>
         </el-table-column>
-        <el-table-column prop="flowType" label width="90">
+        <el-table-column prop="flowType" label width="60">
           <template slot-scope="{ row }">
             <p v-if="row.flowType=='OUT'" class="outStatus">{{row.flowType}}</p>
             <p v-else-if="row.flowType=='IN'" class="inStatus">{{row.flowType}}</p>
@@ -50,7 +50,7 @@
             <!-- <a href="#" class="hash">{{row.status}}</a> -->
           </template>
         </el-table-column>
-        <el-table-column prop="toAddr" label="接收地址" width="360" show-overflow-tooltip>
+        <el-table-column prop="toAddr" label="接收地址" width="200" show-overflow-tooltip>
           <template slot-scope="{ row }">
             <span href="#" class="hash" @click="toDetailList(row.toAddr)">{{row.toAddr}}</span>
             <!-- {{row.toAddr | getString}} -->

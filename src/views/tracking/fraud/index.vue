@@ -17,60 +17,35 @@
         <div class="operation">-->
         <el-row>
           <el-col :span="24">
-            <!-- <div class="flex-two">
-              <div class="flex-cont">
-                <img src="@/assets/btc.png" />
-                <div class="right-desc">
-                  <div class="title">数字货币追踪</div>
-                  <ul>
-                    <li>
-                      <span class="dot">·</span> 网络诈骗案件
-                    </li>
-                    <li>
-                      <span class="dot">·</span> 非法交易
-                    </li>
-                    <li>
-                      <span class="dot">·</span> 资金追踪
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="flex-cont_hide">
-                <div style="width:100%;">
-                  <p>数字货币追踪</p>
-                  <div class="more-btn">MORE</div>
-                </div>
-              </div>
-            </div>-->
             <div class="move">
               <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
-                <div v-if="currencyMove==false">
-                  <el-card class="operCard">
-                    <img src="@/assets/btc.png" />
+                <div v-show="currencyMove===false">
+                  <el-card class="operCard" style="padding-top:100px" >
+                    <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
+                    <span style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500; ">数字货币追踪</span>
                   </el-card>
-                  <el-button class="operButotn" type="text">数字货币追踪</el-button>
+                  <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
                 </div>
-                <div v-else>
+                <div v-show="currencyMove===true">
                   <div class="flex-cont_hide">
-                    <div style="width:100%;">
-                      <p class="btn-border" @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
-                      <div class="flex-data">
-                        <p class="flex-desc">电信、网络诈骗案件</p>
-                        <p class="flex-desc">数字货币追踪服务</p>
+                    <!-- <div>
+                      <p class="flex-desc">电信、网络诈骗案件</p>
+                      <div class="flex-data" >
+                        <p class="btn-border" style="font-size:20px," @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
                       </div>
-                      <!-- <div class="more-btn">MORE</div> -->
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
               <div @mouseleave="mous(2)" @mouseenter="mous2(2)">
-                <div v-if="moneyMove==false">
-                  <el-card class="operCard">
-                    <img src="@/assets/opertion.png" />
+                <div v-show="moneyMove === false">
+                  <el-card class="operCard" style="padding-top:100px">
+                    <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
+                    <span style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500">资产盘监控</span>
                   </el-card>
-                  <el-button class="operButotn" type="text">资金盘监控</el-button>
+                  <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
                 </div>
-                <div v-else>
+                <div v-show="moneyMove === true">
                   <div class="flex-cont_hide">
                     <div style="width:100%;">
                       <p
@@ -141,7 +116,7 @@ export default {
 .btn-border {
   height: 40px;
   width: 80%;
-  background-image: linear-gradient(150deg, #0ea7ff, #2d2af3);
+  background-image: #196DFF ;
   margin: 0 auto;
   line-height: 40px;
   cursor: pointer;
@@ -162,8 +137,8 @@ export default {
 }
 .flex-cont_hide {
   transition: all 1.75s ease-in-out;
-  width: 196px;
-  height: 200px;
+  width: 240px;
+  height: 167px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -243,14 +218,18 @@ ul {
   color: #333333;
 }
 .operCard {
-  width: 196px;
-  height: 158px;
+  width: 240px;
+  height: 167px;
   cursor: pointer;
+  background:#EAF1FD url('../../../assets/img/iocn2@2x.png') 20px 20px/200px 100px no-repeat;
 }
-.operCard img {
-  width: 120px;
-  height: 120px;
-}
+/* .operCard img {
+  display: block;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+} */
 .desc {
   width: 90%;
   /* text-align: center; */
@@ -362,9 +341,11 @@ ul {
   margin-bottom: 25px;
 }
 .address_info span {
-  font-family: PingFang-SC-Bold;
-  font-size: 20px;
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
   vertical-align: middle;
+  font-weight: 600;
+  line-height: 30px;
 }
 .address_info {
   position: relative;
