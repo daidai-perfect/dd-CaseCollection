@@ -172,7 +172,7 @@ export default {
 }
 .date {
   width: 320px;
-  height: 44px;
+  height: 45px;
 }
 .search_button {
   width: 52px;
@@ -182,7 +182,7 @@ export default {
   font-size: 25px;
   color: white;
   position: relative;
-  top: 2px;
+  top: 4px;
 }
 .contier {
   padding: 30px;
