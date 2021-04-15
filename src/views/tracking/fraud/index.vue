@@ -19,15 +19,15 @@
           <el-col :span="24">
             <div class="move">
               <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
-                <div v-show="currencyMove===false">
-                  <el-card class="operCard" style="padding-top:100px" >
+                <div v-show="!currencyMove" >
+                  <el-card class="operCard"  >
                     <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
-                    <span style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500; ">数字货币追踪</span>
+                    <span  style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500; ">数字货币追踪</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
                 </div>
-                <div v-show="currencyMove===true">
-                  <div class="flex-cont_hide">
+                <div v-show="currencyMove">
+                  <div class="flex-cont_hide" @click="changeStatus('/fraud/preparationFile')">
                     <!-- <div>
                       <p class="flex-desc">电信、网络诈骗案件</p>
                       <div class="flex-data" >
@@ -39,18 +39,17 @@
               </div>
               <div @mouseleave="mous(2)" @mouseenter="mous2(2)">
                 <div v-show="moneyMove === false">
-                  <el-card class="operCard" style="padding-top:100px">
+                  <el-card class="operCard"  >
                     <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
                     <span style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500">资产盘监控</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
                 </div>
-                <div v-show="moneyMove === true">
-                  <div class="flex-cont_hide">
+                <div v-show="moneyMove === true" @click="changeStatus('/fraud/preparationFileMonitor')">
+                  <div class="flex-cont_hide" >
                     <div style="width:100%;">
                       <p
                         class="btn-border"
-                        @click="changeStatus('/fraud/preparationFileMonitor')"
                       >资金盘监控</p>
                       <div class="flex-data">
                         <p class="flex-desc">网络传销、网络赌博</p>
@@ -99,6 +98,7 @@ export default {
       }
     },
     mous2(status) {
+      console.log('chufale')
       switch (status) {
         case 1:
           this.currencyMove = true;
@@ -137,8 +137,8 @@ export default {
 }
 .flex-cont_hide {
   transition: all 1.75s ease-in-out;
-  width: 240px;
-  height: 167px;
+  width: 320px;
+  height: 223px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -218,10 +218,11 @@ ul {
   color: #333333;
 }
 .operCard {
-  width: 240px;
-  height: 167px;
+  width: 320px;
+  height: 223px;
   cursor: pointer;
-  background:#EAF1FD url('../../../assets/img/iocn2@2x.png') 20px 20px/200px 100px no-repeat;
+  padding-top: 158px;
+  background:#EAF1FD url('../../../assets/img/iocn2@2x.png') 40px 30px/240px 130px no-repeat;
 }
 /* .operCard img {
   display: block;
