@@ -1,0 +1,537 @@
+<template>
+  <div class="browser">
+    <div class="app-cont">
+      <!-- <div class="address_info">
+        <span>资产追踪</span>
+      </div>-->
+      <el-card class="tran-card">
+        <div class="address_info">
+          <span>资产追踪</span>
+        </div>
+        <div class="desc">
+          <p
+            class="address"
+          >链审科技针对利用数字货币进行相关犯罪的案件，提供从区块链地址到实际控制人的全方面追踪。司法机构只需要提供涉案的数字货币信息，链审科技将利用大数据和独有的标签库，锁定涉案资金的去向，以及定位犯罪嫌疑人的真实身份。</p>
+        </div>
+        <!-- <el-button type="primary" @click="fetchData" class="agree_button">确定</el-button>
+        <div class="operation">-->
+        <el-row>
+          <el-col :span="24">
+            <!-- <div class="flex-two">
+              <div class="flex-cont">
+                <img src="@/assets/btc.png" />
+                <div class="right-desc">
+                  <div class="title">数字货币追踪</div>
+                  <ul>
+                    <li>
+                      <span class="dot">·</span> 网络诈骗案件
+                    </li>
+                    <li>
+                      <span class="dot">·</span> 非法交易
+                    </li>
+                    <li>
+                      <span class="dot">·</span> 资金追踪
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex-cont_hide">
+                <div style="width:100%;">
+                  <p>数字货币追踪</p>
+                  <div class="more-btn">MORE</div>
+                </div>
+              </div>
+            </div>-->
+            <div class="move">
+              <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
+                <div v-if="currencyMove==false">
+                  <el-card class="operCard">
+                    <img src="@/assets/btc.png" />
+                  </el-card>
+                  <el-button class="operButotn" type="text">数字货币追踪</el-button>
+                </div>
+                <div v-else>
+                  <div class="flex-cont_hide">
+                    <div style="width:100%;">
+                      <p class="btn-border" @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
+                      <div class="flex-data">
+                        <p class="flex-desc">电信、网络诈骗案件</p>
+                        <p class="flex-desc">数字货币追踪服务</p>
+                      </div>
+                      <!-- <div class="more-btn">MORE</div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div @mouseleave="mous(2)" @mouseenter="mous2(2)">
+                <div v-if="moneyMove==false">
+                  <el-card class="operCard">
+                    <img src="@/assets/opertion.png" />
+                  </el-card>
+                  <el-button class="operButotn" type="text">资金盘监控</el-button>
+                </div>
+                <div v-else>
+                  <div class="flex-cont_hide">
+                    <div style="width:100%;">
+                      <p
+                        class="btn-border"
+                        @click="changeStatus('/fraud/preparationFileMonitor')"
+                      >资金盘监控</p>
+                      <div class="flex-data">
+                        <p class="flex-desc">网络传销、网络赌博</p>
+                        <p class="flex-desc">非法集资等案件的</p>
+                        <p class="flex-desc">资金定位、监控</p>
+                      </div>
+                      <!-- <div class="more-btn">MORE</div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+      </el-card>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      helpVisble: false,
+      exchangeName: "",
+      form: {},
+      status: 1,
+      currencyMove: false,
+      moneyMove: false
+    };
+  },
+  methods: {
+    changeStatus(routeName) {
+      this.$router.push({
+        path: routeName
+      });
+    },
+    mous(status) {
+      switch (status) {
+        case 1:
+          this.currencyMove = false;
+          break;
+        case 2:
+          this.moneyMove = false;
+          break;
+      }
+    },
+    mous2(status) {
+      switch (status) {
+        case 1:
+          this.currencyMove = true;
+          break;
+        case 2:
+          this.moneyMove = true;
+          break;
+      }
+    }
+  }
+};
+</script>
+
+<style scoped>
+.btn-border {
+  height: 40px;
+  width: 80%;
+  background-image: linear-gradient(150deg, #0ea7ff, #2d2af3);
+  margin: 0 auto;
+  line-height: 40px;
+  cursor: pointer;
+}
+.title {
+  font-size: 24px;
+  color: #0ea7ff;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.flex-cont {
+  width: 300px;
+  height: 200px;
+  /* background: rgb(19, 90, 245); */
+  display: flex;
+  justify-content: space-around;
+  padding-top: 25px;
+}
+.flex-cont_hide {
+  transition: all 1.75s ease-in-out;
+  width: 196px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: #2d2af3;
+}
+.flex-cont_hide p {
+  color: white;
+  font-size: 24px;
+  font-weight: 700px;
+}
+.flex-data {
+  margin-top: 20px;
+}
+.flex-desc {
+  color: white;
+  font-size: 12px !important;
+  margin-bottom: 5px;
+  /* text-align: left; */
+}
+.flex-cont img {
+  width: 100px;
+  height: 100px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.right-desc {
+  text-align: center;
+  padding-top: 5px;
+}
+ul {
+  padding: 0;
+}
+.right-desc li {
+  color: #0ea7ff;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.more-btn {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  border: 1px solid white;
+  width: 120px;
+  height: 35px;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.dynamic {
+  background: rgba(14, 167, 255, 0.8);
+  /* background: linear-gradient(
+    180deg,
+    rgba(14, 167, 255, 0),
+    rgba(14, 167, 255, 0.8)
+  ); */
+  width: 100%;
+  height: 100%;
+}
+.dynamic p {
+  color: black;
+  font-size: 24px;
+  font-weight: 550;
+}
+.default {
+  display: none;
+}
+.currencyMove {
+  display: block;
+  width: 196px;
+  height: 172px;
+}
+/deep/ .el-button--text {
+  color: #333333;
+}
+.operCard {
+  width: 196px;
+  height: 158px;
+  cursor: pointer;
+}
+.operCard img {
+  width: 120px;
+  height: 120px;
+}
+.desc {
+  width: 90%;
+  /* text-align: center; */
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 120px;
+}
+.address {
+  margin-bottom: 10px;
+  line-height: 35px;
+  color: #333333;
+  text-indent: 35px;
+}
+.move {
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: flex-end; */
+  margin-top: 20px;
+  text-align: center;
+}
+.operButotn {
+  height: 100px;
+  width: 160px;
+  font-size: 22px;
+}
+.explainImg {
+  width: 50%;
+  height: 800px;
+}
+.explainCont {
+  text-align: center;
+  margin-top: 20px;
+}
+.explain {
+  font-size: 21px;
+  margin-top: 0;
+}
+/* .startButton {
+  width: 100px;
+} */
+/deep/ .el-col-3 {
+  width: 10%;
+}
+/deep/ .el-col-10 {
+  line-height: 3;
+}
+.operation {
+  margin-bottom: 20px;
+}
+.file {
+  font-weight: 550;
+}
+.file_email {
+  margin-right: 50px;
+}
+.file_txt {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.file_txt p {
+  text-indent: 30px;
+}
+.file_txt_title {
+  text-indent: 10px !important;
+}
+.box-card {
+  margin-top: 30px;
+}
+.selectType {
+  width: 400px;
+  height: 40px;
+}
+/deep/ .el-input__inner {
+  background: #f5f5f5;
+}
+.agree_button {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.tran-card {
+  /* height: 100%; */
+  margin-top: 30px;
+  height: 89%;
+  font-size: 23px;
+  background: url("../../../assets/smallBack.png") no-repeat white;
+  display: flex;
+}
+/deep/ .el-card__header {
+  background: #e5e9ef;
+  font-family: PingFang-SC-Bold;
+  font-size: 16px;
+  color: #151c2c;
+  line-height: 16px;
+}
+.overview-card {
+  width: 100%;
+  height: 100%;
+}
+.overview_info {
+  margin-top: 30px;
+  width: 100%;
+  height: 226px;
+}
+.transactions_info {
+  margin-top: 25px;
+  width: 100%;
+  height: 552px;
+  margin-bottom: 25px;
+}
+.address_info span {
+  font-family: PingFang-SC-Bold;
+  font-size: 20px;
+  vertical-align: middle;
+}
+.address_info {
+  position: relative;
+  left: 10px;
+}
+.app-cont {
+  width: 73%;
+  margin: 0 auto;
+  color: white;
+  margin-top: 25px;
+}
+.browser {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.address {
+  /* padding-left: 18px; */
+}
+/deep/ .el-form-item__label {
+  font-size: 23px;
+}
+/deep/ .el-icon-question {
+  font-size: 23px;
+  cursor: pointer;
+  color: black;
+}
+/* 移动端 */
+@media screen and (max-width: 750px) {
+  .address_info {
+    position: relative;
+    left: 10px;
+  }
+  .desc {
+    width: 90%;
+    /* text-align: center; */
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  .address {
+    margin-bottom: 10px;
+    line-height: 35px;
+    color: #333333;
+  }
+  .move {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .operButotn {
+    height: 80px;
+    width: 120px;
+  }
+  .explainImg {
+    width: 50%;
+    height: 800px;
+  }
+  .explainCont {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .explain {
+    font-size: 21px;
+    margin-top: 0;
+  }
+  /* .startButton {
+  width: 100px;
+} */
+  /deep/ .el-col-3 {
+    width: 10%;
+  }
+  /deep/ .el-col-10 {
+    line-height: 3;
+  }
+  .operation {
+    margin-bottom: 20px;
+  }
+  .file {
+    font-weight: 550;
+  }
+  .file_email {
+    margin-right: 50px;
+  }
+  .file_txt {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  .file_txt p {
+    text-indent: 30px;
+  }
+  .file_txt_title {
+    text-indent: 10px !important;
+  }
+  .box-card {
+    margin-top: 30px;
+  }
+  .selectType {
+    width: 400px;
+    height: 40px;
+  }
+  /deep/ .el-input__inner {
+    background: #f5f5f5;
+  }
+  .agree_button {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  .tran-card {
+    /* height: 100%; */
+    margin-top: 30px;
+    height: 89%;
+    background: url("../../../assets/smallBack.png") no-repeat white;
+    font-size: 18px;
+    display: flex;
+  }
+  /deep/ .el-card__header {
+    background: #e5e9ef;
+    font-family: PingFang-SC-Bold;
+    font-size: 16px;
+    color: #151c2c;
+    line-height: 16px;
+  }
+  .overview-card {
+    width: 100%;
+    height: 100%;
+  }
+  /deep/ .el-card__body {
+    width: 100%;
+  }
+  .overview_info {
+    margin-top: 30px;
+    width: 100%;
+    height: 226px;
+  }
+  .transactions_info {
+    margin-top: 25px;
+    width: 100%;
+    height: 552px;
+    margin-bottom: 25px;
+  }
+  .address_info span {
+    font-family: PingFang-SC-Bold;
+    font-size: 20px;
+    color: #ffffff;
+    vertical-align: middle;
+  }
+  .app-cont {
+    width: 73%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 25px;
+  }
+  .browser {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  /deep/ .el-form-item__label {
+    font-size: 23px;
+  }
+  /deep/ .el-icon-question {
+    font-size: 23px;
+    cursor: pointer;
+    color: black;
+  }
+}
+</style>

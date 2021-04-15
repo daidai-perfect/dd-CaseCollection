@@ -1,0 +1,119 @@
+
+  .home_title {
+    font-family: PingFang-SC-Bold;
+    font-size: 25px;
+    color: #ffffff;
+    /* letter-spacing: 2px; */
+    text-align: center;
+    line-height: 54px;
+  }
+  .keep {
+    font-size: 19px;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+  }
+  .serachButton {
+    width: 120px;
+  }
+  /deep/ .el-radio__input.is-checked + .el-radio__label {
+    color: #ffffff;
+  }
+  /deep/ .el-input-group__prepend {
+    border-radius: 36px;
+    border: none;
+  }
+  .el-radio {
+    margin: 0;
+  }
+  .selectType {
+    width: 120px;
+  }
+  /deep/ .el-input__inner {
+    border: none;
+    height: 100%;
+    /* border-radius: 36px; */
+  }
+  /deep/ .el-select .el-input__inner {
+    height: auto;
+    font-family: PingFang-SC-Bold;
+    font-size: 20px;
+    color: #333333 !important;
+    text-align: center;
+    /* line-height: 20px; */
+    line-height: 2.8;
+    vertical-align: middle;
+  }
+  /deep/ .el-select {
+    background: white;
+    /* border-radius: 8px; */
+    border-radius: 36px 0px 0px 36px;
+    height: 99%;
+    line-height: 3.5vw;
+  }
+  .input-with-select {
+    background: #ffffff;
+    border: 1px solid #1a6dff;
+    width: 100%;
+    border-radius: 36px;
+    height: 100%;
+    margin-bottom: 50px;
+  }
+  .bro_line {
+    width: 100%;
+    height: 4px;
+    /* background: #2f7aff; */
+    margin-bottom: 90px;
+    margin-top: 5px;
+    position: relative;
+    right: 30px;
+  }
+  .bro_line img {
+    width: 100%;
+  }
+  .backImg {
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+  }
+  .browser-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 1000px;
+    z-index: -10;
+    zoom: 1;
+  }
+  .browser {
+    width: 100%;
+    height: calc(100vh);
+    display: flex;
+    text-align: center;
+    overflow-y: hidden;
+  }
+  .bro_lay {
+    color: #fff;
+    width: 82%;
+    margin: 0 auto;
+    align-self: center;
+    padding-bottom: 80px;
+  }
+  .bro_input {
+    width: 900px;
+    height: 72px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+  /deep/ .el-input-group__append,
+  .el-input-group__prepend {
+    border: none;
+    background: #1a6dff;
+    border-radius: 36px;
+    color: white;
+    font-size: 20px;
+  }
