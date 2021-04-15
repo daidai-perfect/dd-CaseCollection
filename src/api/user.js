@@ -9,6 +9,15 @@ export function login(data) {
     data
   });
 }
+// 手机号登录
+export function loginPhone(data) {
+  return request({
+    url: "/webLogin/loginByMobileSms",
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data
+  });
+}
 // 注册
 export function addUser(data) {
   return request({
@@ -23,6 +32,7 @@ export function getInfo(params) {
   return request({
     url: '/user/getUserByToken',
     method: "get",
+    isToken:true,
     params
   });
 }

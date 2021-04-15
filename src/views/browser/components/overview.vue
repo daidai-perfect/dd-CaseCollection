@@ -6,7 +6,7 @@
       </div>
       <div class="blockInfo">
         <div class="balance">
-          <span class="block_title">{{keyword.type}}余额：</span>
+          <span class="block_title">{{keyword.type | getMoneyType}}余额：</span>
           <span class="block_detail">{{dataForm.balance}}{{keyword.type=='ETH'?'以太币':'泰达币'}}</span>
         </div>
       </div>
@@ -33,6 +33,17 @@
 <script>
 import * as Api_browser from "@/api/browser";
 export default {
+  filters: {
+    getMoneyType(val) {
+      if (val == "ETH") {
+        return "ETH";
+      } else if (val == "USDT") {
+        return "USDT(ERC20)";
+      } else if (val == "TRON") {
+        return "USDT(TRC20)";
+      }
+    }
+  },
   props: {
     keyword: {
       type: Object,
@@ -62,7 +73,10 @@ export default {
   methods: {
     fetchData() {
       console.log("请求总览");
-      Api_browser.getOverView({ address: this.keyword.value }).then(res => {
+      Api_browser.getOverView({
+        address: this.keyword.value,
+        type: this.keyword.type
+      }).then(res => {
         this.dataForm = res.data;
       });
     },

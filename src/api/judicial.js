@@ -6,6 +6,7 @@ export function addJudiciary(data) {
     url: "/user/apply",
     method: "post",
     headers: { 'Content-Type': 'application/json' },
+    isToken:true,
     data
   });
 }

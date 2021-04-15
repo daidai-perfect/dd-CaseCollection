@@ -2,7 +2,7 @@ import axios from "axios";
 import { Message, Loading } from "element-ui";
 import store from "@/store";
 const qs = require("qs");
-import { getToken } from "@/utils/auth";
+import { getToken, removeToken } from "@/utils/auth";
 // const isPro = process.env.VUE_APP_PRO === "true";
 
 let loading;
@@ -34,7 +34,7 @@ service.interceptors.request.use(
     });
     // console.log(store,getToken())
     // 用来判断登录有没有token
-    if (store.getters.token) {
+    if (store.getters.token && config.isToken) {
       config.headers["Authorization"] = getToken();
     }
     return config;
@@ -55,14 +55,24 @@ service.interceptors.response.use(
   response => {
     if (loading) loading.close();
     const res = response.data;
-    if (res.code != "200") {
+    if (res.code == 401) {
       Message({
-        message: res.msg,
-        type: "error",
+        message: "请先登录",
+        type: "warning",
         duration: 3 * 1000
       });
+      store.dispatch("user/logout");
+      // removeToken();
     } else {
-      return res;
+      if (res.code != "200") {
+        Message({
+          message: res.msg,
+          type: "error",
+          duration: 3 * 1000
+        });
+      } else {
+        return res;
+      }
     }
   },
   error => {

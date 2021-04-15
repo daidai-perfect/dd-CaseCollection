@@ -18,16 +18,20 @@
         </el-col>
       </el-row>
       <!-- <el-row :gutter="12">
-        <el-col :span="16">
-          <el-input v-model="form.verificationCode" placeholder="请输入短信验证码"></el-input>
-        </el-col>
-        <el-col :span="8">
-          <el-button class="codeButton" @click="getPhoneCode" :disabled="codeCont!='重新发送'">{{codeCont}}</el-button>
-        </el-col>
-      </el-row>-->
-      <el-row :gutter="12">
         <el-col :span="24">
           <el-input v-model="form.password" placeholder="输入密码" type="password"></el-input>
+        </el-col>
+      </el-row> -->
+      <el-row :gutter="12">
+        <el-col :span="16">
+          <el-input v-model="form.smsCode" placeholder="请输入短信验证码"></el-input>
+        </el-col>
+        <el-col :span="8">
+          <el-button
+            class="codeButton"
+            @click="getPhoneCode"
+            :disabled="codeCont!='获取短信验证码' && codeCont!='重新发送'"
+          >{{codeCont}}</el-button>
         </el-col>
       </el-row>
       <el-row :gutter="12">
@@ -55,19 +59,23 @@
           <el-input v-model="form.mobile" placeholder="请输入11位手机号"></el-input>
         </el-col>
       </el-row>
-      <el-row :gutter="12">
+      <!-- <el-row :gutter="12">
         <el-col :span="24">
           <el-input v-model="form.password" placeholder="输入密码" type="password"></el-input>
         </el-col>
-      </el-row>
-      <!-- <el-row :gutter="12">
+      </el-row> -->
+      <el-row :gutter="12">
         <el-col :span="16">
-          <el-input v-model="securityForm.verificationCode" placeholder="请输入短信验证码"></el-input>
+          <el-input v-model="form.smsCode" placeholder="请输入短信验证码"></el-input>
         </el-col>
         <el-col :span="8">
-          <el-button class="codeButton" @click="getPhoneCode">{{codeCont}}</el-button>
+          <el-button
+            class="codeButton"
+            @click="getPhoneCode"
+            :disabled="codeCont!='获取短信验证码' && codeCont!='重新发送'"
+          >{{codeCont}}</el-button>
         </el-col>
-      </el-row>-->
+      </el-row>
       <!-- <el-row :gutter="12">
         <el-col :span="24">
           <el-input v-model="form.telPhone" placeholder="请输入座机号码"></el-input>
@@ -107,6 +115,7 @@
 
 <script>
 import * as Api_user from "@/api/user";
+import * as Api_tool from "@/api/tool";
 export default {
   data() {
     return {
@@ -117,7 +126,7 @@ export default {
         code: "",
         password: "",
         mobile: "",
-        telPhone: "",
+        smsCode: "",
         uuid: "",
         fileIdList: []
       },
@@ -150,6 +159,13 @@ export default {
           this.getCodeImg();
         });
     },
+    getSendSms() {
+      Api_tool.sendSms({ mobile: this.form.mobile, type: "register" }).then(
+        res => {
+          console.log(res);
+        }
+      );
+    },
     getCodeImg() {
       Api_user.getCode({}).then(res => {
         this.codeImg = "data:image/jpg;base64," + res.img;
@@ -158,9 +174,10 @@ export default {
     },
     getPhoneCode() {
       var minu = 60;
+      this.getSendSms();
       var s = setInterval(() => {
         minu--;
-        this.codeCont = "重新获取(" + minu + ")s";
+        this.codeCont = "重新获取" + minu + "s";
         if (minu == 0) {
           window.clearInterval(s);
           this.codeCont = "重新发送";

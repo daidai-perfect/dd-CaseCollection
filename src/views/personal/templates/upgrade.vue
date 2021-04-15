@@ -49,6 +49,10 @@ export default {
   methods: {
     // 提交
     submitUp() {
+      if (this.fileList.length == 0) {
+        this.$message.error("凭证不能为空!");
+        return;
+      }
       this.form.fileUrls = [];
       this.fileList.forEach(item => {
         this.form.fileUrls.push(item.response.fileRecord.fileUrl);

@@ -273,6 +273,9 @@ export default {};
         <p>由国内安防领域顶级人才构成，多名成员隶属于国家网络安全“红客联盟”，多次在国内外安全竞赛中获取优异成绩，并曾在C S S / I S C 等著名安全会议上发表演讲。</p>
       </div>
     </div>
+    <div  class="honor-qualification">
+         <h3 class="title">荣誉资质</h3>
+    </div>
     <div class="industry-case">
       <h3 class="title">行业案例</h3>
       <ul class="case-list">
@@ -325,7 +328,7 @@ export default {};
         <textarea class="message" v-model="desc" placeholder="请输入邮件内容"></textarea>
         <button @click="sendEmail" :disabled="!canSubmit">提交</button>
       </div>
-    </div> -->
+    </div>-->
 
     <!-- <div class="copyright">京ICP备2020047292号-1</div> -->
   </div>
@@ -405,6 +408,11 @@ export default {
   margin: 0 auto;
   text-align: center;
   position: relative;
+  .honor-qualification {
+    background: white;
+    height: 530px;
+    width: 100%;
+  }
   .banner {
     width: 100%;
     height: 800px;

@@ -43,7 +43,7 @@ export default {
   methods: {
     payment() {
       var data = {
-        money: 50000,
+        money: 5000,
         payType: "NATIVE",
         tradeNo: this.$route.query.reportNo,
         userId: this.sysUser.id
@@ -76,16 +76,18 @@ export default {
       });
       setTimeout(() => {
         loading.close();
-        Api_tool.whetherPay({ reportNo: this.$route.query.reportNo }).then(
-          res => {
-            console.log(res, "支付状态?");
+        Api_tool.whetherPay({
+          reportNo: this.$route.query.reportNo
+        }).then(res => {
+          console.log(res, "支付状态?");
+          if (res.data) {
+            this.$router.push({
+              name: this.$route.query.rouName,
+              params: { status: "success" }
+            });
           }
-        );
+        });
       });
-      // this.$router.push({
-      //   name: this.$route.query.rouName,
-      //   params: { status: "success" }
-      // });
     }
   }
 };

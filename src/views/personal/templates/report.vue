@@ -5,6 +5,7 @@
       stripe
       :header-cell-style="{background:'#E5E9EF',color:'#151C2C'}"
       class="tables"
+      height="480"
     >
       <el-table-column prop="id" label="报告id"></el-table-column>
       <el-table-column prop="reportNo" label="报告编码" width="160">

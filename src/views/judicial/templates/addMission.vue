@@ -36,7 +36,7 @@
             </el-select>
           </el-form-item>
           <el-form-item prop="cityName" class="city_option2">
-            <el-select v-model="form.cityName" placeholder="请选择" class="citys">
+            <el-select v-model="form.cityName" placeholder="请选择" class="citys" @change="selectProv">
               <el-option
                 v-for="item in cityList"
                 :key="item.value"
@@ -109,6 +109,8 @@ export default {
         name: "",
         provName: "",
         cityName: "",
+        cityId: "",
+        provId: "",
         brief: "",
         phone: "",
         fileUrl: []
@@ -142,7 +144,14 @@ export default {
       var w = this.proList.filter(item => {
         return item.label == val;
       });
+      this.form.provId = w[0].value.toString();
       this.cityList = w[0].children;
+    },
+    selectProv(val) {
+      var w = this.cityList.filter(item => {
+        return item.label == val;
+      });
+      this.form.cityId = w[0].value.toString();
     },
     returnUp() {
       this.$emit("closeAdd", false);

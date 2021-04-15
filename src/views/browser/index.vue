@@ -7,12 +7,11 @@
       <div class="bro_title">
         <div class="home_title">全球领先的区块链浏览器</div>
       </div>
-
       <div class="bro_line">
         <img src="@/assets/light.png" />
       </div>
       <div class="bro_input">
-        <el-input placeholder="搜索地址/交易" v-model="form.value" class="input-with-select">
+        <el-input placeholder="搜索地址/交易" v-model="form.value" class="input-with-select" spellcheck="false">
           <el-select v-model="form.select" slot="prepend" placeholder="请选择" class="selectType">
             <el-option label="ETH" value="ETH"></el-option>
             <!-- <el-option label="DASH" value="2"></el-option> -->

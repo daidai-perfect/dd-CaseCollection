@@ -7,7 +7,8 @@
     <!-- cont内容 -->
     <div class="record_cont">
       <div class="files" v-for="(item,index) in idenList" :key="index">
-        <img class="file_img" :src="item.fileUrl" />
+        <!-- <img class="file_img" :src="item.fileUrl" /> -->
+        <p class="status">你现在的身份是{{sysUser.type | getLevelName}}</p>
         <p class="desc">
           您于 {{item.createTime | getDate}}提交的证明材料，当前状态为
           <span
@@ -32,12 +33,22 @@
 import Pagination from "@/components/Pagination";
 import * as utils from "@/utils/utils";
 import * as Api_person from "@/api/person";
+import { mapGetters } from "vuex";
 export default {
   filters: {
     getDate(val) {
       // var s=new Date(val);
       // console.log(s.getFullYear());
       return utils.getDate(new Date(val));
+    },
+    getLevelName(val) {
+      if (val == 1) {
+        return "普通用户";
+      } else if (val == 2) {
+        return "公安用户";
+      } else if (val == 3) {
+        return "机构用户";
+      }
     },
     getStatus(val) {
       if (val == 0) {
@@ -56,6 +67,9 @@ export default {
         pageSize: 10
       }
     };
+  },
+  computed: {
+    ...mapGetters(["sysUser"])
   },
   components: {
     Pagination: Pagination

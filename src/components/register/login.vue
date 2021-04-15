@@ -1,43 +1,48 @@
 <template>
-  <!-- <div v-if="loginStatus=='phone'">
-    <div class="mechanismLogin">
+  <div v-if="loginStatus=='phone'">
+    <!-- <div class="mechanismLogin">
       <span @click="jumpTab('用户名密码登录','mechanism')">用户名密码登录</span>
-    </div>
+    </div> -->
     <el-row :gutter="12">
       <el-col :span="5">
-        <el-select v-model="phoneForm.phoneType" placeholder="请选择">
+        <el-select v-model="phoneType" placeholder="请选择">
           <el-option value="1" label="+86" />
         </el-select>
       </el-col>
       <el-col :span="19">
-        <el-input v-model="phoneForm.phone" placeholder="请输入11位手机号"></el-input>
+        <el-input v-model="phoneForm.mobile" placeholder="请输入11位手机号"></el-input>
       </el-col>
     </el-row>
     <el-row :gutter="12">
-      <el-col :span="24">
-        <el-input v-model="phoneForm.verificationCode" placeholder="请输入短信验证码"></el-input>
-      </el-col>
-      <!-- <el-col :span="8">
-        <el-button class="codeButton" @click="getPhoneCode" :disabled="codeCont!='重新发送'">{{codeCont}}</el-button>
-  </el-col>-->
-  <!-- </el-row>
-    <el-row :gutter="12">
       <el-col :span="16">
-        <el-input v-model="phoneForm.rightCode" placeholder="请输入右侧验证码"></el-input>
+        <el-input v-model="phoneForm.smsCode" placeholder="请输入短信验证码"></el-input>
       </el-col>
       <el-col :span="8">
-        <el-button class="codeButton">95530</el-button>
+        <el-button
+          class="codeButton"
+          @click="getPhoneCode"
+          :disabled="codeCont!='获取短信验证码' && codeCont!='重新发送'"
+        >{{codeCont}}</el-button>
+      </el-col>
+    </el-row>
+    <el-row :gutter="12">
+      <el-col :span="16">
+        <el-input v-model="phoneForm.code" placeholder="请输入右侧验证码"></el-input>
+      </el-col>
+      <el-col :span="8">
+        <img :src="codeImg" @click="getCodeImg" class="codeImg" />
+        <!-- <el-button class="codeButton">95530</el-button> -->
       </el-col>
     </el-row>
     <div class="opButton">
       <el-button type="primary" class="loginButton" @click="submitLogin">登录</el-button>
       <p @click="toAdd">没有账号，立即注册</p>
     </div>
-  </div>-->
-  <div v-if="loginStatus=='mechanism'">
-    <!-- <div class="mechanismLogin">
+  </div>
+  <!-- <div v-else-if="loginStatus=='mechanism'">
+    <div class="mechanismLogin">
       <span @click="jumpTab('手机号登录','phone')">手机号登录</span>
-    </div>-->
+    </div>
     <el-row :gutter="12">
       <el-col :span="24">
         <el-input v-model="mechanismForm.username" placeholder="请输入用户名"></el-input>
@@ -54,27 +59,28 @@
       </el-col>
       <el-col :span="8">
         <img :src="codeImg" @click="getCodeImg" class="codeImg" />
-        <!-- <el-button class="codeButton">95530</el-button> -->
       </el-col>
     </el-row>
-    <!-- <p class="desc">客服：010-9876 6789 联系客服修改密码</p> -->
+    < <p class="desc">客服：010-9876 6789 联系客服修改密码</p> 
     <div class="opButton2">
       <el-button type="primary" class="loginButton" @click.native.prevent="submitLogin">登录</el-button>
       <p @click="toAdd">没有账号，立即注册</p>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
 import * as Api_user from "@/api/user";
+import * as Api_tool from "@/api/tool";
 export default {
   data() {
     return {
+      phoneType: "1",
       phoneForm: {
-        phoneType: "1",
-        phone: "",
-        verificationCode: "",
-        rightCode: ""
+        mobile: "",
+        code: "",
+        smsCode: "",
+        uuid: ""
       },
       codeImg: "",
       mechanismForm: {
@@ -84,7 +90,7 @@ export default {
         uuid: ""
       },
       codeCont: "获取短信验证码",
-      loginStatus: "mechanism"
+      loginStatus: "phone"
     };
   },
   mounted() {
@@ -100,10 +106,19 @@ export default {
         console.log(res, "123");
         this.codeImg = "data:image/jpg;base64," + res.img;
         this.mechanismForm.uuid = res.uuid;
+        this.phoneForm.uuid = res.uuid;
       });
+    },
+    getSendSms() {
+      Api_tool.sendSms({ mobile: this.phoneForm.mobile, type: "login" }).then(
+        res => {
+          console.log(res);
+        }
+      );
     },
     getPhoneCode() {
       var minu = 60;
+      this.getSendSms();
       var s = setInterval(() => {
         minu--;
         this.codeCont = "重新获取" + minu + "秒";
@@ -138,14 +153,23 @@ export default {
       //     return false;
       //   }
       // });
+      var form = {};
+      var path = "";
+      if (this.loginStatus == "phone") {
+        path = "user/loginPhone";
+        form = this.phoneForm;
+      } else if (this.loginStatus == "mechanism") {
+        path = "user/login";
+        form = this.mechanismForm;
+      }
       this.$store
-        .dispatch("user/login", this.mechanismForm)
+        .dispatch(path, form)
         .then(() => {
           this.$emit("loginSuccess", true);
           this.$store.dispatch("user/getInfo");
           setTimeout(() => {
             this.$emit("handleClose", false);
-          }, 200);
+          }, 500);
           this.$message.success("登录成功!");
         })
         .catch(() => {
