@@ -17,16 +17,26 @@
       <el-table
         :data="tableData"
         stripe
+        height="420"
         class="moneyTable"
         style="width:100%;"
         :header-cell-style="{background:'#E5E9EF',color:'#151C2C'}"
       >
         <el-table-column type="index" label="序号" align="center"></el-table-column>
-        <el-table-column prop="userName" label="联系人姓名" align="center" width="100"></el-table-column>
+        <el-table-column prop="createTime" label="提交时间" align="center" width="100"></el-table-column>
+        <el-table-column prop="isAuth" label="状态" align="center">
+          <template slot-scope="{row}">{{row.isAuth | getAuth}}</template>
+        </el-table-column>
+        <el-table-column label="操作" fixed="right" width="140">
+          <template slot-scope="{row}">
+            <el-button type="text" @click="toDetail(row)">查看详情</el-button>
+          </template>
+        </el-table-column>
+        <!-- <el-table-column prop="userName" label="联系人姓名" align="center" width="100"></el-table-column>
         <el-table-column prop="name" label="执法机关全称" align="center"></el-table-column>
         <el-table-column prop="provName" label="所在城市" align="center"></el-table-column>
         <el-table-column prop="brief" label="简要情况" align="center" width="160"></el-table-column>
-        <el-table-column prop="phone" label="联系方式" align="center"></el-table-column>
+        <el-table-column prop="phone" label="联系方式" align="center"></el-table-column>-->
         <!-- <el-table-column prop="status" label="状态" align="center"></el-table-column> -->
       </el-table>
       <Pagination
@@ -38,6 +48,50 @@
         @pagination="fetchData"
         class="page"
       />
+      <el-dialog title="查看详情" :visible.sync="dialogVisible" width="50%">
+        <el-form ref="form" size="mini">
+          <el-row :gutter="24">
+            <el-col :span="8">
+              <el-form-item label="联系人姓名：">{{perForm.loginName}}</el-form-item>
+            </el-col>
+            <el-col :span="8">
+              <el-form-item label="执法机关全称：">{{perForm.name}}</el-form-item>
+            </el-col>
+            <el-col :span="8">
+              <el-form-item label="所在城市：">{{perForm.provName}}-{{perForm.cityName}}</el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="24">
+            <el-col :span="24">
+              <el-form-item label="简要情况：">{{perForm.cooperationInfo}}</el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="24">
+            <el-col :span="24">
+              <el-form-item label="警官证：">
+                <div v-if="perForm.imageUrl">
+                  <img
+                    v-for="(item,index) in perForm.imageUrl"
+                    :key="index"
+                    :src="item"
+                    class="policeImg"
+                  />
+                </div>
+                <div v-else>暂无上传</div>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="24">
+            <el-col :span="24">
+              <el-form-item label="联系方式：">{{perForm.mobile}}</el-form-item>
+            </el-col>
+          </el-row>
+          <!-- <el-form-item class="alignc">
+            <el-button type="primary" @click="onSubmit('form')">确定</el-button>
+            <el-button @click="dialogVisible = false">取消</el-button>
+          </el-form-item>-->
+        </el-form>
+      </el-dialog>
     </div>
   </div>
 </template>
@@ -45,9 +99,20 @@
 <script>
 import Pagination from "@/components/Pagination";
 import * as Api_person from "@/api/person";
+import { mapGetters } from "vuex";
 export default {
+  filters: {
+    getAuth(val) {
+      if (val == 0) {
+        return "未回复";
+      } else {
+        return "已回复";
+      }
+    }
+  },
   data() {
     return {
+      dialogVisible: false,
       date: "",
       total: 0,
       params: {
@@ -55,6 +120,7 @@ export default {
         pageSize: 10,
         applyTime: ""
       },
+      perForm: {},
       tableData: [
         {
           name: "1",
@@ -67,6 +133,9 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapGetters(["sysUser"])
+  },
   components: {
     Pagination: Pagination
   },
@@ -75,18 +144,31 @@ export default {
   },
   methods: {
     fetchData() {
+      // this.params.userId = '19';
       Api_person.getJudicialAidList(this.params).then(res => {
         this.tableData = res.data.list;
         this.total = res.data.total - 0;
       });
+    },
+    // 查看详情
+    toDetail(val) {
+      this.perForm = { ...val };
+      this.dialogVisible = true;
     }
   }
 };
 </script>
 
 <style scoped>
+.policeImg {
+  width: 120px;
+  height: 120px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .table_cont {
   margin-top: 30px;
+  height: 70%;
 }
 .date {
   width: 320px;

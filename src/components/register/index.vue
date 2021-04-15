@@ -61,7 +61,7 @@ export default {
     status(val) {
       this.tabStatus = val;
       if (val == "1") {
-        this.title = "用户名密码登录";
+        this.title = "手机号登录";
       } else {
         this.title = "注册";
       }
@@ -78,7 +78,7 @@ export default {
     if (this.status != "") {
       this.tabStatus = this.status;
       if (this.status == "1") {
-        this.title = "用户名密码登录";
+        this.title = "手机号登录";
       } else {
         this.title = "注册";
       }
@@ -103,7 +103,7 @@ export default {
     // 跳转登录
     toLogin(val) {
       this.tabStatus = val;
-      this.title = "用户名密码登录";
+      this.title = "手机号登录";
     }
   }
 };

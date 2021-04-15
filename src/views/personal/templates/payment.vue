@@ -43,9 +43,9 @@ export default {
   methods: {
     payment() {
       var data = {
-        money: 50000,
+        money: 1,
         payType: "NATIVE",
-        tradeNo: this.$route.query.reportNo,
+        tradeNo: "f5ab4f94af526976b6888c8bcb9f8efb",
         userId: this.sysUser.id
       };
       Api_tool.paymentWX(data).then(res => {
@@ -76,16 +76,18 @@ export default {
       });
       setTimeout(() => {
         loading.close();
-        Api_tool.whetherPay({ reportNo: this.$route.query.reportNo }).then(
-          res => {
-            console.log(res, "支付状态?");
+        Api_tool.whetherPay({
+          reportNo: "f5ab4f94af526976b6888c8bcb9f8efb"
+        }).then(res => {
+          console.log(res, "支付状态?");
+          if (res.data) {
+            this.$router.push({
+              name: this.$route.query.rouName,
+              params: { status: "success" }
+            });
           }
-        );
+        });
       });
-      // this.$router.push({
-      //   name: this.$route.query.rouName,
-      //   params: { status: "success" }
-      // });
     }
   }
 };

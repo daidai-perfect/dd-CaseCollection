@@ -157,7 +157,6 @@ export default {
       this.form.flow = [];
       this.form.date = "";
       this.form.btc = "1";
-      console.log("wcnd,我重置了", this.status);
     },
     startAnalysis() {
       if (this.disableButton == false) {

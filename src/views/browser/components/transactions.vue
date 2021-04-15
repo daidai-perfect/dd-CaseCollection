@@ -7,7 +7,7 @@
         <!-- <div class="download" @click="downLoadReport">
           <img src="@/assets/download.png" />
           <span>下载</span>
-        </div> -->
+        </div>-->
       </div>
       <el-table
         :data="tableData"
@@ -28,16 +28,16 @@
         </el-table-column>-->
         <el-table-column prop="hash" label="交易哈希" width="150" align="left" show-overflow-tooltip>
           <template slot-scope="{ row }">
-            <a href="#" @click="toDetail(row.hash)" class="hash">{{row.hash | getString}}</a>
+            <span @click="toDetail(row.hash)" class="hash">{{row.hash | getString}}</span>
           </template>
         </el-table-column>
         <el-table-column prop="blockNumber" label="所在区块" width="80"></el-table-column>
         <el-table-column prop="blockTime" label="时间" width="130">
-          <template slot-scope="{ row }">{{row.blockTime|getTime}}</template>
+          <template slot-scope="{ row }">{{getTime(row.blockTime)}}</template>
         </el-table-column>
         <el-table-column prop="fromAddr" label="发送地址" width="150" show-overflow-tooltip>
           <template slot-scope="{ row }">
-            <a href="#" class="hash" @click="toDetail(row.fromAddr)">{{row.fromAddr}}</a>
+            <span class="hash" @click="toDetailList(row.fromAddr)">{{row.fromAddr}}</span>
             <!-- {{row.fromAddr | getString}} -->
           </template>
         </el-table-column>
@@ -52,14 +52,14 @@
         </el-table-column>
         <el-table-column prop="toAddr" label="接收地址" width="150" show-overflow-tooltip>
           <template slot-scope="{ row }">
-            <a href="#" class="hash" @click="toDetail(row.toAddr)">{{row.toAddr}}</a>
+            <span href="#" class="hash" @click="toDetailList(row.toAddr)">{{row.toAddr}}</span>
             <!-- {{row.toAddr | getString}} -->
           </template>
         </el-table-column>
         <el-table-column prop="value" label="金额">
           <template slot-scope="{ row }">
             {{row.value}}
-            <span class="unit">Ether</span>
+            <span class="unit">{{unit}}</span>
           </template>
         </el-table-column>
         <!-- <el-table-column prop="fee" label="手续费"></el-table-column> -->
@@ -78,16 +78,15 @@
 </template>
 
 <script>
+let that;
 import Pagination from "@/components/Pagination";
+import * as utils from "@/utils/utils";
 import * as Api_browser from "@/api/browser";
 import { timestampToTime } from "@/utils/utils";
 export default {
   filters: {
-    getTime(val) {
-      return timestampToTime(val);
-    },
     getString(val) {
-      console.log(val);
+      console.log(that.total);
       return val.slice(0, 15) + "...";
     }
   },
@@ -105,6 +104,15 @@ export default {
         this.fetchData();
       },
       deep: true
+    }
+  },
+  computed: {
+    unit() {
+      if (this.keyword.type == "TRON") {
+        return "usdt";
+      } else {
+        return "Ether";
+      }
     }
   },
   components: {
@@ -125,7 +133,20 @@ export default {
       this.fetchData();
     }
   },
+  beforeCreate() {
+    that = this;
+  },
   methods: {
+    copy(val) {
+      utils.copyShaneUrl(val);
+    },
+    getTime(val) {
+      if (this.keyword.type == "TRON") {
+        return timestampToTime(val / 1000);
+      } else {
+        return timestampToTime(val);
+      }
+    },
     fetchData() {
       var data = {
         keyword: this.keyword.value,
@@ -151,7 +172,6 @@ export default {
         return "";
       }
     },
-    // 跳转交易详情
     toDetail(hash) {
       this.$router.push({
         name: "transactionDetail",
@@ -160,12 +180,31 @@ export default {
           type: this.keyword.type
         }
       });
+    },
+    // 跳转交易列表
+    toDetailList(hash) {
+      this.$emit("updateData", hash);
+      // this.$router.push({
+      //   path: "/browser/transactionRecoard",
+      //   query: { value: hash, type: this.keyword.value }
+      // });
     }
   }
 };
 </script>
 
 <style scoped>
+.copyImg {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  padding-left: 3px;
+  cursor: pointer;
+  float: right;
+  position: relative;
+  bottom: 5px;
+  left: 3px;
+}
 /deep/ .el-table th,
 .el-table tr {
   border-bottom: 2px solid #e7eaf3;
@@ -205,6 +244,7 @@ export default {
 .hash {
   text-decoration: none;
   color: #3498db;
+  cursor: pointer;
 }
 .download {
   float: right;

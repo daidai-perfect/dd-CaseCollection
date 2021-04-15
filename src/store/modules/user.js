@@ -1,4 +1,4 @@
-import { login, getInfo } from "@/api/user";
+import { login, getInfo,loginPhone } from "@/api/user";
 import { getToken, setToken, removeToken } from "@/utils/auth";
 // import { resetRouter } from "@/router";
 // import { Base64 } from "js-base64";
@@ -22,6 +22,20 @@ const actions = {
   login({ commit }, form) {
     return new Promise((resolve, reject) => {
       login(form)
+        .then(response => {
+          const data = response;
+          commit("SET_TOKEN", data.token);
+          setToken(data.token);
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+  loginPhone({ commit }, form) {
+    return new Promise((resolve, reject) => {
+      loginPhone(form)
         .then(response => {
           const data = response;
           commit("SET_TOKEN", data.token);

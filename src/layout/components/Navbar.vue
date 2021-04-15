@@ -136,6 +136,20 @@ export default {
   components: {
     login
   },
+  watch: {
+    sysUser: {
+      handler(val) {
+        console.log(val, "监听");
+        if (!val.id) {
+          console.log(val);
+          this.loginStatus = false;
+        } else {
+          this.loginStatus = true;
+        }
+      }
+    },
+    deep: true
+  },
   computed: {
     ...mapGetters(["sysUser"])
     // isMobile() {
@@ -193,10 +207,15 @@ export default {
       });
     },
     personal() {
-      console.log(1);
-      this.$router.push({
-        path: "/personal"
-      });
+      if (this.sysUser.type == 1) {
+        this.$router.push({
+          path: "/personal/identity"
+        });
+      } else {
+        this.$router.push({
+          path: "/personal"
+        });
+      }
     }
   }
 };

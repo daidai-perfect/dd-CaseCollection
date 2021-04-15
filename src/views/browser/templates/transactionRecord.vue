@@ -2,9 +2,11 @@
   <div class="browser">
     <div class="app-cont">
       <div class="address_info">
-        <img src="@/assets/ETH.png" class="money_img" />
-        <span>{{keyword.type}}</span>
+        <img src="@/assets/ETH.png" class="money_img" v-if="this.keyword.type=='ETH'" />
+        <img src="@/assets/USDT.png" class="money_img" v-else />
+        <span>{{keyword.type | getMoneyType}}</span>
         <span class="address">地址：{{keyword.value}}</span>
+        <img src="@/assets/copy.png" @click="copy(keyword.value)" class="copyImg" />
         <el-input placeholder="请输入内容" v-model="searchName" class="input-with-select">
           <el-button slot="append" icon="el-icon-search" @click="searchData" class="serchButton"></el-button>
         </el-input>
@@ -14,7 +16,7 @@
           <overview :keyword="keyword" />
         </div>
         <div class="transactions_info">
-          <transactions :keyword="keyword" @openDown="openDown" />
+          <transactions :keyword="keyword" @openDown="openDown" @updateData="updateData" />
         </div>
       </div>
       <div v-else>
@@ -29,7 +31,19 @@ import overview from "../components/overview";
 import transactions from "../components/transactions";
 import reportFile from "../components/reportFile";
 import * as Api_browser from "@/api/browser";
+import * as utils from "@/utils/utils";
 export default {
+  filters: {
+    getMoneyType(val) {
+      if (val == "ETH") {
+        return "ETH";
+      } else if (val == "USDT") {
+        return "USDT(ERC20)";
+      } else if (val == "TRON") {
+        return "USDT(TRC20)";
+      }
+    }
+  },
   data() {
     return {
       keyword: {},
@@ -48,6 +62,9 @@ export default {
     this.keyword = { value: data.value, type: data.type };
   },
   methods: {
+    updateData(val) {
+      this.keyword.value = val;
+    },
     searchData() {
       if (this.keyword.type != "TRON") {
         switch (this.searchName.length) {
@@ -89,12 +106,25 @@ export default {
     getOverView() {},
     openDown(val) {
       this.isDownLoad = true;
+    },
+    copy(val) {
+      utils.copyShaneUrl(val);
     }
   }
 };
 </script>
 
 <style  scoped>
+.copyImg {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  padding-left: 3px;
+  cursor: pointer;
+  position: relative;
+  /* bottom: 5px; */
+  left: 8px;
+}
 /deep/ .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;

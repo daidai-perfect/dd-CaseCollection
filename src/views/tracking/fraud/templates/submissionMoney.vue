@@ -32,15 +32,24 @@
                 <i class="el-icon-question"></i>
               </el-tooltip>
             </el-form-item>
+            <el-form-item label="转账截图" class="w20">
+              <el-upload
+                action="http://123.56.232.81:8080/commonFile/upload"
+                :file-list="fileList"
+                list-type="picture-card"
+              >
+                <i class="el-icon-plus"></i>
+              </el-upload>
+            </el-form-item>
             <!-- 减 -->
-            <el-form-item label class="removeCont">
+            <!-- <el-form-item label class="removeCont">
               <img
                 src="@/assets/remove.png"
                 class="removeTran"
                 @click="removeTran(index)"
                 v-if="formList.length!=1"
               />
-            </el-form-item>
+            </el-form-item> -->
             <!-- <div v-for="(item,index) in formList" :key="index">
               <div class="btc_option">
                 <img src="@/assets/money.png" class="money_img" />
@@ -282,6 +291,10 @@ export default {
 </script>
 
 <style scoped>
+/deep/ .el-upload-list__item {
+  width: 7.708vw;
+  height: 7.708vw;
+}
 .removeCont {
   float: right;
   margin: 0;
@@ -299,11 +312,6 @@ export default {
   height: 35px;
   cursor: pointer;
   line-height: 0;
-}
-/deep/ .el-upload-list {
-  position: absolute;
-  left: 120px;
-  bottom: 0px;
 }
 .editExample {
   width: 100%;

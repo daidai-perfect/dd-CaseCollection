@@ -2,8 +2,9 @@
   <div class="browser">
     <div class="app-cont">
       <div class="address_info">
-        <img src="@/assets/ETH.png" class="money_img" />
-        <span>{{keyword.type}}-交易明细</span>
+        <img src="@/assets/ETH.png" class="money_img" v-if="this.keyword.type=='ETH'" />
+        <img src="@/assets/USDT.png" class="money_img" v-else />
+        <span>{{keyword.type | getMoneyType}}-交易明细</span>
         <!-- <span class="address">地址：{{keyword.value}}</span> -->
         <el-input placeholder="请输入内容" v-model="searchName" class="input-with-select">
           <el-button slot="append" icon="el-icon-search" @click="searcData" class="serchButton"></el-button>
@@ -30,7 +31,7 @@
           <div class="blockInfo">
             <div class="balance">
               <span class="block_title">时间：</span>
-              <span class="block_detail">{{form.blockTime|getTime}}</span>
+              <span class="block_detail">{{getTime(form.blockTime)}}</span>
             </div>
           </div>
           <div class="blockInfo">
@@ -53,7 +54,7 @@
               <p class="percent">￥{{form.cnyValue}}</p>
               <span class="block_detail">
                 {{form.value}}
-                <span class="unit">Ether</span>
+                <span class="unit">{{unit}}</span>
               </span>
             </div>
           </div>
@@ -76,11 +77,21 @@ import * as utils from "@/utils/utils";
 import { timestampToTime } from "@/utils/utils";
 export default {
   filters: {
+    getMoneyType(val) {
+      if (val == "ETH") {
+        return "ETH";
+      } else if (val == "USDT") {
+        return "USDT(ERC20)";
+      } else if (val == "TRON") {
+        return "USDT(TRC20)";
+      }
+    },
     getTime(val) {
       return timestampToTime(val);
     },
     getString(val) {
-      return val.slice(0, 40) + "...";
+      return val;
+      // return val.slice(0, 40) + "...";
     }
   },
   data() {
@@ -101,6 +112,15 @@ export default {
       names: ""
     };
   },
+  computed: {
+    unit() {
+      if (this.keyword.type == "TRON") {
+        return "usdt";
+      } else {
+        return "Ether";
+      }
+    }
+  },
   mounted() {
     var data = this.$route.query;
     this.keyword = { value: data.value, type: data.type };
@@ -108,6 +128,13 @@ export default {
     this.fetchData();
   },
   methods: {
+    getTime(val) {
+      if (this.keyword.type == "TRON") {
+        return timestampToTime(val / 1000);
+      } else {
+        return timestampToTime(val);
+      }
+    },
     fetchData() {
       Api_browser.getDetailByHash({
         hash: this.names,

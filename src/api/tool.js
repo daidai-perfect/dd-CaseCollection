@@ -27,3 +27,12 @@ export function whetherPay(params) {
     params
   });
 }
+// 获取短信验证码
+export function sendSms(data) {
+  return request({
+    url: "/webLogin/sendSms",
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data
+  });
+}

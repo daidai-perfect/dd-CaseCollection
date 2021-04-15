@@ -38,6 +38,7 @@
                       <el-option value="USDT(OMNI)" label="USDT(OMNI)" />
                       <el-option value="USDT(ERC20)" label="USDT(ERC20)" />
                       <el-option value="TRX" label="TRX" />
+                      <el-option value="USDT(TRC20)" label="USDT(TRC20)" />
                     </el-select>
                     <!-- <div>
                     <i class="el-icon-plus" />

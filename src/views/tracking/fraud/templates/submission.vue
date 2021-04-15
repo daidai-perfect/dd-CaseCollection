@@ -49,6 +49,33 @@
                 class="btc_money"
               ></el-input-number>
             </el-form-item>
+            <el-form-item label="转账截图" class="w20">
+              <el-upload
+                action="http://123.56.232.81:8080/commonFile/upload"
+                :file-list="fileList"
+                list-type="picture-card"
+              >
+                <i class="el-icon-plus"></i>
+              </el-upload>
+            </el-form-item>
+            <!-- <el-form-item label="转账截图" class="w20">
+                <el-date-picker v-model="form.date" type="date" placeholder="选择日期" class="btc_money"></el-date-picker>
+              <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                list-type="picture-card"
+                :file-list="fileList"
+                :limit="1"
+              >
+              
+                <el-upload
+                  class="upload-demo"
+                  action="https://jsonplaceholder.typicode.com/posts/"
+                  multiple
+                  :file-list="fileList"
+                >
+                  <el-button size="small" type="primary">点击上传</el-button>
+                </el-upload>
+            </el-form-item>-->
             <!-- <div v-for="(item,index) in formList" :key="index">
               <div class="btc_option">
                 <img src="@/assets/money.png" class="money_img" />
@@ -317,7 +344,11 @@ export default {
         // 先不要支付，因为有问题，直接略过弹出支付成功
         this.$router.push({
           name: "payment",
-          query: { type: "weixin", rouName: "submission",reportNo:res.data.reportNo }
+          query: {
+            type: "weixin",
+            rouName: "submission",
+            reportNo: res.data.reportNo
+          }
         });
       });
     },
@@ -334,6 +365,10 @@ export default {
 </script>
 
 <style scoped>
+/deep/ .el-upload-list__item {
+  width: 7.708vw;
+  height: 7.708vw;
+}
 .removeCont {
   float: right;
   margin: 0;
@@ -352,11 +387,11 @@ export default {
   cursor: pointer;
   line-height: 0;
 }
-/deep/ .el-upload-list {
+/* /deep/ .el-upload-list {
   position: absolute;
   left: 120px;
   bottom: 0px;
-}
+} */
 .editExample {
   width: 100%;
   display: flex;
