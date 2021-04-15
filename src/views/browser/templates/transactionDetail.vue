@@ -54,7 +54,7 @@
               <p class="percent">￥{{form.cnyValue}}</p>
               <span class="block_detail">
                 {{form.value}}
-                <span class="unit">{{unit}}</span>
+                <span class="unit">Ether</span>
               </span>
             </div>
           </div>
