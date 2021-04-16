@@ -77,7 +77,11 @@
             <el-row :gutter="24" class="descRemark">
               <el-col :span="24">
                 <el-form-item label="项目名称">
-                  <el-input class="form_dom" placeholder="请输入内容" v-model="form.entryName"></el-input>
+                  <el-input 
+                  class="form_dom" 
+                  placeholder="请输入内容" 
+                  v-model="form.entryName"
+                  ></el-input>
                 </el-form-item>
               </el-col>
             </el-row>
@@ -94,8 +98,8 @@
                 </el-form-item>
               </el-col>
             </el-row>
-            <el-row :gutter="24" class="descRemark">
-              <el-col :span="24">
+            <el-row :gutter="24" class="descRemarkkey">
+              <el-col :span="24" >
                 <el-form-item label="关键信息截图">
                   <el-upload
                     action="http://123.56.232.81:8080/commonFile/upload"
@@ -131,7 +135,7 @@
           <el-button
             type="primary"
             :disabled="radio1==false"
-            class="startButton"
+            class="submitButton"
             @click="submitForm"
           >提交</el-button>
         </div>
@@ -447,8 +451,9 @@ export default {
     top: 17%;
   }
   .opButton {
+    width: 100%;
+    height: 50px;
     text-align: center;
-    margin-bottom: 35px;
   }
   /deep/ .el-col-24 {
     text-align: center;
@@ -505,7 +510,7 @@ export default {
   }
   .app-cont {
     width: 90%;
-    margin: 0 auto;
+    margin: 15px auto;
     color: white;
     margin-top: 25px;
   }
@@ -562,15 +567,20 @@ export default {
   /deep/ .el-textarea__inner {
     font-size: 14px;
   }
-  .descRemark {
-    height: 30%;
+  /deep/ .descRemarkkey {
+    /* height: 30%; */
+    margin-top: 70px;
   }
   .startButton {
     font-size: 14px;
-    width: 100px;
-    position:absolute;
-    top:0;
-    left:0;
+    width: 60px;
+    height: 30px;
+  }
+  .submitButton{
+    font-size: 14px;
+     width: 60px;
+    height: 30px;
+    margin-left: 15px;
   }
   /* .select_date .el-input--small .el-input__inner {
     height: 30px;
