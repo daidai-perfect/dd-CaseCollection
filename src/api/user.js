@@ -9,7 +9,7 @@ export function login(data) {
     data
   });
 }
-// 手机号登录
+// 个人用户登录
 export function loginPhone(data) {
   return request({
     url: "/webLogin/loginByMobileSms",

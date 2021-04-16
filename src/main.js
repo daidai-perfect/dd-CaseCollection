@@ -71,7 +71,6 @@ Vue.config.productionTip = false;
 Vue.prototype.$message = Message;
 // Vue.prototype.$echarts = echarts;
 
-
 new Vue({
   router,
   store,

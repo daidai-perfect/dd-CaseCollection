@@ -76,9 +76,10 @@ export default {
   watch: {
     radio1(val) {
       if (val == " ") {
-        val = true;
+        this.agreeStatus = true;
+      } else {
+        this.agreeStatus = false;
       }
-      this.agreeStatus = true;
     }
   },
   components: {
@@ -104,9 +105,15 @@ export default {
       this.isAdd = status;
     },
     jumpReport() {
-      console.log(this.radio1);
+      if (this.agreeStatus == false) {
+        this.$message.warning("请先阅读并接受协议！");
+        return;
+      }
+      if (this.params.reportNo == "") {
+        this.$message.warning("链审追踪报告哈希码不能为空！");
+        return;
+      }
       Api_report.getAllReport(this.params).then(res => {
-        console.log(res, "？/?");
         if (res.data.code != 200) {
           this.$message.warning(res.data.msg);
           return;

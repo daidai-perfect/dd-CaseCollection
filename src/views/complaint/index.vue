@@ -5,12 +5,18 @@
         <div class="address_info">
           <span>举报骗局</span>
         </div>
-        <el-form ref="form" :model="form" label-position="right" label-width="125px" :inline="true">
+        <el-form ref="form" :model="form" label-position="right" label-width="130px" :inline="true">
           <div ref="dyn" class="dynamic" v-for="(item,index) in form.scamTransList" :key="index">
             <div class="dynmic_form">
               <el-row :gutter="24">
                 <el-col :span="24">
-                  <el-form-item label="发生时间">
+                  <el-form-item
+                    label="发生时间"
+                    :prop="'scamTransList.' + index + '.transTime'"
+                    :rules="{
+      required: true, message: '请选择发生时间', trigger: 'blur'
+    }"
+                  >
                     <el-date-picker
                       v-model="item.transTime"
                       type="datetime"
@@ -24,14 +30,26 @@
               </el-row>
               <el-row :gutter="24">
                 <el-col :span="24">
-                  <el-form-item label="受害人钱包地址" prop="victimaddr">
+                  <el-form-item
+                    label="受害人钱包地址"
+                    :prop="'scamTransList.' + index + '.victimaddr'"
+                    :rules="{
+      required: true, message: '请输入被害人钱包地址', trigger: 'blur'
+    }"
+                  >
                     <el-input class="form_dom" v-model="item.victimaddr" placeholder="输入地址"></el-input>
                   </el-form-item>
                 </el-col>
               </el-row>
               <el-row :gutter="24">
                 <el-col :span="24">
-                  <el-form-item label="币种" prop="currencytype">
+                  <el-form-item
+                    label="币种"
+                    :prop="'scamTransList.' + index + '.currencytype'"
+                    :rules="{
+      required: true, message: '请选择币种', trigger: 'blur'
+    }"
+                  >
                     <el-select v-model="item.currencytype" placeholder="请选择" class="form_dom">
                       <el-option value="BTC" label="BTC" />
                       <el-option value="ETH" label="ETH" />
@@ -40,15 +58,18 @@
                       <el-option value="TRX" label="TRX" />
                       <el-option value="USDT(TRC20)" label="USDT(TRC20)" />
                     </el-select>
-                    <!-- <div>
-                    <i class="el-icon-plus" />
-                    </div>-->
                   </el-form-item>
                 </el-col>
               </el-row>
               <el-row :gutter="24">
                 <el-col :span="24">
-                  <el-form-item label="犯罪嫌疑人钱包地址" prop="scamaddr">
+                  <el-form-item
+                    label="犯罪嫌疑人钱包地址"
+                    :prop="'scamTransList.' + index + '.scamaddr'"
+                    :rules="{
+      required: true, message: '请输入犯罪嫌疑人钱包地址', trigger: 'blur'
+    }"
+                  >
                     <el-input class="form_dom" v-model="item.scamaddr" placeholder="输入地址"></el-input>
                   </el-form-item>
                 </el-col>
@@ -76,18 +97,26 @@
           <div class="notdynamic">
             <el-row :gutter="24" class="descRemark">
               <el-col :span="24">
-                <el-form-item label="项目名称">
-                  <el-input 
-                  class="form_dom" 
-                  placeholder="请输入内容" 
-                  v-model="form.entryName"
-                  ></el-input>
+                <el-form-item
+                  label="项目名称"
+                  prop="entryName"
+                  :rules="{
+      required: true, message: '请输入项目名称', trigger: 'blur'
+    }"
+                >
+                  <el-input class="form_dom" placeholder="请输入内容" v-model="form.entryName"></el-input>
                 </el-form-item>
               </el-col>
             </el-row>
             <el-row :gutter="24" class="descRemark">
               <el-col :span="24">
-                <el-form-item label="事件描述">
+                <el-form-item
+                  label="事件描述"
+                  prop="caseDesc"
+                  :rules="{
+      required: true, message: '请输入事件描述', trigger: 'blur'
+    }"
+                >
                   <el-input
                     type="textarea"
                     class="form_dom"
@@ -116,7 +145,13 @@
             </el-row>
             <el-row :gutter="24">
               <el-col :span="24">
-                <el-form-item label="邮箱">
+                <el-form-item
+                  label="邮箱"
+                  prop="email"
+                  :rules="{
+      required: true, message: '请输入邮箱', trigger: 'blur'
+    }"
+                >
                   <el-input class="form_dom" v-model="form.email" placeholder="输入邮箱"></el-input>
                 </el-form-item>
               </el-col>
@@ -166,14 +201,15 @@ export default {
       },
       radio1: false,
       liarList: [{}],
-      fileList: []
-      // rules: {
-      //   transTime: [{ required: true, message: "请输入执法机构名称" }],
-      //   victimaddr: [{ required: true, message: "请输入合作事由" }],
-      //   currencytype: [{ required: true, message: "请输入联系方式" }],
-      //   scamaddr: [{ required: true, message: "请选择省名称" }],
-      //   cityName: [{ required: true, message: "请选择市/区名称" }]
-      // }
+      fileList: [],
+      rules: {
+        transTime: [{ required: true, message: "请输入执法机构名称" }],
+        victimaddr: [{ required: true, message: "请输入被害人钱包地址" }],
+        currencytype: [{ required: true, message: "请选择币种" }],
+        scamaddr: [{ required: true, message: "请选择省名称" }],
+        cityName: [{ required: true, message: "请选择市/区名称" }],
+        entryName: [{ required: true, message: "请输入项目名称" }]
+      }
     };
   },
   components: {
@@ -192,33 +228,24 @@ export default {
       this.fileList = fileList;
     },
     submitForm() {
-      // this.$refs["form"].validate(valid => {
-      //   if (valid) {
-      //     console.log(this.form);
-      //     Api_comp.addComplaint(this.form).then(res => {
-      //       console.log(res, "200?");
-      //       if (res.code == "200") {
-      //         this.$message.success("新增成功!");
-      //         return;
-      //       }
-      //     });
-      //   }
-      // });
-      this.form.fileRecordsList = [];
-      this.fileList.forEach(item => {
-        console.log(item.response);
-        this.form.fileRecordsList.push({ id: item.response.fileRecord.id });
-      });
-      Api_comp.addComplaint(this.form).then(res => {
-        console.log(res, "200?");
-        if (res.code == "200") {
-          this.$message.success("新增成功!");
-          return;
-        }
-      });
       this.$refs["form"].validate(valid => {
         if (valid) {
           console.log(this.form);
+          if (this.fileList.length != 0) {
+            this.form.fileRecordsList = [];
+            this.fileList.forEach(item => {
+              this.form.fileRecordsList.push({
+                id: item.response.fileRecord.id
+              });
+            });
+          }
+          Api_comp.addComplaint(this.form).then(res => {
+            console.log(res, "200?");
+            if (res.code == "200") {
+              this.$message.success("新增成功!");
+              return;
+            }
+          });
         }
       });
     },

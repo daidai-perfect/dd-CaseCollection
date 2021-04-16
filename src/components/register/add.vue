@@ -2,7 +2,7 @@
   <div>
     <div>
       <el-radio-group v-model="form.type" @change="resetForm" class="radioSelect">
-        <el-radio :label="1" class="ordinary">普通身份</el-radio>
+        <el-radio :label="1" class="ordinary">普通用户</el-radio>
         <el-radio :label="2">执法人员</el-radio>
       </el-radio-group>
     </div>

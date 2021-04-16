@@ -15,6 +15,7 @@ export function paymentWX(data) {
   return request({
     url: "/pay/wx",
     method: "post",
+    isToken:true,
     headers: { "Content-Type": "application/json" },
     data
   });
@@ -24,6 +25,8 @@ export function whetherPay(params) {
   return request({
     url: "/pay/queryPayStatus",
     method: "get",
+    isToken:true,
+    isLoading:true,
     params
   });
 }

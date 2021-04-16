@@ -23,7 +23,7 @@
         :header-cell-style="{background:'#E5E9EF',color:'#151C2C'}"
       >
         <el-table-column type="index" label="序号" align="center"></el-table-column>
-        <el-table-column prop="createTime" label="提交时间" align="center" width="100"></el-table-column>
+        <el-table-column prop="createTime" label="提交时间" align="center" width="180"></el-table-column>
         <el-table-column prop="isAuth" label="状态" align="center">
           <template slot-scope="{row}">{{row.isAuth | getAuth}}</template>
         </el-table-column>
@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     fetchData() {
-      // this.params.userId = '19';
+      this.params.userId = this.sysUser.id;
       Api_person.getJudicialAidList(this.params).then(res => {
         this.tableData = res.data.list;
         this.total = res.data.total - 0;

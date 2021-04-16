@@ -7,7 +7,7 @@
       class="tables"
       height="480"
     >
-      <el-table-column prop="id" label="报告id"></el-table-column>
+      <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
       <el-table-column prop="reportNo" label="报告编码" width="160">
         <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
       </el-table-column>
@@ -22,9 +22,10 @@
       </el-table-column>
       <el-table-column prop="createTime" label="创建时间" width="160"></el-table-column>
       <el-table-column prop="updateTime" label="更新时间"></el-table-column>
-      <el-table-column label="操作" fixed="right" width="50">
+      <el-table-column label="操作" fixed="right" width="120">
         <template slot-scope="{row}">
           <el-button type="text" @click="downLoadReport(row)">下载</el-button>
+          <el-button type="text" @click="projectFlolow(row)">项目后续</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -37,12 +38,71 @@
       @pagination="fetchData"
       class="page"
     />
+    <el-dialog title="项目后续" :visible.sync="projectVisble" class="projectDialog">
+      <el-form
+        ref="form"
+        :model="postForm"
+        label-position="right"
+        label-width="130px"
+        :inline="true"
+      >
+        <el-row :gutter="24" class="descRemark">
+          <el-col :span="24">
+            <el-form-item
+              label="后续描述"
+              prop="caseDesc"
+              :rules="{
+      required: true, message: '请输入后续描述', trigger: 'blur'
+    }"
+            >
+              <el-input
+                type="textarea"
+                class="form_dom"
+                :rows="4"
+                placeholder="请输入内容"
+                v-model="postForm.caseDesc"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="24" class="descRemark">
+          <el-col :span="24">
+            <el-form-item label="上传图片或文件">
+              <el-upload
+                class="upload-demo"
+                action="http://123.56.232.81:8080/commonFile/upload/"
+                multiple
+                :on-success="handSuccess"
+                :on-remove="handRemove"
+                :file-list="fileList"
+              >
+                <el-button size="small" type="primary">点击上传</el-button>
+                <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
+              </el-upload>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="startAnalysis">提交分析</el-button>
+      </span>
+    </el-dialog>
+    <el-dialog title="支付信息" :visible.sync="paymentVisble" width="30%">
+      <span>
+        <i class="el-icon-circle-check" />已付款成功
+      </span>
+      <!-- <span>24小时出报告，会给您手机发查询密码，请登录“司法入口”查询。</span> -->
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="resetForm">再提交一笔</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import Pagination from "@/components/Pagination";
 import * as Api_person from "@/api/person";
+import { mapGetters } from "vuex";
 export default {
   filters: {
     getString(val) {
@@ -76,13 +136,23 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters(["sysUser"])
+  },
   data() {
     return {
+      paymentVisble: false,
+      postForm: {
+        caseDesc: ""
+      },
       total: 0,
+      fileList: [],
       params: {
         pageNo: 1,
-        pageSize: 10
+        pageSize: 10,
+        userId: ""
       },
+      projectVisble: false,
       tableData: []
     };
   },
@@ -91,9 +161,27 @@ export default {
   },
   mounted() {
     this.fetchData();
+    if (this.$route.params.status) {
+      this.paymentVisble = true;
+    }
   },
   methods: {
+    // 再提交一笔
+    resetForm() {
+      this.projectVisble = false;
+    },
+    // 提交分析
+    startAnalysis() {
+      this.$refs["form"].validate(valid => {
+        if (valid) {
+          //
+          console.log(123);
+        }
+      });
+    },
+    // 加载数据
     fetchData() {
+      this.params.userId = this.sysUser.id;
       Api_person.getReportList(this.params).then(res => {
         console.log(res);
         this.tableData = res.data.list;
@@ -109,6 +197,18 @@ export default {
       // Api_person.downloadFile({ fileName: "http://39.96.66.135:8080/profile/upload/2021/04/07/421520a5-d6e7-4575-8a43-2dd8c7842299.doc" }).then(res => {
       //   console.log(res);
       // });
+    },
+    // 项目后续
+    projectFlolow() {
+      this.projectVisble = true;
+    },
+    // 上传成功的钩子
+    handSuccess(response, file, fileList) {
+      this.fileList = fileList;
+    },
+    // 删除文件的钩子
+    handRemove(file, fileList) {
+      this.fileList = fileList;
     }
     // 打开更多服务
     // moreServices(row) {
@@ -129,6 +229,12 @@ export default {
 </script>
 
 <style  scoped>
+/deep/ .el-input {
+  width: 230px;
+}
+/deep/ .el-dialog__footer {
+  text-align: center;
+}
 /* span {
   color: black;
 } */
