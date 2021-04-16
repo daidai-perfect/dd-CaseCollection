@@ -184,6 +184,8 @@ export default {
 /deep/ .el-upload--picture-card {
   width: 100px;
   height: 100px;
+  text-align: center;
+  line-height: 100px;
 }
 /deep/ .el-upload-list__item {
   width: 5.208vw;
@@ -228,17 +230,19 @@ export default {
 .form_doms {
   width: 400px;
 }
+
 /* /deep/ .el-input__icon {
-  line-height: 0;
+  margin-bottom: 20px;
 } */
 /* 移动端 */
 @media screen and (max-width: 750px) {
-  /deep/ .el-input__icon {
-    line-height: 0;
-  }
+
   /deep/ .el-upload--picture-card {
     width: 100px;
     height: 100px;
+    text-align: center;
+    line-height: 100px;
+    
   }
   /deep/ .el-upload-list__item {
     width: 100px;
