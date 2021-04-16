@@ -48,7 +48,7 @@
                   <el-card class="operCard">
                     <img src="@/assets/btc.png" />
                   </el-card>
-                  <el-button class="operButotn" type="text">数字货币追踪</el-button>
+                  <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
                 </div>
                 <div v-else>
                   <div class="flex-cont_hide">
@@ -68,7 +68,7 @@
                   <el-card class="operCard">
                     <img src="@/assets/opertion.png" />
                   </el-card>
-                  <el-button class="operButotn" type="text">资金盘监控</el-button>
+                  <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
                 </div>
                 <div v-else>
                   <div class="flex-cont_hide">
@@ -239,18 +239,69 @@ ul {
   width: 196px;
   height: 172px;
 }
+.flex-cont {
+  width: 300px;
+  height: 200px;
+  /* background: rgb(19, 90, 245); */
+  display: flex;
+  justify-content: space-around;
+  padding-top: 25px;
+}
+.flex-cont_hide {
+  transition: all 1.75s ease-in-out;
+  width: 320px;
+  height: 223px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* justify-content: space-around; */
+  background: #196DFF;
+}
+
+.flex-data {
+  /* margin-top: 20px; */
+  background: #14469D;
+  padding: 0 24px;
+  width: 200px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+}
+.flex-desc {
+  color: white;
+  font-size: 16px;
+  margin: 5px;
+  height: 40px;
+}
+
+
 /deep/ .el-button--text {
   color: #333333;
 }
 .operCard {
-  width: 196px;
-  height: 158px;
+  width: 320px;
+  height: 223px;
   cursor: pointer;
+  padding-top: 158px;
+  background:#EAF1FD url('../../../assets/img/iocn2@2x.png') 40px 30px/240px 130px no-repeat;
 }
-.operCard img {
-  width: 120px;
-  height: 120px;
+.operCardOne{
+  background:#EAF1FD url('../../../assets/img/icon1@2x.png') 40px 30px/240px 130px no-repeat;
 }
+.operCardSpan{
+  font-size: 20px;
+  font-family:"PingFangSC-Medium";
+  font-weight: 500;
+}
+/* .operCard img {
+  display: block;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+} */
 .desc {
   width: 90%;
   /* text-align: center; */
@@ -271,11 +322,11 @@ ul {
   margin-top: 20px;
   text-align: center;
 }
-.operButotn {
+/* .operButotn {
   height: 100px;
   width: 160px;
   font-size: 22px;
-}
+} */
 .explainImg {
   width: 50%;
   height: 800px;
@@ -336,7 +387,7 @@ ul {
   margin-top: 30px;
   height: 89%;
   font-size: 23px;
-  background: url("../../../assets/smallBack.png") no-repeat white;
+  background: url("../../../assets/smallBack.png") no-repeat 100% 100%/100% 100% white;
   display: flex;
 }
 /deep/ .el-card__header {
@@ -362,9 +413,11 @@ ul {
   margin-bottom: 25px;
 }
 .address_info span {
-  font-family: PingFang-SC-Bold;
-  font-size: 20px;
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
   vertical-align: middle;
+  font-weight: 400;
+  line-height: 30px;
 }
 .address_info {
   position: relative;
@@ -416,14 +469,14 @@ ul {
     display: flex;
     justify-content: space-around;
   }
-  .operButotn {
+  /* .operButotn {
     height: 80px;
     width: 120px;
-  }
-  .explainImg {
+  } */
+  /* .explainImg {
     width: 50%;
     height: 800px;
-  }
+  } */
   .explainCont {
     text-align: center;
     margin-top: 20px;

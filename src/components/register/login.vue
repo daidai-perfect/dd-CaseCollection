@@ -66,7 +66,7 @@
       <el-button type="primary" class="loginButton" @click.native.prevent="submitLogin">登录</el-button>
       <p @click="toAdd">没有账号，立即注册</p>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>

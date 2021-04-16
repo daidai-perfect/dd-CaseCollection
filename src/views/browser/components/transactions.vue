@@ -26,7 +26,7 @@
             </span>
           </template>
         </el-table-column>-->
-        <el-table-column prop="hash" label="交易哈希" width="150" align="left" show-overflow-tooltip>
+        <el-table-column prop="hash" label="交易哈希" min-width="100" align="left" show-overflow-tooltip>
           <template slot-scope="{ row }">
             <span @click="toDetail(row.hash)" class="hash">{{row.hash | getString}}</span>
           </template>
@@ -41,7 +41,7 @@
             <!-- {{row.fromAddr | getString}} -->
           </template>
         </el-table-column>
-        <el-table-column prop="flowType" label width="60">
+        <el-table-column prop="flowType" label min-width="60">
           <template slot-scope="{ row }">
             <p v-if="row.flowType=='OUT'" class="outStatus">{{row.flowType}}</p>
             <p v-else-if="row.flowType=='IN'" class="inStatus">{{row.flowType}}</p>
@@ -226,9 +226,11 @@ export default {
   border-radius: 12px;
   text-align: center;
   width: 60px;
+  line-height: 34px;
   height: 34px;
   font-size: 14px;
   /* padding-top: 4px; */
+  
 }
 .inStatus {
   background: #ffe6e3;
@@ -237,6 +239,7 @@ export default {
   border-radius: 12px;
   text-align: center;
   width: 60px;
+  line-height: 34px;
   height: 34px;
   /* padding-top: 3px; */
   font-size: 14px;

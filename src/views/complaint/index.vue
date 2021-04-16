@@ -326,6 +326,9 @@ export default {
 .opButton {
   text-align: center;
   margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /deep/ .el-col-24 {
   text-align: center;
@@ -388,6 +391,8 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /deep/ .el-input__inner {
   background: white;
@@ -415,10 +420,17 @@ export default {
   margin-bottom: 25px;
 }
 .address_info span {
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
+  vertical-align: middle;
+  font-weight: 400;
+  line-height: 30px;
+}
+/* .address_info span {
   font-family: PingFang-SC-Bold;
   font-size: 20px;
   vertical-align: middle;
-}
+} */
 /* /deep/ .el-input--small .el-input__inner {
     height: 20px;
   }
@@ -587,6 +599,9 @@ export default {
   .startButton {
     font-size: 14px;
     width: 100px;
+    position:absolute;
+    top:0;
+    left:0;
   }
   /* .select_date .el-input--small .el-input__inner {
     height: 30px;

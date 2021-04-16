@@ -272,9 +272,9 @@ export default {
     line-height: 54px;
   }
   .keep {
-    font-size: 19px;
+    font-size: 14px;
     position: fixed;
-    bottom: -180px;
+    bottom: -260px;
     /* right: 20px; */
     text-align: center;
     width: 100%;
@@ -356,7 +356,7 @@ export default {
     width: 86%;
     margin: 0 auto;
     position: relative;
-    top: 50%; /*偏移*/
+    top: 40%; /*偏移*/
     transform: translateY(-50%);
     /* padding-bottom: 80px; */
   }
