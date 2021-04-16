@@ -389,10 +389,17 @@ export default {
   margin-bottom: 25px;
 }
 .address_info span {
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
+  vertical-align: middle;
+  font-weight: 400;
+  line-height: 30px;
+}
+/* .address_info span {
   font-family: PingFang-SC-Bold;
   font-size: 20px;
   vertical-align: middle;
-}
+} */
 /* /deep/ .el-input--small .el-input__inner {
     height: 20px;
   }

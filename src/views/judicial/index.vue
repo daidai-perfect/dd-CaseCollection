@@ -129,7 +129,7 @@ export default {
 
 <style scoped>
 .addNotmId {
-  padding-left: 20px;
+  padding-left: 50px;
 }
 .addMid {
   position: relative;
@@ -254,10 +254,17 @@ export default {
   margin-bottom: 25px;
 }
 .address_info span {
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
+  vertical-align: middle;
+  font-weight: 400;
+  line-height: 30px;
+}
+/* .address_info span {
   font-family: PingFang-SC-Bold;
   font-size: 20px;
   vertical-align: middle;
-}
+} */
 .address_info {
   position: relative;
   top: 20px;

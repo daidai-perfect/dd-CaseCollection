@@ -20,9 +20,9 @@
             <div class="move">
               <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
                 <div v-show="!currencyMove" >
-                  <el-card class="operCard"  >
+                  <el-card class="operCard operCardOne"  >
                     <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
-                    <span  style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500; ">数字货币追踪</span>
+                    <span class="operCardSpan" >数字货币追踪</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
                 </div>
@@ -34,29 +34,33 @@
                         <p class="btn-border" style="font-size:20px," @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
                       </div>
                     </div> -->
+                    <p class="flex-desc">电信、网络诈骗案件</p>
+                    <p class="flex-desc">数字货币追踪服务</p>
+                    <div class="flex-data" style="margin-top:20px">
+                      <p class="btn-border" >数字货币追踪</p>
+                    </div>
                   </div>
                 </div>
               </div>
               <div @mouseleave="mous(2)" @mouseenter="mous2(2)">
-                <div v-show="moneyMove === false">
+                <div v-show="!moneyMove">
                   <el-card class="operCard"  >
                     <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
-                    <span style="font-size=20px; font-family: PingFangSC-Medium; font-weight: 500">资产盘监控</span>
+                    <span class="operCardSpan">资产盘监控</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
                 </div>
-                <div v-show="moneyMove === true" @click="changeStatus('/fraud/preparationFileMonitor')">
-                  <div class="flex-cont_hide" >
-                    <div style="width:100%;">
-                      <p
-                        class="btn-border"
-                      >资金盘监控</p>
-                      <div class="flex-data">
-                        <p class="flex-desc">网络传销、网络赌博</p>
-                        <p class="flex-desc">非法集资等案件的</p>
-                        <p class="flex-desc">资金定位、监控</p>
-                      </div>
-                      <!-- <div class="more-btn">MORE</div> -->
+                <div v-show="moneyMove" >
+                  <div class="flex-cont_hide" @click="changeStatus('/fraud/preparationFileMonitor')" >
+                    <!-- <p class="flex-desc"></p>
+                    <p class="flex-desc"></p>
+
+                    <div class="flex-data" >
+                      <p class="btn-border" ></p> -->
+                    <p class="flex-desc">网络传销、网络赌博非法集资</p>
+                    <p class="flex-desc">等案件的资金定位、监控</p>
+                    <div class="flex-data" style="margin-top:20px">
+                      <p class="btn-border" >资金盘监控</p>
                     </div>
                   </div>
                 </div>
@@ -113,13 +117,14 @@ export default {
 </script>
 
 <style scoped>
+
 .btn-border {
-  height: 40px;
-  width: 80%;
-  background-image: #196DFF ;
+  /* height: 50px; */
   margin: 0 auto;
-  line-height: 40px;
+  /* line-height: 50px; */
   cursor: pointer;
+  color: white;
+  font-size: 20px !important;
 }
 .title {
   font-size: 24px;
@@ -139,81 +144,32 @@ export default {
   transition: all 1.75s ease-in-out;
   width: 320px;
   height: 223px;
+  padding: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #2d2af3;
+  /* justify-content: space-around; */
+  background: #196DFF;
 }
-.flex-cont_hide p {
-  color: white;
-  font-size: 24px;
-  font-weight: 700px;
-}
+
 .flex-data {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  background: #14469D;
+  padding: 0 24px;
+  width: 200px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
 }
 .flex-desc {
   color: white;
-  font-size: 12px !important;
-  margin-bottom: 5px;
-  /* text-align: left; */
+  font-size: 16px;
+  margin: 5px;
+  height: 40px;
 }
-.flex-cont img {
-  width: 100px;
-  height: 100px;
-  padding-left: 10px;
-  padding-top: 10px;
-}
-.right-desc {
-  text-align: center;
-  padding-top: 5px;
-}
-ul {
-  padding: 0;
-}
-.right-desc li {
-  color: #0ea7ff;
-  font-size: 20px;
-  text-align: left;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.more-btn {
-  position: relative;
-  display: inline-block;
-  color: white;
-  font-size: 20px;
-  border: 1px solid white;
-  width: 120px;
-  height: 35px;
-  line-height: 32px;
-  text-align: center;
-  cursor: pointer;
-  margin-top: 30px;
-}
-.dynamic {
-  background: rgba(14, 167, 255, 0.8);
-  /* background: linear-gradient(
-    180deg,
-    rgba(14, 167, 255, 0),
-    rgba(14, 167, 255, 0.8)
-  ); */
-  width: 100%;
-  height: 100%;
-}
-.dynamic p {
-  color: black;
-  font-size: 24px;
-  font-weight: 550;
-}
-.default {
-  display: none;
-}
-.currencyMove {
-  display: block;
-  width: 196px;
-  height: 172px;
-}
+
+
 /deep/ .el-button--text {
   color: #333333;
 }
@@ -223,6 +179,14 @@ ul {
   cursor: pointer;
   padding-top: 158px;
   background:#EAF1FD url('../../../assets/img/iocn2@2x.png') 40px 30px/240px 130px no-repeat;
+}
+.operCardOne{
+  background:#EAF1FD url('../../../assets/img/icon1@2x.png') 40px 30px/240px 130px no-repeat;
+}
+.operCardSpan{
+  font-size: 20px;
+  font-family:"PingFangSC-Medium";
+  font-weight: 500;
 }
 /* .operCard img {
   display: block;
@@ -251,11 +215,11 @@ ul {
   margin-top: 20px;
   text-align: center;
 }
-.operButotn {
+/* .operButotn {
   height: 100px;
   width: 160px;
   font-size: 22px;
-}
+} */
 .explainImg {
   width: 50%;
   height: 800px;
@@ -316,7 +280,7 @@ ul {
   margin-top: 30px;
   height: 89%;
   font-size: 23px;
-  background: url("../../../assets/smallBack.png") no-repeat white;
+  background: url("../../../assets/smallBack.png") no-repeat 100% 100%/100% 100% white;
   display: flex;
 }
 /deep/ .el-card__header {
@@ -345,7 +309,7 @@ ul {
   font-family: PingFangSC-Medium;
   font-size: 24px;
   vertical-align: middle;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 30px;
 }
 .address_info {
@@ -398,14 +362,14 @@ ul {
     display: flex;
     justify-content: space-around;
   }
-  .operButotn {
+  /* .operButotn {
     height: 80px;
     width: 120px;
-  }
-  .explainImg {
+  } */
+  /* .explainImg {
     width: 50%;
     height: 800px;
-  }
+  } */
   .explainCont {
     text-align: center;
     margin-top: 20px;

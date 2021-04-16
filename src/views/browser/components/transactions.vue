@@ -32,7 +32,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="blockNumber" label="所在区块" min-width="80"></el-table-column>
-        <el-table-column prop="blockTime" label="时间" width="130">
+        <el-table-column prop="blockTime" label="时间" width="150">
           <template slot-scope="{ row }">{{getTime(row.blockTime)}}</template>
         </el-table-column>
         <el-table-column prop="fromAddr" label="发送地址" min-width="160" show-overflow-tooltip>
