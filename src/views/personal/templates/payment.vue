@@ -1,23 +1,23 @@
 <template>
   <div class="browser">
     <div class="app-cont">
-      <div class="address_info">
-        <span>账单生成，等待支付</span>
-      </div>
       <el-card class="tran-card">
+        <div class="address_info">
+          <span>账单生成，等待支付</span>
+        </div>
         <div class="form_param">
-          <p>选择支付方式：</p>
+          <!-- <p>选择支付方式：</p> -->
           <div class="money">
-            <div class="block wx">
+            <!-- <div class="block wx">
               <img src="@/assets/zfb.png" class="moneyZfbImg" />
-            </div>
+            </div>-->
             <div class="block zfb" id="qrcode">
               <img src="@/assets/wx.png" class="moneyImg" />
             </div>
           </div>
-          <div class="opButton">
+          <!-- <div class="opButton">
             <el-button type="primary" @click="submitMoney">支付完成</el-button>
-          </div>
+          </div>-->
         </div>
       </el-card>
     </div>
@@ -28,6 +28,7 @@
 import { mapGetters } from "vuex";
 import * as Api_tool from "@/api/tool";
 import { Loading } from "element-ui";
+var setTime;
 // 生成二维码
 import QRCode from "qrcodejs2";
 export default {
@@ -40,16 +41,23 @@ export default {
   computed: {
     ...mapGetters(["sysUser"])
   },
+  watch: {
+    $route() {
+      console.log("监听");
+      window.clearInterval(setTime);
+    }
+  },
   methods: {
     payment() {
       var data = {
-        money: 5000,
+        money: 1,
         payType: "NATIVE",
         tradeNo: this.$route.query.reportNo,
         userId: this.sysUser.id
       };
       Api_tool.paymentWX(data).then(res => {
         this.qrcode(res.data.codeUrl);
+        this.whetherPayStatus();
       });
     },
     qrcode(url) {
@@ -62,6 +70,59 @@ export default {
         // foreground: '#ff0'
       });
       console.log(qrcode);
+    },
+    whetherPayStatus() {
+      var query = this.$route.query;
+      var router = this.$router;
+      // setTimeout(() => {
+      //   Api_tool.whetherPay({
+      //     reportNo: query.reportNo
+      //   }).then(res => {
+      //     console.log(res, "支付状态?");
+      //     if (res.data) {
+      //       window.clearInterval(s);
+      //       router.push({
+      //         name: query.rouName,
+      //         params: { status: "success" }
+      //       });
+      //     } else {
+      //       //
+      //     }
+      //   });
+      // }, 5000);
+      setTime = setInterval(function() {
+        Api_tool.whetherPay({
+          reportNo: query.reportNo
+        }).then(res => {
+          console.log(res, "支付状态?");
+          if (res.data) {
+            window.clearInterval(setTime);
+            router.push({
+              name: query.rouName,
+              params: { status: "success" }
+            });
+          } else {
+            //
+          }
+        });
+      }, 1000);
+      // var s = setInterval(() => {
+      //   console.log(123);
+      //   Api_tool.whetherPay({
+      //     reportNo: this.$route.query.reportNo
+      //   }).then(res => {
+      //     console.log(res, "支付状态?");
+      //     if (res.data) {
+      //       window.clearInterval(s);
+      //       this.$router.push({
+      //         name: this.$route.query.rouName,
+      //         params: { status: "success" }
+      //       });
+      //     } else {
+      //       //
+      //     }
+      //   });
+      // }, 1000);
     },
     submitMoney() {
       // 判断有没有支付成功，没成功传error，成功传success
@@ -87,7 +148,7 @@ export default {
             });
           }
         });
-      });
+      }, 2000);
     }
   }
 };
@@ -122,7 +183,7 @@ export default {
 }
 .money {
   margin: 0 auto;
-  width: 50%;
+  width: 20%;
   height: 380px;
 }
 .block {
@@ -147,7 +208,7 @@ export default {
 .form_param {
   text-align: center;
   position: relative;
-  top: 15%; /*偏移*/
+  top: 20%; /*偏移*/
   height: 100%;
 }
 .wx {
@@ -295,8 +356,12 @@ export default {
 .address_info span {
   font-family: PingFang-SC-Bold;
   font-size: 20px;
-  color: #ffffff;
   vertical-align: middle;
+}
+.address_info {
+  position: relative;
+  top: 20px;
+  left: 10px;
 }
 .address {
   padding-left: 18px;

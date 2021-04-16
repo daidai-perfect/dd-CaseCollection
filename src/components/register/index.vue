@@ -9,7 +9,7 @@
       :before-close="handleClose"
       :modal-append-to-body="false"
     >
-      <!-- 登录（手机号登录/用户名密码登录） -->
+      <!-- 登录（个人用户登录/机构用户登录） -->
       <div v-if="tabStatus == '1'">
         <login
           @updateTitle="updateTitle"
@@ -18,7 +18,7 @@
           @handleClose="handleClose"
         />
       </div>
-      <!-- 注册(普通身份/公安身份)-->
+      <!-- 注册(普通用户/公安身份)-->
       <div v-else-if="tabStatus == '0'">
         <add @toLogin="toLogin" />
       </div>
@@ -53,7 +53,7 @@ export default {
   watch: {
     // status(val) {
     //   if (val == "1") {
-    //     this.title = "手机号登录";
+    //     this.title = "个人用户登录";
     //   } else {
     //     this.title = "注册";
     //   }
@@ -61,7 +61,7 @@ export default {
     status(val) {
       this.tabStatus = val;
       if (val == "1") {
-        this.title = "手机号登录";
+        this.title = "个人用户登录";
       } else {
         this.title = "注册";
       }
@@ -70,7 +70,7 @@ export default {
   mounted() {
     // if (this.status != "") {
     //   if (this.status == "1") {
-    //     this.title = "手机号登录";
+    //     this.title = "个人用户登录";
     //   } else {
     //     this.title = "注册";
     //   }
@@ -78,7 +78,7 @@ export default {
     if (this.status != "") {
       this.tabStatus = this.status;
       if (this.status == "1") {
-        this.title = "手机号登录";
+        this.title = "个人用户登录";
       } else {
         this.title = "注册";
       }
@@ -103,7 +103,7 @@ export default {
     // 跳转登录
     toLogin(val) {
       this.tabStatus = val;
-      this.title = "手机号登录";
+      this.title = "个人用户登录";
     }
   }
 };

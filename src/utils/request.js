@@ -26,12 +26,14 @@ service.interceptors.request.use(
       config.data = qs.stringify(config.data, { arrayFormat: "repeat" });
     }
     // config.headers["Content-Type"] === "application/json";
-    loading = Loading.service({
-      fullscreen: true,
-      text: "正在加载，请稍候！",
-      spinner: "el-icon-loading",
-      background: "rgba(0,0,0,0.7)"
-    });
+    if (!config.isLoading) {
+      loading = Loading.service({
+        fullscreen: true,
+        text: "正在加载，请稍候！",
+        spinner: "el-icon-loading",
+        background: "rgba(0,0,0,0.7)"
+      });
+    }
     // console.log(store,getToken())
     // 用来判断登录有没有token
     if (store.getters.token && config.isToken) {
@@ -53,6 +55,7 @@ service.interceptors.request.use(
 // response interceptor
 service.interceptors.response.use(
   response => {
+    console.log(response);
     if (loading) loading.close();
     const res = response.data;
     if (res.code == 401) {
@@ -64,7 +67,7 @@ service.interceptors.response.use(
       store.dispatch("user/logout");
       // removeToken();
     } else {
-      if (res.code != "200") {
+      if (res.code != "200" && !config.isLoading) {
         Message({
           message: res.msg,
           type: "error",
