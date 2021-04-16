@@ -226,9 +226,11 @@ export default {
   border-radius: 12px;
   text-align: center;
   width: 60px;
+  line-height: 34px;
   height: 34px;
   font-size: 14px;
   /* padding-top: 4px; */
+  
 }
 .inStatus {
   background: #ffe6e3;
@@ -237,6 +239,7 @@ export default {
   border-radius: 12px;
   text-align: center;
   width: 60px;
+  line-height: 34px;
   height: 34px;
   /* padding-top: 3px; */
   font-size: 14px;
