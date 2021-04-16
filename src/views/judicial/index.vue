@@ -12,11 +12,11 @@
         </div>
         <div v-if="!isAdd" class="addNotmId">
           <div class="report_cont">
-            <div class="report_title">
-              <p>报告查询</p>
-            </div>
             <div class="person_gif">
               <img src="@/assets/person.gif" />
+            </div>
+            <div class="report_title">
+              <p>报告查询</p>
             </div>
             <div class="report_input">
               <el-input placeholder="请输入链审追踪报告哈希码" v-model="params.reportNo" class="reportCont">
@@ -148,6 +148,8 @@ export default {
 }
 .report_input {
   height: 250px;
+  width: 60%;
+  
 }
 .agreement_info {
   font-family: PingFang-SC-Regular;
@@ -181,6 +183,7 @@ export default {
 }
 .report_cont {
   align-items: center;
+  /* background:#fff url('../../assets/person.gif') 720px 80px/480px 480px no-repeat; */
 }
 /deep/ .el-card__body {
   padding: 30px;
@@ -274,9 +277,9 @@ export default {
 @media screen and (max-width: 750px) {
   .addNotmId {
     padding-left: 20px;
+    position: relative;
   }
   .addMid {
-    position: relative;
     top: 50%; /*偏移*/
     transform: translateY(-55%);
   }
@@ -289,9 +292,12 @@ export default {
     color: #ffffff;
     text-align: center;
     line-height: 16px;
+    margin-left: 30px;
   }
   .report_input {
-    height: 250px;
+    height: 180px;
+    width: 280px;
+
   }
   .agreement_info {
     font-family: PingFang-SC-Regular;
@@ -300,13 +306,15 @@ export default {
     /* line-height: 20px; */
     color: #999999;
     margin-top: 30px;
+    padding: 0 20px;
   }
   .hrefTxt {
     color: #000000;
   }
   .reportCont {
-    width: 600px;
-    height: 64px;
+    width: 275px;
+    height: 40px;
+    
   }
   /deep/ .el-input__inner {
     height: 100%;
@@ -314,15 +322,15 @@ export default {
   }
   .person_gif {
     position: absolute;
-    width: 402px;
-    height: 380px;
-    right: 22%;
-    top: 25%;
+    width:160px;
+    height: 150px;
+    right: 5%;
+    top: -10%;
   }
-  .person_gif img {
+  /* .person_gif img {
     width: 100%;
     height: 100%;
-  }
+  } */
   .report_cont {
     align-items: center;
   }
@@ -336,15 +344,16 @@ export default {
   }
   .report_title {
     width: 377px;
-    height: 140px;
-    margin-bottom: 5.4vw;
+    height: 110px;
+    margin-bottom: 1.4vw;
   }
   .report_title p {
     font-family: PingFang-SC-Bold;
-    font-size: 54px;
+    font-size: 30px;
     color: #333333;
     letter-spacing: 2px;
     line-height: 5;
+    margin-top: 80px;
   }
   .box-card {
     margin-top: 10px;
