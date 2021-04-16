@@ -166,11 +166,11 @@ export default {
         .dispatch(path, form)
         .then(() => {
           this.$emit("loginSuccess", true);
-          this.$store.dispatch("user/getInfo");
           setTimeout(() => {
             this.$emit("handleClose", false);
-          }, 500);
+          }, 1000);
           this.$message.success("登录成功!");
+          this.$store.dispatch("user/getInfo");
         })
         .catch(() => {
           this.getCodeImg();

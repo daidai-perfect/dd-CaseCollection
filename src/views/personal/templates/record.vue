@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     fetchData() {
-      // this.params.userId = '19';
+      this.params.userId = this.sysUser.id;
       Api_person.getJudicialAidList(this.params).then(res => {
         this.tableData = res.data.list;
         this.total = res.data.total - 0;

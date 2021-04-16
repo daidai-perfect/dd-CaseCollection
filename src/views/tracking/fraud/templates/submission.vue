@@ -163,7 +163,7 @@
                   @click="addNewTran"
                   icon="el-icon-plus"
                 >增加一笔新的转账</el-button>-->
-                <el-button type="primary" class="startButton" @click="$router.go(-1)">返回上一步</el-button>
+                <el-button type="primary" class="startButton" @click="$router.push({path:'fraud/preparationFile'})">返回上一步</el-button>
                 <el-button type="primary" class="startButton" @click="startAnalysis">提交</el-button>
               </el-col>
             </el-row>

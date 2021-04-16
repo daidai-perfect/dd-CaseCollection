@@ -64,7 +64,8 @@ export default {
       idenList: [],
       params: {
         pageNo: 1,
-        pageSize: 10
+        pageSize: 10,
+        userId: ""
       }
     };
   },
@@ -79,6 +80,7 @@ export default {
   },
   methods: {
     fetchData() {
+      this.params.userId = this.sysUser.id;
       Api_person.getPersonList(this.params).then(res => {
         console.log(res, "身份管理");
         this.idenList = res.data.data.list;

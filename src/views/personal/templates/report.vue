@@ -7,7 +7,7 @@
       class="tables"
       height="480"
     >
-      <el-table-column prop="id" label="报告id"></el-table-column>
+      <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
       <el-table-column prop="reportNo" label="报告编码" width="160">
         <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
       </el-table-column>
@@ -49,10 +49,10 @@
         <el-row :gutter="24" class="descRemark">
           <el-col :span="24">
             <el-form-item
-              label="项目后续"
+              label="后续描述"
               prop="caseDesc"
               :rules="{
-      required: true, message: '请输入项目后续', trigger: 'blur'
+      required: true, message: '请输入后续描述', trigger: 'blur'
     }"
             >
               <el-input
@@ -87,12 +87,22 @@
         <el-button type="primary" @click="startAnalysis">提交分析</el-button>
       </span>
     </el-dialog>
+    <el-dialog title="支付信息" :visible.sync="paymentVisble" width="30%">
+      <span>
+        <i class="el-icon-circle-check" />已付款成功
+      </span>
+      <!-- <span>24小时出报告，会给您手机发查询密码，请登录“司法入口”查询。</span> -->
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="resetForm">再提交一笔</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import Pagination from "@/components/Pagination";
 import * as Api_person from "@/api/person";
+import { mapGetters } from "vuex";
 export default {
   filters: {
     getString(val) {
@@ -126,8 +136,12 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters(["sysUser"])
+  },
   data() {
     return {
+      paymentVisble: false,
       postForm: {
         caseDesc: ""
       },
@@ -135,7 +149,8 @@ export default {
       fileList: [],
       params: {
         pageNo: 1,
-        pageSize: 10
+        pageSize: 10,
+        userId: ""
       },
       projectVisble: false,
       tableData: []
@@ -146,14 +161,27 @@ export default {
   },
   mounted() {
     this.fetchData();
+    if (this.$route.params.status) {
+      this.paymentVisble = true;
+    }
   },
   methods: {
+    // 再提交一笔
+    resetForm() {
+      this.projectVisble = false;
+    },
     // 提交分析
     startAnalysis() {
-      console.log(123);
+      this.$refs["form"].validate(valid => {
+        if (valid) {
+          //
+          console.log(123);
+        }
+      });
     },
     // 加载数据
     fetchData() {
+      this.params.userId = this.sysUser.id;
       Api_person.getReportList(this.params).then(res => {
         console.log(res);
         this.tableData = res.data.list;
@@ -201,6 +229,9 @@ export default {
 </script>
 
 <style  scoped>
+/deep/ .el-input {
+  width: 230px;
+}
 /deep/ .el-dialog__footer {
   text-align: center;
 }
