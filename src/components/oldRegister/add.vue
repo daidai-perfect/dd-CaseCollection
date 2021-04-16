@@ -2,7 +2,7 @@
   <div>
     <div>
       <el-radio-group v-model="registrationType" @change="tabType">
-        <el-radio label="ordinary" class="ordinary">普通身份</el-radio>
+        <el-radio label="ordinary" class="ordinary">普通用户</el-radio>
         <el-radio label="security">公安</el-radio>
       </el-radio-group>
     </div>

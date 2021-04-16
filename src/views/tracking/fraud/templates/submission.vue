@@ -12,9 +12,21 @@
           </div>
           <el-form :inline="true" label-position="top" class="demo-form-inline">
             <div class="btc_option">
-              <img src="@/assets/ETH.png" class="money_img" />
+              <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
+              <img
+                src="@/assets/USDT.png"
+                class="money_img"
+                v-else-if="form.transferCurrency=='USDT(ERC20)'"
+              />
+              <img
+                src="@/assets/USDT.png"
+                class="money_img"
+                v-else-if="form.transferCurrency=='USDT(TRC20)'"
+              />
               <el-select v-model="form.transferCurrency" placeholder="请选择" class="btc_select">
                 <el-option label="ETH" value="ETH"></el-option>
+                <el-option label="USDT(ERC20)" value="USDT(ERC20)"></el-option>
+                <el-option label="USDT(TRC20)" value="USDT(TRC20)"></el-option>
               </el-select>
             </div>
             <el-form-item class="w20">
@@ -228,7 +240,7 @@ export default {
         transferCnt: 1,
         userId: "1",
         reportType: 1,
-        paidStatus: 1
+        paidStatus: 0
       },
       formList: [
         {
@@ -342,14 +354,16 @@ export default {
         console.log(res);
         // this.paymentVisble = true;
         // 先不要支付，因为有问题，直接略过弹出支付成功
-        this.$router.push({
-          name: "payment",
-          query: {
-            type: "weixin",
-            rouName: "submission",
-            reportNo: res.data.reportNo
-          }
-        });
+        if (res.data) {
+          this.$router.push({
+            name: "payment",
+            query: {
+              type: "weixin",
+              rouName: "submission",
+              reportNo: res.data.reportNo
+            }
+          });
+        }
       });
     },
     selectDate(val) {
@@ -651,7 +665,7 @@ export default {
   background: none;
 }
 .btc_select {
-  width: 100px;
+  width: 180px;
   right: 8px;
 }
 /deep/ .tran-card > .el-card__body {

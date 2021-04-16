@@ -1,7 +1,7 @@
 <template>
   <div v-if="loginStatus=='phone'">
     <div class="mechanismLogin">
-      <span @click="jumpTab('用户名密码登录','mechanism')">用户名密码登录</span>
+      <span @click="jumpTab('机构用户登录','mechanism')">机构用户登录</span>
     </div>
     <el-row :gutter="12">
       <el-col :span="5">
@@ -36,7 +36,7 @@
   </div>
   <div v-else-if="loginStatus=='mechanism'">
     <div class="mechanismLogin">
-      <span @click="jumpTab('手机号登录','phone')">手机号登录</span>
+      <span @click="jumpTab('个人用户登录','phone')">个人用户登录</span>
     </div>
     <el-row :gutter="12">
       <el-col :span="24">
