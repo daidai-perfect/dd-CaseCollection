@@ -31,11 +31,11 @@
             <span @click="toDetail(row.hash)" class="hash">{{row.hash | getString}}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="blockNumber" label="所在区块" width="80"></el-table-column>
-        <el-table-column prop="blockTime" label="时间" width="130">
+        <el-table-column prop="blockNumber" label="所在区块" min-width="80"></el-table-column>
+        <el-table-column prop="blockTime" label="时间" min-width="100">
           <template slot-scope="{ row }">{{getTime(row.blockTime)}}</template>
         </el-table-column>
-        <el-table-column prop="fromAddr" label="发送地址" width="160" show-overflow-tooltip>
+        <el-table-column prop="fromAddr" label="发送地址" min-width="160" show-overflow-tooltip>
           <template slot-scope="{ row }">
             <span class="hash" @click="toDetailList(row.fromAddr)">{{row.fromAddr}}</span>
             <!-- {{row.fromAddr | getString}} -->
@@ -50,7 +50,7 @@
             <!-- <a href="#" class="hash">{{row.status}}</a> -->
           </template>
         </el-table-column>
-        <el-table-column prop="toAddr" label="接收地址" width="160" show-overflow-tooltip>
+        <el-table-column prop="toAddr" label="接收地址" min-width="160" show-overflow-tooltip>
           <template slot-scope="{ row }">
             <span href="#" class="hash" @click="toDetailList(row.toAddr)">{{row.toAddr}}</span>
             <!-- {{row.toAddr | getString}} -->
