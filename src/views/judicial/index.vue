@@ -134,7 +134,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
 .addNotmId {
   padding-left: 50px;
 }
@@ -282,6 +283,9 @@ export default {
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
+  /deep/ .el-card .el-card__body{
+    padding-top: 60px;
+  }
   .addNotmId {
     padding-left: 20px;
     position: relative;
@@ -360,7 +364,7 @@ export default {
     color: #333333;
     letter-spacing: 2px;
     line-height: 5;
-    margin-top: 80px;
+    // margin-top: 10px;
   }
   .box-card {
     margin-top: 10px;
@@ -423,8 +427,11 @@ export default {
   }
   .address_info {
     position: relative;
-    top: 20px;
+    top: -50px;
     left: 10px;
+  }
+  /deep/.el-form-item__label{
+    line-height: unset;
   }
 }
 </style>

@@ -17,72 +17,50 @@
         <div class="operation">-->
         <el-row>
           <el-col :span="24">
-            <!-- <div class="flex-two">
-              <div class="flex-cont">
-                <img src="@/assets/btc.png" />
-                <div class="right-desc">
-                  <div class="title">数字货币追踪</div>
-                  <ul>
-                    <li>
-                      <span class="dot">·</span> 网络诈骗案件
-                    </li>
-                    <li>
-                      <span class="dot">·</span> 非法交易
-                    </li>
-                    <li>
-                      <span class="dot">·</span> 资金追踪
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="flex-cont_hide">
-                <div style="width:100%;">
-                  <p>数字货币追踪</p>
-                  <div class="more-btn">MORE</div>
-                </div>
-              </div>
-            </div>-->
             <div class="move">
               <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
-                <div v-if="currencyMove==false">
-                  <el-card class="operCard">
-                    <img src="@/assets/btc.png" />
+                <div v-show="!currencyMove" >
+                  <el-card class="operCard operCardOne"  >
+                    <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
+                    <span class="operCardSpan" >数字货币追踪</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
                 </div>
-                <div v-else>
-                  <div class="flex-cont_hide">
-                    <div style="width:100%;">
-                      <p class="btn-border" @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
-                      <div class="flex-data">
-                        <p class="flex-desc">电信、网络诈骗案件</p>
-                        <p class="flex-desc">数字货币追踪服务</p>
+                <div v-show="currencyMove">
+                  <div class="flex-cont_hide" @click="changeStatus('/fraud/preparationFile')">
+                    <!-- <div>
+                      <p class="flex-desc">电信、网络诈骗案件</p>
+                      <div class="flex-data" >
+                        <p class="btn-border" style="font-size:20px," @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
                       </div>
-                      <!-- <div class="more-btn">MORE</div> -->
+                    </div> -->
+                    <p class="flex-desc">电信、网络诈骗案件</p>
+                    <p class="flex-desc">数字货币追踪服务</p>
+                    <div class="flex-data" style="margin-top:20px">
+                      <p class="btn-border" >数字货币追踪</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div @mouseleave="mous(2)" @mouseenter="mous2(2)">
-                <div v-if="moneyMove==false">
-                  <el-card class="operCard">
-                    <img src="@/assets/opertion.png" />
+                <div v-show="!moneyMove">
+                  <el-card class="operCard"  >
+                    <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
+                    <span class="operCardSpan">资产盘监控</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
                 </div>
-                <div v-else>
-                  <div class="flex-cont_hide">
-                    <div style="width:100%;">
-                      <p
-                        class="btn-border"
-                        @click="changeStatus('/fraud/preparationFileMonitor')"
-                      >资金盘监控</p>
-                      <div class="flex-data">
-                        <p class="flex-desc">网络传销、网络赌博</p>
-                        <p class="flex-desc">非法集资等案件的</p>
-                        <p class="flex-desc">资金定位、监控</p>
-                      </div>
-                      <!-- <div class="more-btn">MORE</div> -->
+                <div v-show="moneyMove" >
+                  <div class="flex-cont_hide" @click="changeStatus('/fraud/preparationFileMonitor')" >
+                    <!-- <p class="flex-desc"></p>
+                    <p class="flex-desc"></p>
+
+                    <div class="flex-data" >
+                      <p class="btn-border" ></p> -->
+                    <p class="flex-desc">网络传销、网络赌博非法集资</p>
+                    <p class="flex-desc">等案件的资金定位、监控</p>
+                    <div class="flex-data" style="margin-top:20px">
+                      <p class="btn-border" >资金盘监控</p>
                     </div>
                   </div>
                 </div>
@@ -124,6 +102,7 @@ export default {
       }
     },
     mous2(status) {
+      console.log('chufale')
       switch (status) {
         case 1:
           this.currencyMove = true;
@@ -138,106 +117,20 @@ export default {
 </script>
 
 <style scoped>
+
 .btn-border {
-  height: 40px;
-  width: 80%;
-  background-image: linear-gradient(150deg, #0ea7ff, #2d2af3);
+  /* height: 50px; */
   margin: 0 auto;
-  line-height: 40px;
+  /* line-height: 50px; */
   cursor: pointer;
+  color: white;
+  font-size: 20px !important;
 }
 .title {
   font-size: 24px;
   color: #0ea7ff;
   font-weight: 700;
   margin-bottom: 20px;
-}
-.flex-cont {
-  width: 300px;
-  height: 200px;
-  /* background: rgb(19, 90, 245); */
-  display: flex;
-  justify-content: space-around;
-  padding-top: 25px;
-}
-.flex-cont_hide {
-  transition: all 1.75s ease-in-out;
-  width: 196px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  background: #2d2af3;
-}
-.flex-cont_hide p {
-  color: white;
-  font-size: 24px;
-  font-weight: 700px;
-}
-.flex-data {
-  margin-top: 20px;
-}
-.flex-desc {
-  color: white;
-  font-size: 12px !important;
-  margin-bottom: 5px;
-  /* text-align: left; */
-}
-.flex-cont img {
-  width: 100px;
-  height: 100px;
-  padding-left: 10px;
-  padding-top: 10px;
-}
-.right-desc {
-  text-align: center;
-  padding-top: 5px;
-}
-ul {
-  padding: 0;
-}
-.right-desc li {
-  color: #0ea7ff;
-  font-size: 20px;
-  text-align: left;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.more-btn {
-  position: relative;
-  display: inline-block;
-  color: white;
-  font-size: 20px;
-  border: 1px solid white;
-  width: 120px;
-  height: 35px;
-  line-height: 32px;
-  text-align: center;
-  cursor: pointer;
-  margin-top: 30px;
-}
-.dynamic {
-  background: rgba(14, 167, 255, 0.8);
-  /* background: linear-gradient(
-    180deg,
-    rgba(14, 167, 255, 0),
-    rgba(14, 167, 255, 0.8)
-  ); */
-  width: 100%;
-  height: 100%;
-}
-.dynamic p {
-  color: black;
-  font-size: 24px;
-  font-weight: 550;
-}
-.default {
-  display: none;
-}
-.currencyMove {
-  display: block;
-  width: 196px;
-  height: 172px;
 }
 .flex-cont {
   width: 300px;
