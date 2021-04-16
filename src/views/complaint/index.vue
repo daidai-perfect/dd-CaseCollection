@@ -281,7 +281,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
 /deep/ .el-input__icon {
   line-height: 0;
 }
@@ -590,6 +591,7 @@ export default {
   }
   /deep/ .el-input__icon {
     width: auto;
+    // display: none;
   }
   /deep/ .el-textarea__inner {
     font-size: 14px;
@@ -618,5 +620,10 @@ export default {
   /* .descRemark {
     height: 28%;
   } */
+  /deep/.el-input__prefix{
+    .el-icon-time{
+      display: none;
+    }
+  }
 }
 </style>

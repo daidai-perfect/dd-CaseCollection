@@ -93,7 +93,7 @@
     </el-form>
     <div class="opButton">
       <el-button class="startButton" @click="returnUp">取消</el-button>
-      <el-button type="primary" class="startButton" @click="submitForm">提交</el-button>
+      <el-button type="primary" class="submitButton" @click="submitForm">提交</el-button>
     </div>
   </div>
 </template>
@@ -236,7 +236,22 @@ export default {
 } */
 /* 移动端 */
 @media screen and (max-width: 750px) {
-
+  .startButton {
+    font-size: 14px;
+    width: 60px;
+    height: 30px;
+  }
+  .submitButton{
+    font-size: 14px;
+     width: 60px;
+    height: 30px;
+    margin-left: 15px;
+  }
+  .opButton {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
   /deep/ .el-upload--picture-card {
     width: 100px;
     height: 100px;
@@ -258,21 +273,21 @@ export default {
     width: 90px;
     display: inline-block;
   }
-  .startButton {
+  /* .startButton {
     width: 100px;
     font-size: 14px;
-  }
+  } */
   /deep/ .el-col-24 {
     text-align: center;
   }
   /deep/ .el-input--suffix {
     height: 100%;
   }
-  .opButton {
+  /* .opButton {
     text-align: center;
-    /* margin-bottom: 35px; */
+    margin-bottom: 35px;
     margin-top: 35px;
-  }
+  } */
   .form_dom {
     width: 180px;
     height: 30px;
