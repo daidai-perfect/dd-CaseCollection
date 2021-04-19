@@ -52,7 +52,7 @@ export default {
       var data = {
         money: 1,
         payType: "NATIVE",
-        tradeNo: "f5ab4f94af526976b6888c8bcb9f8efb",
+        tradeNo: this.$route.query.reportNo,
         userId: this.sysUser.id
       };
       Api_tool.paymentWX(data).then(res => {

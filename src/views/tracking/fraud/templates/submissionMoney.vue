@@ -98,7 +98,11 @@
                   @click="addNewTran"
                   icon="el-icon-plus"
                 >增加一笔新的转账</el-button>-->
-                <el-button type="primary" class="startButton" @click="$router.push({path:'fraud/preparationFileMonitor'})">返回上一步</el-button>
+                <el-button
+                  type="primary"
+                  class="startButton"
+                  @click="$router.push({path:'/fraud/preparationFileMonitor'})"
+                >返回上一步</el-button>
                 <el-button type="primary" class="startButton" @click="startAnalysis">提交</el-button>
               </el-col>
             </el-row>
@@ -259,6 +263,7 @@ export default {
     },
     downFile() {
       console.log("报告示例");
+      window.open("http://39.96.66.135:8080/profile/template/002.pdf");
     },
     handleAvatarSuccess(res, file) {
       this.getImg(URL.createObjectURL(file.raw));

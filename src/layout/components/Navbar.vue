@@ -157,8 +157,10 @@ export default {
     // }
   },
   mounted() {
+    console.log(this.sysUser);
     const token = getToken();
     if (token) {
+      this.$store.dispatch("user/getInfo");
       this.loginStatus = true;
     } else {
       this.loginStatus = false;

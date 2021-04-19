@@ -67,7 +67,8 @@ service.interceptors.response.use(
       store.dispatch("user/logout");
       // removeToken();
     } else {
-      if (res.code != "200" && !config.isLoading) {
+      console.log(response.config.isLoading);
+      if (res.code != "200" && !response.config.isLoading) {
         Message({
           message: res.msg,
           type: "error",
