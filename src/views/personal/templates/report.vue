@@ -1,14 +1,28 @@
 <template>
   <div class="contier">
-    <div v-if="active !== 0" style="color: rgb(102, 102, 102);padding-left: 20px;margin-bottom: 20px;cursor: pointer;">
+    <div
+      v-if="active !== 0"
+      style="color: rgb(102, 102, 102);padding-left: 20px;margin-bottom: 20px;cursor: pointer;"
+    >
       <span @click="select({id: 0})" class="management">报告管理</span> /
       <span>{{selectFile}}</span>
     </div>
-    <div v-else style="display: flex;padding:0 25px 0 10px;margin-bottom: 5px;justify-content: space-between;align-items: center;">
+    <div
+      v-else
+      style="display: flex;padding:0 25px 0 10px;margin-bottom: 5px;justify-content: space-between;align-items: center;"
+    >
       <div style="display: flex;">
-        <div v-for="item in data" @click="select(item)" :key="item.id" @dragleave="dragleave" class="group" @dragover="allowDrop" @drop="drop">
+        <div
+          v-for="item in data"
+          @click="select(item)"
+          :key="item.id"
+          @dragleave="dragleave"
+          class="group"
+          @dragover="allowDrop"
+          @drop="drop"
+        >
           <div>
-            <img src="../../../assets/files.png" width="30" alt="">
+            <img src="../../../assets/files.png" width="30" alt />
           </div>
           {{item.name}}
         </div>
@@ -17,13 +31,13 @@
         <el-button type="primary" @click="dialogVisible = true">添加</el-button>
       </div>
     </div>
-    
+
     <el-table
       :data="tableData"
       stripe
       :header-cell-style="{background:'#E5E9EF',color:'#151C2C'}"
       class="tables"
-      height="480"
+      height="440"
     >
       <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
       <el-table-column prop="reportNo" label="报告编码" width="100">
@@ -109,17 +123,13 @@
       </span>
     </el-dialog>
 
-
-    <el-dialog
-      title="新建文件夹"
-      :visible.sync="dialogVisible"
-      width="30%">
+    <el-dialog title="新建文件夹" :visible.sync="dialogVisible" width="30%">
       <el-input />
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
-  </el-dialog>
+    </el-dialog>
   </div>
 </template>
 
@@ -168,9 +178,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapGetters(["sysUser"])
-  },
   data() {
     return {
       shareTxt: "",
@@ -190,17 +197,18 @@ export default {
       },
       tableData: [],
       data: [
-        { id: 1, name: '文件夹1' },
-        { id: 2, name: '文件夹2' },
-        { id: 3, name: '文件夹3' },
+        { id: 1, name: "文件夹1" },
+        { id: 2, name: "文件夹2" },
+        { id: 3, name: "文件夹3" }
       ],
       projectVisble: false,
       tableData: []
     };
   },
   computed: {
+    ...mapGetters(["sysUser"]),
     selectFile() {
-      return this.data.find(e => e.id === this.active).name
+      return this.data.find(e => e.id === this.active).name;
     }
   },
   components: {
@@ -214,19 +222,19 @@ export default {
   },
   methods: {
     dragleave(ev) {
-      ev.target.classList.remove('active');
+      ev.target.classList.remove("active");
     },
     select(item) {
-      this.active = item.id
+      this.active = item.id;
     },
     allowDrop(ev) {
-      ev.target.classList.add('active');
+      ev.target.classList.add("active");
       ev.preventDefault();
     },
     drop(ev) {
       ev.preventDefault();
       // var data = ev.dataTransfer.getData("Text");
-      ev.target.classList.remove('active');
+      ev.target.classList.remove("active");
     },
     // 提交分析
     startAnalysis() {
@@ -239,23 +247,24 @@ export default {
     },
     // 加载数据
     fetchData() {
+      console.log(this.sysUser, "123");
       this.params.userId = this.sysUser.id;
       Api_person.getReportList(this.params).then(res => {
         console.log(res);
         this.tableData = res.data.list;
         this.total = res.data.total - 0;
         this.$nextTick(() => {
-          const tr = document.getElementsByTagName('tr')
+          const tr = document.getElementsByTagName("tr");
           tr.forEach(e => {
-            if (Array.from(e.classList).includes('el-table__row')) {
-              e.setAttribute('draggable', true)
-              e.addEventListener('dragstart', (ev) => {
-                ev.target.id = 'tr' + Math.random()
+            if (Array.from(e.classList).includes("el-table__row")) {
+              e.setAttribute("draggable", true);
+              e.addEventListener("dragstart", ev => {
+                ev.target.id = "tr" + Math.random();
                 ev.dataTransfer.setData("Text", ev.target.id);
-              })
+              });
             }
-          })
-        })
+          });
+        });
       });
     },
     // 下载报告
@@ -336,8 +345,8 @@ export default {
   font-size: 16px;
 }
 .group {
-  width: 130px; 
-  height:50px;
+  width: 130px;
+  height: 50px;
   display: flex;
   font-size: 16px;
   color: #333;
@@ -345,13 +354,13 @@ export default {
   align-items: center;
   cursor: pointer;
 }
-.group img{
+.group img {
   margin-right: 15px;
 }
-.management:hover{
+.management:hover {
   color: rgb(0, 116, 248);
-} 
-.active{
+}
+.active {
   opacity: 0.5;
 }
 </style>
