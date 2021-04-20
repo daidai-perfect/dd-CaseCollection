@@ -66,12 +66,13 @@
       <el-button type="primary" class="loginButton" @click.native.prevent="submitLogin">登录</el-button>
       <p @click="toAdd">没有账号，立即注册</p>
     </div>
-  </div> 
+  </div>
 </template>
 
 <script>
 import * as Api_user from "@/api/user";
 import * as Api_tool from "@/api/tool";
+import { getToken } from "@/utils/auth";
 export default {
   data() {
     return {
@@ -166,11 +167,11 @@ export default {
         .dispatch(path, form)
         .then(() => {
           this.$emit("loginSuccess", true);
-          setTimeout(() => {
-            this.$emit("handleClose", false);
-          }, 1000);
+          this.$emit("handleClose", false);
+          if (getToken()) {
+            this.$store.dispatch("user/getInfo");
+          }
           this.$message.success("登录成功!");
-          this.$store.dispatch("user/getInfo");
         })
         .catch(() => {
           this.getCodeImg();
