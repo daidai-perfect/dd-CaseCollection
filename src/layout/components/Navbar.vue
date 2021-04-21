@@ -139,9 +139,7 @@ export default {
   watch: {
     sysUser: {
       handler(val) {
-        console.log(val, "监听");
         if (!val.id) {
-          console.log(val);
           this.loginStatus = false;
         } else {
           this.loginStatus = true;
@@ -157,7 +155,6 @@ export default {
     // }
   },
   mounted() {
-    console.log(this.sysUser);
     const token = getToken();
     if (token) {
       this.$store.dispatch("user/getInfo");
@@ -169,7 +166,6 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch("user/logout");
-      console.log(this.$route);
       if (this.$route.fullPath.indexOf("personal") != -1) {
         this.$router.push({
           path: "/"

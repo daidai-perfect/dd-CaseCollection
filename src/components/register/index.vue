@@ -12,6 +12,7 @@
       <!-- 登录（个人用户登录/机构用户登录） -->
       <div v-if="tabStatus == '1'">
         <login
+          :visble="visble"
           @updateTitle="updateTitle"
           @toAdd="toAdd"
           @loginSuccess="loginSuccess"
@@ -51,36 +52,10 @@ export default {
     };
   },
   watch: {
-    // status(val) {
-    //   if (val == "1") {
-    //     this.title = "个人用户登录";
-    //   } else {
-    //     this.title = "注册";
-    //   }
-    // }
-    status(val) {
-      this.tabStatus = val;
-      if (val == "1") {
+    visble(val) {
+      if (val == true) {
+        this.tabStatus = "1";
         this.title = "个人用户登录";
-      } else {
-        this.title = "注册";
-      }
-    }
-  },
-  mounted() {
-    // if (this.status != "") {
-    //   if (this.status == "1") {
-    //     this.title = "个人用户登录";
-    //   } else {
-    //     this.title = "注册";
-    //   }
-    // }
-    if (this.status != "") {
-      this.tabStatus = this.status;
-      if (this.status == "1") {
-        this.title = "个人用户登录";
-      } else {
-        this.title = "注册";
       }
     }
   },
@@ -96,7 +71,6 @@ export default {
     },
     // 跳转注册
     toAdd(val) {
-      console.log(val);
       this.tabStatus = val;
       this.title = "注册";
     },

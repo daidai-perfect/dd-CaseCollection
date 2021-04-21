@@ -73,7 +73,14 @@
 import * as Api_user from "@/api/user";
 import * as Api_tool from "@/api/tool";
 import { getToken } from "@/utils/auth";
+var s;
 export default {
+  props: {
+    visble: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       phoneType: "1",
@@ -94,33 +101,43 @@ export default {
       loginStatus: "phone"
     };
   },
+  watch: {
+    visble(val) {
+      if (val) {
+        window.clearInterval(s);
+        this.codeCont = "获取短信验证码";
+        this.resetForm();
+      }
+    }
+  },
   mounted() {
     this.getCodeImg();
   },
   methods: {
     toAdd() {
-      console.log(1);
       this.$emit("toAdd", "0");
     },
     getCodeImg() {
       Api_user.getCode({}).then(res => {
-        console.log(res, "123");
         this.codeImg = "data:image/jpg;base64," + res.img;
         this.mechanismForm.uuid = res.uuid;
         this.phoneForm.uuid = res.uuid;
       });
     },
     getSendSms() {
-      Api_tool.sendSms({ mobile: this.phoneForm.mobile, type: "login" }).then(
-        res => {
-          console.log(res);
-        }
-      );
+      Api_tool.sendSms({
+        mobile: this.phoneForm.mobile,
+        type: "login"
+      }).then(res => {});
     },
     getPhoneCode() {
+      if (this.phoneForm.mobile == "") {
+        this.$message.warning("请先填写手机号");
+        return;
+      }
       var minu = 60;
-      this.getSendSms();
-      var s = setInterval(() => {
+      var smsStatus = this.getSendSms();
+      s = setInterval(() => {
         minu--;
         this.codeCont = "重新获取" + minu + "秒";
         if (minu == 0) {
@@ -133,7 +150,17 @@ export default {
     // 切换机构登录
     jumpTab(txt, status) {
       this.loginStatus = status;
+      this.resetForm();
       this.$emit("updateTitle", txt);
+    },
+    // 重置表单
+    resetForm() {
+      for (const w in this.phoneForm) {
+        this.phoneForm[w] = "";
+      }
+      for (const w in this.mechanismForm) {
+        this.mechanismForm[w] = "";
+      }
     },
     // 登录
     submitLogin() {

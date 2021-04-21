@@ -21,7 +21,7 @@
         <el-col :span="24">
           <el-input v-model="form.password" placeholder="输入密码" type="password"></el-input>
         </el-col>
-      </el-row> -->
+      </el-row>-->
       <el-row :gutter="12">
         <el-col :span="16">
           <el-input v-model="form.smsCode" placeholder="请输入短信验证码"></el-input>
@@ -63,7 +63,7 @@
         <el-col :span="24">
           <el-input v-model="form.password" placeholder="输入密码" type="password"></el-input>
         </el-col>
-      </el-row> -->
+      </el-row>-->
       <el-row :gutter="12">
         <el-col :span="16">
           <el-input v-model="form.smsCode" placeholder="请输入短信验证码"></el-input>
@@ -148,7 +148,6 @@ export default {
       }
       Api_user.addUser(this.form)
         .then(res => {
-          console.log(res);
           if (res.code == 200) {
             this.$message.success("注册成功!");
           } else {
@@ -196,6 +195,7 @@ export default {
     },
     // 去登录
     toLogin() {
+      this.resetForm();
       this.$emit("toLogin", "1");
     },
     // 上传成功的钩子
