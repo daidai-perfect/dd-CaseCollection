@@ -30,8 +30,8 @@
               </el-select>
             </div> -->
             <img src="@/assets/ETH.png" class="money_img" />
-            <el-form-item label="ETH" class="w15">
-              <el-input v-model="form.transferValue" placeholder="请输入诈骗嫌疑人地址" class="btc_money"></el-input>
+            <el-form-item label="ETH" class="w20">
+              <el-input v-model="form.transferAddress" placeholder="请输入诈骗嫌疑人地址" class="btc_money"></el-input>
             </el-form-item>
             <!-- <el-form-item class="w20">
               <el-input v-model="form.transferAddress" placeholder="请输入诈骗嫌疑人地址" class="btc_money"></el-input>
@@ -56,7 +56,7 @@
                 class="btc_money"
               ></el-date-picker>
             </el-form-item>
-            <el-form-item label="累计几次" class="w10">
+            <el-form-item label="累计几次" class="w10" >
               <!-- <el-input-number
                 v-model="form.transferCnt"
                 :min="1"
@@ -64,7 +64,7 @@
                 label="描述文字"
                 class="btc_money"
               ></el-input-number> -->
-              <el-input-number v-model="num" controls-position="right" @change="handleChange" :min="1" :max="10" class="btc_money"></el-input-number>
+              <el-input-number v-model="num" controls-position="right" @change="handleChange" :min="1" :max="10" class="btc_money" id="btc"></el-input-number>
             </el-form-item>
             <el-form-item label="转账截图" class="w20">
               <el-upload
@@ -387,7 +387,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style  scoped>
+
+/deep/ #btc{
+  width:650px;
+}
 /deep/ .el-upload-list__item {
   width: 7.708vw;
   height: 7.708vw;
@@ -575,11 +579,11 @@ export default {
   line-height: 16px;
 }
 .money_img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  top: 7px;
-  left: 8px;
+  top: 9px;
+  left: 9px;
 }
 .app-cont {
   width: 73%;
@@ -728,6 +732,16 @@ line-height: 30px;
   border-radius: 4px;
   border: 1px solid #D9D9D9;
 }
+
+/* /deep/.el-input__inner:nth-child(4){
+  border: none;
+  background: none;
+  width: 650px;
+  height:40px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
+} */
 /deep/ .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
@@ -892,10 +906,7 @@ line-height: 30px;
   .btc_input {
     width: 280px;
     display: block;
-    height: 40px;
-  }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
+    height: 40px
   }
   .tran-card {
     /* height: 100%; */
@@ -931,9 +942,6 @@ line-height: 30px;
   .selectType {
     width: 280px;
     height: 40px;
-  }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
   }
   .agree_button {
     display: block;
@@ -1024,10 +1032,7 @@ line-height: 30px;
   /deep/ .el-form-item:last-child {
     vertical-align: bottom;
   }
-  /deep/ .btc_select > .el-input > .el-input__inner {
-    border: none;
-    background: none;
-  }
+
   .btc_select {
     width: 100px;
     right: 8px;
@@ -1036,9 +1041,7 @@ line-height: 30px;
     /* height: 100%; */
     height: 100%;
   }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
-  }
+
   /deep/ .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
@@ -1046,9 +1049,7 @@ line-height: 30px;
     color: #151c2c;
     line-height: 16px;
   }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
-  }
+
   /deep/ .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;

@@ -3,7 +3,7 @@
     <div class="app-cont">
       <el-card class="tran-card">
         <div class="address_info">
-          <span>账单生成，等待支付</span>
+          <!-- <span>账单生成，等待支付</span> -->
         </div>
         <div class="form_param">
           <!-- <p>选择支付方式：</p> -->
@@ -15,6 +15,7 @@
               <img src="@/assets/wx.png" class="moneyImg" />
             </div>
           </div>
+          <p>账单生成，等待支付</p>
           <!-- <div class="opButton">
             <el-button type="primary" @click="submitMoney">支付完成</el-button>
           </div>-->
@@ -62,8 +63,8 @@ export default {
     },
     qrcode(url) {
       let qrcode = new QRCode("qrcode", {
-        width: 148,
-        height: 150, // 高度
+        width: 120,
+        height: 120, // 高度
         text: url // 二维码内容
         // render: 'canvas' // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
         // background: '#f0f'
@@ -160,10 +161,16 @@ export default {
 } */
 
 #qrcode {
-  margin: 0;
+  /* margin: 10px auto; 
   padding: 5px;
-  padding-left: 30px;
-  padding-top: 65px;
+  padding-left: 90px;
+  padding-top: 65px; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+
+
 }
 .moneyZfbImg {
   width: 148px;
@@ -171,25 +178,29 @@ export default {
   margin-top: 10px;
 }
 .moneyImg {
-  width: 148px;
-  height: 40px;
-  margin-top: 20px;
+  width: 118px;
+  height: 30px;
+  margin-bottom: 10px;
+  /* margin-top: 20px;
   position: absolute;
   top: -10px;
-  right: 25%;
+  right: 25%; */
 }
 .zfb {
-  float: right;
+  /* float: right; */
 }
 .money {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* margin: 0 auto;
   width: 20%;
-  height: 380px;
+  height: 380px; */
 }
 .block {
-  width: 280px;
-  height: 300px;
-  background: #f5f5f5;
+  background:#F6F6F6;
+  padding: 15px;
   border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0px 0px;
   text-align: center;
@@ -198,18 +209,18 @@ export default {
   position: relative;
 }
 .form_param p {
-  font-family: PingFang-SC-Bold;
-  font-size: 24px;
-  color: #333333;
-  text-align: center;
-  margin-bottom: 40px;
-  font-weight: 500;
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #000000;
+  line-height: 16px;
+  margin-top: 10px;
 }
 .form_param {
   text-align: center;
   position: relative;
   top: 20%; /*偏移*/
-  height: 100%;
+  /* height: 100%; */
 }
 .wx {
   float: left;

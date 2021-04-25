@@ -10,7 +10,7 @@
             <span @click="fillExam">填写示例</span>
             <span @click="downFile">报告示例</span>
           </div>
-          <el-form  label-position="right" class="demo-form-inline">
+          <el-form  label-position="right"  class="demo-form-inline">
             <!-- <div class="btc_option">
               <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
               <img
@@ -28,7 +28,7 @@
               </el-select>
             </div> -->
             <img src="@/assets/ETH.png" class="money_img" />
-            <el-form-item label="ETH" class="w20">
+            <el-form-item label="ETH" id="ETH">
               <el-input v-model="form.transferAddress" placeholder="请输入资金盘项目app充值地址" class="btc_money"></el-input>
             </el-form-item>
             <!-- <el-form-item class="w20" label="ETH">
@@ -96,12 +96,6 @@
           <div class="operation">
             <el-row>
               <el-col :span="24">
-                <!-- <el-button
-                  type="primary"
-                  class="startButton"
-                  @click="addNewTran"
-                  icon="el-icon-plus"
-                >增加一笔新的转账</el-button>-->
                 <el-button
                   type="primary"
                   class="startButton"
@@ -113,31 +107,6 @@
           </div>
           <el-card class="box-card" v-if="analysisVisble">
             <div slot="header" class="clearfix">
-              <!-- <div class="record_legend">
-                <p></p>
-                <span>查询地址</span>
-              </div>
-              <div class="record_legend_first">
-                <p></p>
-                <span>第一层地址</span>
-              </div>
-              <div class="record_legend_n">
-                <p></p>
-                <span>第N层地址</span>
-              </div>
-              <div class="record_legend_inflow">
-                <i class="el-icon-right" />
-                <span>流入</span>
-              </div>
-              <div class="record_legend_flowout">
-                <i class="el-icon-right" />
-                <span>流出</span>
-              </div>-->
-              <!-- <div class="report_img">
-                <img src="@/assets/report.png" />
-                <span>生成报告</span>
-              </div>-->
-              <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
             </div>
             <grap ref="grapChild" :form="form" />
           </el-card>
@@ -316,6 +285,13 @@ export default {
 </script>
 
 <style scoped>
+#ETH{
+  margin-left: 40px;
+}
+/deep/ .el-input{
+  width: 600px;
+  /* margin-left: 5%; */
+}
 .demo-form-inline{
   width: 750px;
   margin: 0 auto;
@@ -358,7 +334,7 @@ export default {
 } */
 .editExample {
   width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 15px;
   /* padding: 10px 140px 30px 0; */
   display: flex;
   justify-content: flex-end;
@@ -479,9 +455,9 @@ export default {
 /deep/ .el-card__body {
   padding: 15px;
 }
-.btc_money {
+/* .btc_money {
   width: 100%;
-}
+} */
 .btc_input {
   width: 280px;
   display: block;
@@ -652,6 +628,11 @@ export default {
 }
 /deep/ .el-input__inner {
   background: #f5f5f5;
+  width: 600px;
+  height:40px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
 }
 /deep/ .el-card__header {
   background: #e5e9ef;
@@ -662,6 +643,11 @@ export default {
 }
 /deep/ .el-input__inner {
   background: #f5f5f5;
+  width: 600px;
+  height:40px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
 }
 /deep/ .el-card__header {
   background: #e5e9ef;
@@ -670,6 +656,7 @@ export default {
   color: #151c2c;
   line-height: 16px;
 }
+
 /* 移动端 */
 @media screen and (max-width: 750px) {
   .removeCont {
@@ -707,14 +694,14 @@ export default {
     margin-right: 10px;
     cursor: pointer;
   }
-  /deep/ .el-icon-question {
+  /* /deep/ .el-icon-question {
     cursor: pointer;
     color: black;
     line-height: 5px;
     position: absolute;
     right: 12px;
     top: 18px;
-  }
+  } */
   .solid {
     text-align: center;
     margin-left: 2px;
@@ -809,9 +796,9 @@ export default {
   /deep/ .el-card__body {
     padding: 15px;
   }
-  .btc_money {
-    width: 100%;
-  }
+  /* .btc_money {
+    /* width: 100%; 
+  } */
   .btc_input {
     width: 280px;
     display: block;
@@ -819,6 +806,11 @@ export default {
   }
   /deep/ .el-input__inner {
     background: #f5f5f5;
+    width: 600px;
+  height:40px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
   }
   .tran-card {
     /* height: 100%; */
