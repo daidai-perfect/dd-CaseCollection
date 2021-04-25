@@ -103,6 +103,12 @@ export default {
   text-align: left;
   margin-bottom: 30px;
   margin-top: 40px;
+  position: relative;
+}
+/deep/ .voucher .el-icon-plus{
+  position:absolute;
+  top:36px;
+  left: 36px;
 }
 .upgrade_cont p {
   font-family: PingFang-SC-Bold;

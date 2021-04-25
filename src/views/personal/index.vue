@@ -107,6 +107,9 @@ export default {
 .menu {
   margin-top: 50px;
 }
+.person_cont{
+  border-radius: 10px;
+}
 .flex_cont {
   /* position: relative;
   top: 50%; 
@@ -131,25 +134,37 @@ export default {
 .upgrade {
   font-family: PingFang-SC-Regular;
   font-size: 14px;
-  color: #666666;
+  color: #000;
   line-height: 14px;
   cursor: pointer;
 }
 .user_phone {
-  font-family: PingFangSC-Regular;
+  /* font-family: PingFangSC-Regular;
   font-size: 20px;
-  color: #333333;
+  margin-top: 15px; */
+  height: 20px;
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
   line-height: 20px;
-  margin-top: 15px;
+  margin: 10px auto;
+}
+.avaImg{
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  margin: 30px auto 10px;
+  border-radius: 50%;
+  border: 1px solid #25867C;
 }
 .avaImg img {
-  width: 90px;
-  height: 90px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  border: 1px solid;
 }
 .ordinary_user {
-  font-family: PingFangSC-Regular;
+  /* font-family: PingFangSC-Regular;
   font-size: 16px;
   color: #ffffff;
   line-height: 16px;
@@ -162,6 +177,15 @@ export default {
   margin: 0 auto;
   margin-bottom: 13px;
   margin-top: 15px;
+  text-align: center; */
+  width: 140px;
+  height: 36px;
+  line-height: 36px;
+  background: #F4A032;
+  border-radius: 15px;
+  text-align: center;
+  margin: 15px auto;
+  font-size: 16px;
 }
 .person_cont {
   background: white;

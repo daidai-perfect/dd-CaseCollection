@@ -431,7 +431,7 @@ export default {
     left: 10px;
   }
   /deep/.el-form-item__label{
-    line-height: unset;
+    line-height:unset;
   }
 }
 </style>

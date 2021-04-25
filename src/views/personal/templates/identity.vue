@@ -1,13 +1,13 @@
 <template>
   <div class="contier">
     <div class="title_cont">
-      <span>身份管理</span>
-      <p>资料提交记录</p>
+      <p>身份管理</p>
+      <!-- <p>资料提交记录</p> -->
     </div>
     <!-- cont内容 -->
     <div class="record_cont">
-      <div class="files" v-for="(item,index) in idenList" :key="index">
-        <!-- <img class="file_img" :src="item.fileUrl" /> -->
+      <!-- <div class="files" v-for="(item,index) in idenList" :key="index">
+        <img class="file_img" :src="item.fileUrl" />
         <p class="status">你现在的身份是{{sysUser.type | getLevelName}}</p>
         <p class="desc">
           您于 {{item.createTime | getDate}}提交的证明材料，当前状态为
@@ -15,7 +15,25 @@
             class="status"
           >{{item.status | getStatus }}</span>
         </p>
-      </div>
+      </div> -->
+      <el-table
+      :data="idenList"
+      stripe
+      :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
+      class="tables"
+      height="440"
+    >
+      <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
+      <el-table-column prop="reportNo" label="提交时间" min-width="100px">
+        <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
+      </el-table-column>
+      <el-table-column prop="reportType" label="证明材料" min-width="100px">
+        <template slot-scope="{ row }">{{row.reportType | getReportType}}</template>
+      </el-table-column>
+      <el-table-column prop="reportStatus" label="当前状态" min-width="100px">
+        <template slot-scope="{ row }">{{row.reportStatus | getReportStatus}}</template>
+      </el-table-column>
+    </el-table>
     </div>
     <Pagination
       v-show="total > 0"
@@ -129,20 +147,28 @@ export default {
 .title_cont {
   width: 100%;
 }
-.title_cont span {
-  font-family: PingFang-SC-Bold;
-  font-size: 24px;
-  color: #333333;
-  letter-spacing: 0;
-}
 .title_cont p {
+  /*font-size: 24px;
+  color: #333333;
+  letter-spacing: 0; */
+  /* height: 25px; */
+  font-size: 24px !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+}
+/* .title_cont p {
   font-family: PingFangSC-Regular;
   font-size: 20px;
   color: #666666;
   letter-spacing: 0;
   margin-top: 15px;
-}
+} */
 .contier {
   padding: 30px;
+}
+/deep/ .cell {
+  font-size: 14px;
+  font-weight: 500;
 }
 </style>

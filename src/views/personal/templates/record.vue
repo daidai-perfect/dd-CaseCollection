@@ -1,8 +1,8 @@
 <template>
   <div class="contier">
     <div class="title_cont">
-      <span>司法协助记录</span>
-      <div class="select_date">
+      <p>司法协助记录</p>
+      <!-- <div class="select_date">
         <el-date-picker
           v-model="params.applyTime"
           type="date"
@@ -11,7 +11,7 @@
           value-format="yyy-MM-dd"
         ></el-date-picker>
         <el-button icon="el-icon-search" class="search_button" @click="fetchData"></el-button>
-      </div>
+      </div> -->
     </div>
     <div class="table_cont">
       <el-table
@@ -20,14 +20,14 @@
         height="420"
         class="moneyTable"
         style="width:100%;"
-        :header-cell-style="{background:'#E5E9EF',color:'#151C2C'}"
+        :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
       >
-        <el-table-column type="index" label="序号" align="center"></el-table-column>
-        <el-table-column prop="createTime" label="提交时间" align="center" width="180"></el-table-column>
-        <el-table-column prop="isAuth" label="状态" align="center">
+        <el-table-column type="index" label="序号" align="center" min-width="100"></el-table-column>
+        <el-table-column prop="createTime" label="提交时间" align="center" min-width="100"></el-table-column>
+        <el-table-column prop="isAuth" label="状态" align="center" min-width="100">
           <template slot-scope="{row}">{{row.isAuth | getAuth}}</template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="140">
+        <el-table-column label="操作" fixed="right" min-width="100">
           <template slot-scope="{row}">
             <el-button type="text" @click="toDetail(row)">查看详情</el-button>
           </template>
@@ -195,19 +195,24 @@ export default {
 .title_cont {
   width: 100%;
 }
-.title_cont span {
-  font-family: PingFang-SC-Bold;
+.title_cont p {
+  /* font-family: PingFang-SC-Bold;
   font-size: 24px;
   color: #333333;
   letter-spacing: 0;
   line-height: 26px;
+   */
+  font-size: 24px !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
 }
 /deep/ .el-input__inner {
   height: 100%;
   background: #f5f5f5;
 }
 /deep/ .cell {
-  font-size: 0.833vw;
+  font-size: 14px;
 }
 @media screen and (max-width: 750px) {
   .table_cont {

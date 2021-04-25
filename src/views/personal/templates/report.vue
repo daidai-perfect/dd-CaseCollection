@@ -2,14 +2,14 @@
   <div class="contier">
     <div
       v-if="active !== 0"
-      style="color: rgb(102, 102, 102);padding-left: 20px;margin-bottom: 20px;cursor: pointer;"
+      style="background:#0870F1;color: #fff;padding-left: 20px;margin-bottom: 30px;cursor: pointer;"
     >
       <span @click="select({id: 0})" class="management">报告管理</span> /
       <span>{{selectFile}}</span>
     </div>
     <div
       v-else
-      style="display: flex;padding:0 25px 0 10px;margin-bottom: 5px;justify-content: space-between;align-items: center;"
+      style="display: flex;margin-left:12px;width:95%;margin-bottom: 5px;justify-content: space-between;align-items: center;"
     >
       <div style="display: flex;">
         <div
@@ -22,39 +22,40 @@
           @drop="drop"
         >
           <div>
-            <img src="../../../assets/files.png" width="30" alt />
+            <img src="../../../assets/img/文件夹@2x.png" width="30" alt />
           </div>
           {{item.name}}
         </div>
       </div>
       <div>
-        <el-button type="primary" @click="dialogVisible = true">添加</el-button>
+        <!-- <i>+</i> -->
+        <el-button type="primary" @click="dialogVisible = true">+ 添加</el-button>
       </div>
     </div>
 
     <el-table
       :data="tableData"
       stripe
-      :header-cell-style="{background:'#E5E9EF',color:'#151C2C'}"
+      :header-cell-style="{background:'#FAFAFA',color:'#000'}"
       class="tables"
       height="440"
     >
       <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
-      <el-table-column prop="reportNo" label="报告编码" width="100">
+      <el-table-column prop="reportNo" label="报告编码" min-width="80px">
         <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
       </el-table-column>
-      <el-table-column prop="reportType" label="报告类型">
+      <el-table-column prop="reportType" label="报告类型" min-width="65px">
         <template slot-scope="{ row }">{{row.reportType | getReportType}}</template>
       </el-table-column>
-      <el-table-column prop="reportStatus" label="报告状态" width="70">
+      <el-table-column prop="reportStatus" label="报告状态" min-width="65px">
         <template slot-scope="{ row }">{{row.reportStatus | getReportStatus}}</template>
       </el-table-column>
-      <el-table-column prop="paidStatus" label="支付状态" width="70">
+      <el-table-column prop="paidStatus" label="支付状态" min-width="65px">
         <template slot-scope="{ row }">{{row.paidStatus | getPaidStatus}}</template>
       </el-table-column>
-      <el-table-column prop="createTime" label="创建时间" width="150"></el-table-column>
-      <el-table-column prop="updateTime" label="更新时间" width="80"></el-table-column>
-      <el-table-column label="操作" fixed="right" width="140">
+      <el-table-column prop="createTime" label="创建时间" min-width="100px"></el-table-column>
+      <el-table-column prop="updateTime" label="更新时间" min-width="100px"></el-table-column>
+      <el-table-column label="操作" fixed="right" min-width="140px">
         <template slot-scope="{row}">
           <el-button type="text" @click="downLoadReport(row)">下载</el-button>
           <el-button type="text" @click="share(row)">分享</el-button>
@@ -337,12 +338,14 @@ export default {
 .tables {
   width: 95%;
   margin: 0px auto;
+  /* background: #FAFAFA; */
 }
 .contier {
   padding-top: 20px;
 }
 /deep/ .cell {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
 }
 .group {
   width: 130px;
@@ -353,12 +356,15 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-right: 25px;
+  /* margin-left: 10px */
 }
 .group img {
   margin-right: 15px;
 }
 .management:hover {
-  color: rgb(0, 116, 248);
+  color:#fff;
+  background-color: #0870F1;
 }
 .active {
   opacity: 0.5;
