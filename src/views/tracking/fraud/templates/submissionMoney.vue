@@ -560,7 +560,7 @@ export default {
   line-height: 3;
 }
 .operation {
-  margin: 30px auto;
+  margin: 140px auto 0;
   display: flex;
   justify-content: center;
 }
