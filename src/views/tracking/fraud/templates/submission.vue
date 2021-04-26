@@ -10,7 +10,7 @@
             <span @click="fillExam">填写示例</span>
             <span @click="downFile">报告示例</span>
           </div>
-          <el-form  class="demo-form-inline" label-position="right" label-width="auto">
+          <el-form  class="demo-form-inline" label-position="left" label-width="70px">
             <!-- <div class="btc_option">
               <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
               <img
@@ -29,8 +29,11 @@
                 <el-option label="USDT(TRC20)" value="USDT(TRC20)"></el-option>
               </el-select>
             </div> -->
-            <img src="@/assets/ETH.png" class="money_img" />
             <el-form-item label="ETH" class="w20">
+              <template slot="label">
+                <img src="@/assets/ETH.png" class="money_img" />
+                <span>ETH</span>
+              </template>
               <el-input v-model="form.transferAddress" placeholder="请输入诈骗嫌疑人地址" class="btc_money"></el-input>
             </el-form-item>
             <!-- <el-form-item class="w20">
@@ -388,10 +391,6 @@ export default {
 </script>
 
 <style  scoped>
-
-/deep/ #btc{
-  width:650px;
-}
 /deep/ .el-upload-list__item {
   width: 7.708vw;
   height: 7.708vw;
@@ -556,10 +555,6 @@ export default {
 /deep/.el-input--prefix .el-input__inner{
   padding-left: 15px;
   }
-.btc_money {
-  width: 100%;
-  
-}
 .btc_input {
   width: 280px;
   display: block;
@@ -580,10 +575,14 @@ export default {
 }
 .money_img {
   width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 9px;
-  left: 9px;
+  height:20px;
+  vertical-align: middle;
+  /* position: absolute;
+  top: 8px;
+  left: 8px; */
+}
+/deep/ .el-form-item span{
+  vertical-align: middle;
 }
 .app-cont {
   width: 73%;
@@ -678,8 +677,14 @@ line-height: 30px;
 .w15 {
   width: 22%;
 }
-.w10 {
-  width: 17%;
+/deep/.w10 .el-input__inner{
+  width: 150px;
+}
+/deep/.w10 .el-input-number{
+  width: 150px;
+}
+/deep/.w10 .el-input{
+  width: 150px;  
 }
 .clearfix div {
   margin-left: 25px;
@@ -726,7 +731,7 @@ line-height: 30px;
 /deep/.el-input__inner {
   border: none;
   background: none;
-  width: 650px;
+  width: 640px;
   height:40px;
   background: #FFFFFF;
   border-radius: 4px;

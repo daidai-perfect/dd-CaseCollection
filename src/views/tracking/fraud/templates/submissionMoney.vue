@@ -10,7 +10,7 @@
             <span @click="fillExam">填写示例</span>
             <span @click="downFile">报告示例</span>
           </div>
-          <el-form  label-position="right"  class="demo-form-inline">
+          <el-form  label-position="left" label-width="80px"  class="demo-form-inline">
             <!-- <div class="btc_option">
               <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
               <img
@@ -27,8 +27,11 @@
                 <el-option label="ETH" value="ETH"></el-option>
               </el-select>
             </div> -->
-            <img src="@/assets/ETH.png" class="money_img" />
             <el-form-item label="ETH" id="ETH">
+              <template slot="label">
+                <img src="@/assets/ETH.png" class="money_img" />
+                <span>ETH</span>
+              </template>
               <el-input v-model="form.transferAddress" placeholder="请输入资金盘项目app充值地址" class="btc_money"></el-input>
             </el-form-item>
             <!-- <el-form-item class="w20" label="ETH">
@@ -45,7 +48,6 @@
               >
                 <i class="el-icon-question"></i>
               </el-tooltip> -->
-            </el-form-item>
             <el-form-item label="转账截图" class="w20">
               <el-upload
                 action="http://123.56.232.81:8080/commonFile/upload"
@@ -286,7 +288,7 @@ export default {
 
 <style scoped>
 #ETH{
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 /deep/ .el-input{
   width: 600px;
@@ -477,12 +479,15 @@ export default {
   line-height: 16px;
 }
 .money_img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height:20px;
   vertical-align: middle;
-  position: absolute;
+  /* position: absolute;
   top: 8px;
-  left: 8px;
+  left: 8px; */
+}
+/deep/ .el-form-item span{
+  vertical-align: middle;
 }
 .app-cont {
   width: 73%;
