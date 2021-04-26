@@ -2,7 +2,7 @@
   <div class="contier">
     <div
       v-if="active !== 0"
-      style="background:#0870F1;color: #fff;padding-left: 20px;margin-bottom: 30px;cursor: pointer;"
+      style="background:rgb(102, 102, 102);padding-left: 20px;margin-bottom: 30px;cursor: pointer;"
     >
       <span @click="select({id: 0})" class="management">报告管理</span> /
       <span>{{selectFile}}</span>
@@ -35,10 +35,8 @@
 
     <el-table
       :data="tableData"
-      stripe
       :header-cell-style="{background:'#FAFAFA',color:'#000'}"
       class="tables"
-      height="440"
     >
       <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
       <el-table-column prop="reportNo" label="报告编码" min-width="80px">
@@ -55,7 +53,7 @@
       </el-table-column>
       <el-table-column prop="createTime" label="创建时间" min-width="100px"></el-table-column>
       <el-table-column prop="updateTime" label="更新时间" min-width="100px"></el-table-column>
-      <el-table-column label="操作" fixed="right" min-width="140px">
+      <el-table-column label="操作" fixed="right" min-width="120px">
         <template slot-scope="{row}">
           <el-button type="text" @click="downLoadReport(row)">下载</el-button>
           <el-button type="text" @click="share(row)">分享</el-button>
@@ -67,6 +65,7 @@
       v-show="total > 0"
       :total="total"
       layout="prev, pager, next"
+      :pager-count="5"
       :page.sync="params.pageNo"
       :limit.sync="params.pageSize"
       @pagination="fetchData"
@@ -216,7 +215,7 @@ export default {
     Pagination: Pagination
   },
   mounted() {
-    this.fetchData();
+    this.getReportList();
     if (this.$route.params.status) {
       this.paymentVisble = true;
     }
@@ -248,7 +247,12 @@ export default {
     },
     // 加载数据
     fetchData() {
+      console.log(val,'1111111111111')  
+      this.params.pageNo= val.page
+      this.getReportList()
       console.log(this.sysUser, "123");
+    },
+    getReportList(){
       this.params.userId = this.sysUser.id;
       Api_person.getReportList(this.params).then(res => {
         console.log(res);
@@ -363,8 +367,7 @@ export default {
   margin-right: 15px;
 }
 .management:hover {
-  color:#fff;
-  background-color: #0870F1;
+  color: rgb(0, 116, 248);
 }
 .active {
   opacity: 0.5;

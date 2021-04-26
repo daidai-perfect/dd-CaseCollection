@@ -16,8 +16,6 @@
     <div class="table_cont">
       <el-table
         :data="tableData"
-        stripe
-        height="420"
         class="moneyTable"
         style="width:100%;"
         :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
@@ -43,6 +41,7 @@
         v-show="total > 0"
         :total="total"
         layout="prev, pager, next"
+        :pager-count="5"
         :page.sync="params.pageNo"
         :limit.sync="params.pageSize"
         @pagination="fetchData"
@@ -140,10 +139,15 @@ export default {
     Pagination: Pagination
   },
   mounted() {
-    this.fetchData();
+    this.getJudicialAidList()
   },
   methods: {
     fetchData() {
+      console.log(val,'1111111111111')  
+      this.params.pageNo= val.page
+      this.getJudicialAidList()
+    },
+    getJudicialAidList(){
       this.params.userId = this.sysUser.id;
       Api_person.getJudicialAidList(this.params).then(res => {
         this.tableData = res.data.list;

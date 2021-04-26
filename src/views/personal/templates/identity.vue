@@ -18,26 +18,26 @@
       </div> -->
       <el-table
       :data="idenList"
-      stripe
       :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
       class="tables"
-      height="440"
     >
       <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
       <el-table-column prop="reportNo" label="提交时间" min-width="100px">
-        <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
+        <template slot-scope="{ row }">{{row.createTime | getDate}}</template>
       </el-table-column>
       <el-table-column prop="reportType" label="证明材料" min-width="100px">
-        <template slot-scope="{ row }">{{row.reportType | getReportType}}</template>
+        <template slot-scope="{ row }">
+          <img :src="row.fileUrl" alt=""></template>
       </el-table-column>
       <el-table-column prop="reportStatus" label="当前状态" min-width="100px">
-        <template slot-scope="{ row }">{{row.reportStatus | getReportStatus}}</template>
+        <template slot-scope="{ row }">{{row.status | getStatus }}</template>
       </el-table-column>
     </el-table>
     </div>
     <Pagination
       v-show="total > 0"
       :total="total"
+      :pager-count="5"
       layout="prev, pager, next"
       :page.sync="params.pageNo"
       :limit.sync="params.pageSize"
@@ -51,6 +51,7 @@
 import Pagination from "@/components/Pagination";
 import * as utils from "@/utils/utils";
 import * as Api_person from "@/api/person";
+// import {getPersonList} from "@/api/person";
 import { mapGetters } from "vuex";
 export default {
   filters: {
@@ -82,8 +83,8 @@ export default {
       idenList: [],
       params: {
         pageNo: 1,
-        pageSize: 10,
-        userId: ""
+        pageSize:10,
+        userId: "",
       }
     };
   },
@@ -94,19 +95,26 @@ export default {
     Pagination: Pagination
   },
   mounted() {
-    this.fetchData();
+    this.getPersonList()
   },
   methods: {
-    fetchData() {
+    fetchData(val) {
+      console.log(val,'1111111111111')  
+      this.params.pageNo= val.page
+      this.getPersonList()
+    },
+    getPersonList(){
       this.params.userId = this.sysUser.id;
       Api_person.getPersonList(this.params).then(res => {
         console.log(res, "身份管理");
         this.idenList = res.data.data.list;
         this.total = res.data.data.total;
         // this.tableData = res.data.list;
-        // this.total = res.data.total - 0;
+        // this.total = res.data.data.total - 0; 
+        
       });
     }
+
   }
 };
 </script>
@@ -141,8 +149,8 @@ export default {
 }
 .record_cont {
   margin-top: 30px;
-  overflow-y: auto;
-  height: 600px;
+  /* overflow-y: auto; */
+  /* height: 830px; */
 }
 .title_cont {
   width: 100%;
@@ -168,6 +176,12 @@ export default {
   padding: 30px;
 }
 /deep/ .cell {
+  font-size: 14px;
+  font-weight: 500;
+}
+/deep/ .cell img {
+  height: 30px;
+  width: 30px;
   font-size: 14px;
   font-weight: 500;
 }
