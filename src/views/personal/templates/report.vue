@@ -39,21 +39,21 @@
       class="tables"
     >
       <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
-      <el-table-column prop="reportNo" label="报告编码" min-width="80px">
+      <el-table-column prop="reportNo" label="报告编码" min-width="95px">
         <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
       </el-table-column>
-      <el-table-column prop="reportType" label="报告类型" min-width="65px">
+      <el-table-column prop="reportType" label="报告类型" min-width="75px">
         <template slot-scope="{ row }">{{row.reportType | getReportType}}</template>
       </el-table-column>
-      <el-table-column prop="reportStatus" label="报告状态" min-width="65px">
+      <el-table-column prop="reportStatus" label="报告状态" min-width="75px">
         <template slot-scope="{ row }">{{row.reportStatus | getReportStatus}}</template>
       </el-table-column>
-      <el-table-column prop="paidStatus" label="支付状态" min-width="65px">
+      <el-table-column prop="paidStatus" label="支付状态" min-width="75px">
         <template slot-scope="{ row }">{{row.paidStatus | getPaidStatus}}</template>
       </el-table-column>
-      <el-table-column prop="createTime" label="创建时间" min-width="100px"></el-table-column>
-      <el-table-column prop="updateTime" label="更新时间" min-width="100px"></el-table-column>
-      <el-table-column label="操作" fixed="right" min-width="120px">
+      <el-table-column prop="createTime" label="创建时间" min-width="90px"></el-table-column>
+      <el-table-column prop="updateTime" label="更新时间" min-width="90px"></el-table-column>
+      <el-table-column label="操作" fixed="right" min-width="135px">
         <template slot-scope="{row}">
           <el-button type="text" @click="downLoadReport(row)">下载</el-button>
           <el-button type="text" @click="share(row)">分享</el-button>
