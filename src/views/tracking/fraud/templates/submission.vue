@@ -10,7 +10,7 @@
             <span @click="fillExam">填写示例</span>
             <span @click="downFile">报告示例</span>
           </div>
-          <el-form  class="demo-form-inline" label-position="left" label-width="70px">
+          <el-form  class="demo-form-inline" label-position="left" label-width="80px">
             <!-- <div class="btc_option">
               <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
               <img
@@ -419,13 +419,11 @@ export default {
   bottom: 0px;
 } */
 .editExample {
-  width: 700px;
-  margin:0 auto 20px;
-  /* padding: 10px 140px 30px 0; */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  width: 39.063vw;
   font-size: 16px;
+  position: absolute;
+  top: -60px;
+  left: 845px;
 }
 .editExample span {
   font-size: 14px;
@@ -457,6 +455,7 @@ export default {
   /* width: 1200px; */
   height: 100%;
   margin: 0 auto;
+  position: relative;
 }
 .box-card {
   margin-top: 10px;
@@ -464,8 +463,7 @@ export default {
 }
 .demo-form-inline{
   width: 750px;
-  margin: 0 auto;
-  position: relative;
+  margin: 50px auto 0;
 }
 /deep/ .box-card > .el-card__body {
   padding: 0;
@@ -655,7 +653,7 @@ line-height: 30px;
   line-height: 3;
 }
 .operation {
-  margin: 30px auto;
+  margin:50px auto;
   display: flex;
   justify-content: center;
 }
@@ -713,7 +711,7 @@ line-height: 30px;
 /deep/ .btc_select > .el-input > .el-input__inner {
   border: none;
   background: none;
-  width: 600px;
+  width: 640px;
   height:40px;
   background: #FFFFFF;
   border-radius: 4px;
