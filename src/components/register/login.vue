@@ -21,7 +21,7 @@
         <el-button
           class="codeButton"
           @click="getPhoneCode"
-          :disabled="codeCont!='获取短信验证码' && codeCont!='重新发送'"
+          :disabled="codeCont!='获取验证码' && codeCont!='重新发送'"
         >{{codeCont}}</el-button>
       </el-col>
     </el-row>
@@ -97,7 +97,7 @@ export default {
         code: "",
         uuid: ""
       },
-      codeCont: "获取短信验证码",
+      codeCont: "获取验证码",
       loginStatus: "phone"
     };
   },
@@ -105,7 +105,7 @@ export default {
     visble(val) {
       if (val) {
         window.clearInterval(s);
-        this.codeCont = "获取短信验证码";
+        this.codeCont = "获取验证码";
         this.resetForm();
       }
     }
@@ -208,7 +208,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style lang="scss" scoped>
 .codeImg {
   height: 58px;
   width: 100%;
@@ -293,6 +293,8 @@ export default {
   font-weight: 400;
   height: 58px;
   color: #0074f8;
+  width: 100%;
+  margin: auto;
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
@@ -310,7 +312,7 @@ export default {
     margin-top: 20px;
   }
   .mechanismLogin {
-    font-size: 16px;
+    font-size: 14px;
     font-family: PingFang SC;
     font-weight: 400;
     line-height: 22px;
@@ -358,10 +360,10 @@ export default {
     z-index: 9999999999999999999999 !important;
     /* text-align: center; */
   }
-  /deep/ .el-dialog__title {
+  /deep/ .el-dialog__header .el-dialog__title {
     width: 120px;
     height: 33px;
-    font-size: 24px;
+    font-size: 18px;
     font-family: PingFang SC;
     font-weight: bold;
     line-height: 24px;
@@ -369,20 +371,23 @@ export default {
     opacity: 1;
   }
   /* /deep/ .el- */
-  /deep/ .el-input__inner {
-    height: 58px;
-    font-size: 14px;
-    line-height: 2;
+  /deep/ .el-input .el-input__inner {
+    height: 38px;
+    font-size: 12px;
+    padding: 6px;
   }
   /deep/ .el-row {
     margin-top: 20px;
   }
   .codeButton {
-    font-size: 14px;
+    font-size: 12px;
     font-family: PingFang SC;
     font-weight: 400;
-    height: 58px;
+    height: 38px;
     color: #0074f8;
+  }
+  /deep/ .el-input__suffix-inner .el-icon-arrow-up{
+    width:18px;
   }
 }
 </style>
