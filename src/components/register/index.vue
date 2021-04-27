@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .mechanismLogin {
   font-size: 16px;
   font-family: PingFang SC;
@@ -179,7 +179,7 @@ export default {
   /deep/ .el-dialog__title {
     width: 120px;
     height: 33px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: PingFang SC;
     font-weight: bold;
     line-height: 24px;
@@ -203,7 +203,7 @@ export default {
   }
   /deep/ .el-dialog {
     width: 80% !important;
-    padding: 20px;
+    padding: 18px;
   }
 }
 </style>

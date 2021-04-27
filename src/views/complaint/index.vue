@@ -303,7 +303,6 @@ export default {
   vertical-align: middle;
   height: 100%;
   width: 40px;
-  position: absolute;
 }
 /deep/ .el-card__body {
   padding-bottom: 70px;
@@ -315,6 +314,10 @@ export default {
   width: 24px;
   height: 24px;
   cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 103%;
+  margin-top:-12px;
 }
 .plus {
   position: absolute;
@@ -365,6 +368,7 @@ export default {
   padding-top: 5px;
   text-align: center;
   margin-bottom: 20px;
+  position: relative;
 }
 .notdynamic {
   /* width: 58%; */

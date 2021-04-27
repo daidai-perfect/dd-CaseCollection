@@ -287,17 +287,9 @@ export default {
 </script>
 
 <style scoped>
-#ETH{
-  /* margin-left: 40px; */
-}
 /deep/ .el-input{
   width: 600px;
   /* margin-left: 5%; */
-}
-.demo-form-inline{
-  width: 750px;
-  margin: 0 auto;
-  position: relative;
 }
 
 /deep/ .el-upload-list__item {
@@ -334,13 +326,22 @@ export default {
   margin-right: 10px;
   cursor: pointer;
 } */
+.demo-form-inline{
+  width: 750px;
+  margin: 50px auto 0;
+}
+
+.form_param {
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
 .editExample {
-  width: 700px;
-  margin: 0 auto 15px;
-  /* padding: 10px 140px 30px 0; */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  width: 39.063vw;
+  font-size: 16px;
+  position: absolute;
+  top: -60px;
+  left: 845px;
   font-size: 16px;
 }
 .editExample span {
@@ -368,11 +369,6 @@ export default {
 }
 .value {
   width: 46%;
-}
-.form_param {
-  width: 700px;
-  margin: 0 auto;
-  height: 100%;
 }
 .box-card {
   margin-top: 10px;
@@ -617,7 +613,7 @@ export default {
 /deep/ .btc_select > .el-input > .el-input__inner {
   border: none;
   background: none;
-  width: 600px;
+  width: 640px;
   height:40px;
   background: #FFFFFF;
   border-radius: 4px;
@@ -631,14 +627,6 @@ export default {
   /* height: 100%; */
   height: 100%;
 }
-/deep/ .el-input__inner {
-  background: #f5f5f5;
-  width: 600px;
-  height:40px;
-  background: #FFFFFF;
-  border-radius: 4px;
-  border: 1px solid #D9D9D9;
-}
 /deep/ .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
@@ -648,7 +636,7 @@ export default {
 }
 /deep/ .el-input__inner {
   background: #f5f5f5;
-  width: 600px;
+  width: 640px;
   height:40px;
   background: #FFFFFF;
   border-radius: 4px;
@@ -811,7 +799,7 @@ export default {
   }
   /deep/ .el-input__inner {
     background: #f5f5f5;
-    width: 600px;
+    width: 640px;
   height:40px;
   background: #FFFFFF;
   border-radius: 4px;
