@@ -17,11 +17,11 @@
       <el-col :span="16">
         <el-input v-model="phoneForm.smsCode" placeholder="请输入短信验证码"></el-input>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="8" align="right">
         <el-button
           class="codeButton"
           @click="getPhoneCode"
-          :disabled="codeCont!='获取短信验证码' && codeCont!='重新发送'"
+          :disabled="codeCont!='获取验证码' && codeCont!='重新发送'"
         >{{codeCont}}</el-button>
       </el-col>
     </el-row>
@@ -97,7 +97,7 @@ export default {
         code: "",
         uuid: ""
       },
-      codeCont: "获取短信验证码",
+      codeCont: "获取验证码",
       loginStatus: "phone"
     };
   },
@@ -105,7 +105,7 @@ export default {
     visble(val) {
       if (val) {
         window.clearInterval(s);
-        this.codeCont = "获取短信验证码";
+        this.codeCont = "获取验证码";
         this.resetForm();
       }
     }
@@ -297,7 +297,7 @@ export default {
 /* 移动端 */
 @media screen and (max-width: 750px) {
   .codeImg {
-    height: 38px;
+    height: 30px;
     width: 100%;
   }
   .desc {
@@ -310,7 +310,7 @@ export default {
     margin-top: 20px;
   }
   .mechanismLogin {
-    font-size: 16px;
+    font-size: 14px;
     font-family: PingFang SC;
     font-weight: 400;
     line-height: 22px;
@@ -378,11 +378,19 @@ export default {
     margin-top: 20px;
   }
   .codeButton {
-    font-size: 14px;
+    font-size: 12px;
     font-family: PingFang SC;
     font-weight: 400;
-    height: 58px;
+    height: 30px;
     color: #0074f8;
+  }
+  /deep/ .el-input__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /deep/ .el-input__suffix {
+    right: 1.26vw;
   }
 }
 </style>

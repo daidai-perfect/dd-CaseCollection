@@ -9,23 +9,22 @@
     </div>
     <div
       v-else
-      style="display: flex;margin-left:12px;width:95%;margin-bottom: 5px;justify-content: space-between;align-items: center;"
+      style="display: flex;padding: 0 20px;width:100%;margin-bottom: 5px;justify-content: space-between;align-items: center;"
     >
-      <div style="display: flex;">
-        <div
-          v-for="item in data"
-          @click="select(item)"
-          :key="item.id"
-          @dragleave="dragleave"
-          class="group"
-          @dragover="allowDrop"
-          @drop="drop"
-        >
-          <div>
-            <img src="../../../assets/img/文件夹@2x.png" width="30" alt />
+      <div style="display: flex; width: 90%; overflow: auto;white-space: nowrap;">
+          <div
+            v-for="item in dirList"
+            @click="select(item)"
+            :key="item.id"
+            @dragleave="dragleave"
+            class="group"
+            @dragover="allowDrop"
+            @drop="drop"
+            :id="item.id"
+          >
+              <img src="../../../assets/img/文件夹@2x.png" width="30" alt />
+            {{item.name}}
           </div>
-          {{item.name}}
-        </div>
       </div>
       <div>
         <!-- <i>+</i> -->
@@ -38,7 +37,7 @@
       :header-cell-style="{background:'#FAFAFA',color:'#000'}"
       class="tables"
     >
-      <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
+      <!-- <el-table-column prop="reportId" label="报告id"></el-table-column> -->
       <el-table-column prop="reportNo" label="报告编码" min-width="95px">
         <template slot-scope="{ row }">{{row.reportNo | getString}}</template>
       </el-table-column>
@@ -124,10 +123,10 @@
     </el-dialog>
 
     <el-dialog title="新建文件夹" :visible.sync="dialogVisible" width="30%">
-      <el-input />
+      <el-input v-model="fileName" style="width:100%" />
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        <el-button @click="clear">取 消</el-button>
+        <el-button type="primary" @click="categoryAdd">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -182,6 +181,8 @@ export default {
     return {
       shareTxt: "",
       paymentVisble: false,
+      dirList: [],
+      fileName: '',
       postForm: {
         caseDesc: ""
       },
@@ -193,14 +194,10 @@ export default {
       params: {
         pageNo: 1,
         pageSize: 10,
-        userId: ""
+        userId: "",
+        categoryId: null
       },
       tableData: [],
-      data: [
-        { id: 1, name: "文件夹1" },
-        { id: 2, name: "文件夹2" },
-        { id: 3, name: "文件夹3" }
-      ],
       projectVisble: false,
       tableData: []
     };
@@ -208,7 +205,7 @@ export default {
   computed: {
     ...mapGetters(["sysUser"]),
     selectFile() {
-      return this.data.find(e => e.id === this.active).name;
+      return this.dirList.find(e => e.id === this.active).name;
     }
   },
   components: {
@@ -216,16 +213,45 @@ export default {
   },
   mounted() {
     this.getReportList();
+    this.getAllCategory()
     if (this.$route.params.status) {
       this.paymentVisble = true;
     }
   },
   methods: {
+    // 提交 报告-文件夹分类
+    async reportCategory(reportId, categoryId) {
+      await Api_person.reportCategory({
+        categoryId: parseInt(categoryId),
+        reportId: parseInt(reportId)
+      })
+      this.getReportList();
+    },
+    clear() {
+      this.dialogVisible = false
+      this.fileName = ''
+    },
+    // 新增文件
+    async categoryAdd() {
+      await Api_person.categoryAdd({
+        name: this.fileName
+      })
+      this.fileName = ''
+      this.dialogVisible = false
+      this.getAllCategory()
+    },
+    // 获取文件夹列表
+    async getAllCategory() {
+      const data = await Api_person.getAllCategory()
+      this.dirList = data.data
+    },
     dragleave(ev) {
       ev.target.classList.remove("active");
     },
     select(item) {
       this.active = item.id;
+      this.params.categoryId = item.id || undefined
+      this.getReportList();
     },
     allowDrop(ev) {
       ev.target.classList.add("active");
@@ -233,8 +259,9 @@ export default {
     },
     drop(ev) {
       ev.preventDefault();
-      // var data = ev.dataTransfer.getData("Text");
+      var reportId = ev.dataTransfer.getData("reportId");
       ev.target.classList.remove("active");
+      this.reportCategory(reportId, ev.target.id)
     },
     // 提交分析
     startAnalysis() {
@@ -247,25 +274,22 @@ export default {
     },
     // 加载数据
     fetchData() {
-      console.log(val,'1111111111111')  
       this.params.pageNo= val.page
       this.getReportList()
-      console.log(this.sysUser, "123");
     },
     getReportList(){
       this.params.userId = this.sysUser.id;
       Api_person.getReportList(this.params).then(res => {
-        console.log(res);
         this.tableData = res.data.list;
         this.total = res.data.total - 0;
         this.$nextTick(() => {
           const tr = document.getElementsByTagName("tr");
-          tr.forEach(e => {
+          tr.forEach((e, k) => {
             if (Array.from(e.classList).includes("el-table__row")) {
               e.setAttribute("draggable", true);
               e.addEventListener("dragstart", ev => {
                 ev.target.id = "tr" + Math.random();
-                ev.dataTransfer.setData("Text", ev.target.id);
+                ev.dataTransfer.setData("reportId", this.tableData[k+1].reportId);
               });
             }
           });

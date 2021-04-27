@@ -154,12 +154,6 @@ export default {
 .selectType {
   width: 180px;
 }
-/deep/ .el-input__inner {
-  border: none;
-  height: 100%;
-  /* border-radius: 36px; */
-  line-height: 1;
-}
 /deep/ .el-select .el-input__inner {
   height: auto;
   font-family: PingFang-SC-Bold;
@@ -169,6 +163,12 @@ export default {
   /* line-height: 20px; */
   line-height: 2.8;
   vertical-align: middle;
+}
+/deep/ .el-input__inner {
+  border: none;
+  height: 100%;
+  /* border-radius: 36px; */
+  line-height: 1;
 }
 /deep/ .el-select {
   background: white;

@@ -1,6 +1,42 @@
 
 import request from "@/utils/request";
 
+// 报告-文件夹分类
+export function reportCategory(data) {
+  return request({
+    url: "/system/report/category",
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    isToken:true,
+    data
+  });
+}
+
+// 获取所有文件夹分类
+export function getAllCategory(params) {
+  return request({
+    url: "/file/category/getAllCategory",
+    method: "get",
+    isToken:true,
+    params
+  });
+}
+
+// 新增所有文件夹
+export function categoryAdd(data) {
+  return request({
+    url: "/file/category/add",
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    isToken:true,
+    data
+  });
+}
+
 // 获取报告列表
 export function getReportList(params) {
   return request({
