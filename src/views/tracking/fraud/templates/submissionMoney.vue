@@ -10,7 +10,7 @@
             <span @click="fillExam">填写示例</span>
             <span @click="downFile">报告示例</span>
           </div>
-          <el-form  label-position="left" label-width="80px"  class="demo-form-inline">
+          <el-form label-position="left" label-width="80px" class="demo-form-inline">
             <!-- <div class="btc_option">
               <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
               <img
@@ -26,28 +26,32 @@
               <el-select v-model="form.transferCurrency" placeholder="请选择" class="btc_select">
                 <el-option label="ETH" value="ETH"></el-option>
               </el-select>
-            </div> -->
+            </div>-->
             <el-form-item label="ETH" id="ETH">
               <template slot="label">
                 <img src="@/assets/ETH.png" class="money_img" />
                 <span>ETH</span>
               </template>
-              <el-input v-model="form.transferAddress" placeholder="请输入资金盘项目app充值地址" class="btc_money"></el-input>
+              <el-input
+                v-model="form.transferAddress"
+                placeholder="请输入资金盘项目app充值地址"
+                class="btc_money"
+              ></el-input>
             </el-form-item>
             <!-- <el-form-item class="w20" label="ETH">
               <el-input
                 v-model="form.transferAddress"
                 placeholder="请输入资金盘项目app充值地址"
                 class="btc_money"
-              ></el-input> -->
-              <!-- <el-tooltip
+            ></el-input>-->
+            <!-- <el-tooltip
                 class="item"
                 effect="dark"
                 content="每次查询仅支持一个地址，请添加您所知道的汇往该地址的全部转账，不同地址请分开提交查询"
                 placement="top-start"
               >
                 <i class="el-icon-question"></i>
-              </el-tooltip> -->
+            </el-tooltip>-->
             <el-form-item label="转账截图" class="w20">
               <el-upload
                 action="http://123.56.232.81:8080/commonFile/upload"
@@ -108,19 +112,19 @@
             </el-row>
           </div>
           <el-card class="box-card" v-if="analysisVisble">
-            <div slot="header" class="clearfix">
-            </div>
+            <div slot="header" class="clearfix"></div>
             <grap ref="grapChild" :form="form" />
           </el-card>
         </div>
       </el-card>
       <el-dialog title="支付信息" :visible.sync="paymentVisble" width="30%">
         <span>
-          <i class="el-icon-circle-check" />已付款成功
+          <i class="el-icon-circle-check" />
+          <span class="success_txt">付款成功，系统将于24小时内生成报告，届时将给您发送查询报告短信，请注意查收！</span>
         </span>
-        <span>24小时出报告，会给您手机发查询密码，请登录“司法入口”查询。</span>
+        <!-- <span>24小时出报告，会给您手机发查询密码，请登录“司法入口”查询。</span> -->
         <span slot="footer" class="dialog-footer">
-          <el-button type="primary" @click="resetForm">再提交一笔</el-button>
+          <el-button type="primary" @click="resetForm">确认</el-button>
         </span>
       </el-dialog>
     </div>
@@ -238,7 +242,7 @@ export default {
     },
     downFile() {
       console.log("报告示例");
-      window.open("http://39.96.66.135:8080/profile/template/002.pdf");
+      // window.open("http://39.96.66.135:8080/profile/template/002.pdf");
     },
     handleAvatarSuccess(res, file) {
       this.getImg(URL.createObjectURL(file.raw));
@@ -287,7 +291,11 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-input{
+.success_txt {
+  font-size: 22px;
+  font-weight: 500;
+}
+/deep/ .el-input {
   width: 600px;
   /* margin-left: 5%; */
 }
@@ -326,7 +334,7 @@ export default {
   margin-right: 10px;
   cursor: pointer;
 } */
-.demo-form-inline{
+.demo-form-inline {
   width: 750px;
   margin: 50px auto 0;
 }
@@ -476,13 +484,13 @@ export default {
 }
 .money_img {
   width: 20px;
-  height:20px;
+  height: 20px;
   vertical-align: middle;
   /* position: absolute;
   top: 8px;
   left: 8px; */
 }
-/deep/ .el-form-item span{
+/deep/ .el-form-item span {
   vertical-align: middle;
 }
 .app-cont {
@@ -537,7 +545,7 @@ export default {
   font-size: 20px;
   vertical-align: middle;
 } */
-.address_info{
+.address_info {
   width: 263px;
   height: 90px;
   padding: 21px 84px 39px 32px;
@@ -614,10 +622,10 @@ export default {
   border: none;
   background: none;
   width: 640px;
-  height:40px;
-  background: #FFFFFF;
+  height: 40px;
+  background: #ffffff;
   border-radius: 4px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
 }
 .btc_select {
   width: 180px;
@@ -637,10 +645,10 @@ export default {
 /deep/ .el-input__inner {
   background: #f5f5f5;
   width: 640px;
-  height:40px;
-  background: #FFFFFF;
+  height: 40px;
+  background: #ffffff;
   border-radius: 4px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
 }
 /deep/ .el-card__header {
   background: #e5e9ef;
@@ -800,10 +808,10 @@ export default {
   /deep/ .el-input__inner {
     background: #f5f5f5;
     width: 640px;
-  height:40px;
-  background: #FFFFFF;
-  border-radius: 4px;
-  border: 1px solid #D9D9D9;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
   }
   .tran-card {
     /* height: 100%; */

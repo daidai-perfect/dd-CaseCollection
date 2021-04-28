@@ -53,38 +53,34 @@ service.interceptors.request.use(
 );
 
 // response interceptor
-setTimeout(() => {
-  service.interceptors.response.use(
-    response => {
-      console.log(response);
-      if (loading) loading.close();
-      const res = response.data;
-      if (res.code == 401) {
+service.interceptors.response.use(
+  response => {
+    if (loading) loading.close();
+    const res = response.data;
+    if (res.code == 401) {
+      Message({
+        message: "请先登录",
+        type: "warning",
+        duration: 3 * 1000
+      });
+      store.dispatch("user/logout");
+      // removeToken();
+    } else {
+      if (res.code != "200" && !response.config.isLoading) {
         Message({
-          message: "请先登录",
-          type: "warning",
+          message: res.msg,
+          type: "error",
           duration: 3 * 1000
         });
-        store.dispatch("user/logout");
-        // removeToken();
       } else {
-        console.log(response.config.isLoading);
-        if (res.code != "200" && !response.config.isLoading) {
-          Message({
-            message: res.msg,
-            type: "error",
-            duration: 3 * 1000
-          });
-        } else {
-          return res;
-        }
+        return res;
       }
-    },
-    error => {
-      if (loading) loading.close();
-      console.log(error);
     }
-  );
-}, 200);
+  },
+  error => {
+    if (loading) loading.close();
+    console.log(error);
+  }
+);
 
 export default service;

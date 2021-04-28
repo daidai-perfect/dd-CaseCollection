@@ -39,14 +39,13 @@ export default {
   mounted() {
     this.payment();
   },
+  // 离开路由后断开支付接口
+  destroyed() {
+    console.log("监听");
+    window.clearInterval(setTime);
+  },
   computed: {
     ...mapGetters(["sysUser"])
-  },
-  watch: {
-    $route() {
-      console.log("监听");
-      window.clearInterval(setTime);
-    }
   },
   methods: {
     payment() {
@@ -169,8 +168,6 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column; */
-
-
 }
 .moneyZfbImg {
   width: 148px;
@@ -199,7 +196,7 @@ export default {
   height: 380px; */
 }
 .block {
-  background:#F6F6F6;
+  background: #f6f6f6;
   padding: 15px;
   border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0px 0px;
