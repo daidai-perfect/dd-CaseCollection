@@ -105,6 +105,7 @@ export default {
     visble(val) {
       if (val) {
         window.clearInterval(s);
+        this.loginStatus = "phone";
         this.codeCont = "获取验证码";
         this.resetForm();
       }
@@ -386,8 +387,8 @@ export default {
     height: 38px;
     color: #0074f8;
   }
-  /deep/ .el-input__suffix-inner .el-icon-arrow-up{
-    width:18px;
+  /deep/ .el-input__suffix-inner .el-icon-arrow-up {
+    width: 18px;
   }
 }
 </style>
