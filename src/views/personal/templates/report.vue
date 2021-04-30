@@ -223,7 +223,8 @@ export default {
     async reportCategory(reportId, categoryId) {
       await Api_person.reportCategory({
         categoryId: parseInt(categoryId),
-        reportId: parseInt(reportId)
+        reportId: parseInt(reportId),
+        userId: this.sysUser.id
       })
       this.getReportList();
     },
@@ -234,7 +235,8 @@ export default {
     // 新增文件
     async categoryAdd() {
       await Api_person.categoryAdd({
-        name: this.fileName
+        name: this.fileName,
+        userId: this.sysUser.id
       })
       this.fileName = ''
       this.dialogVisible = false
