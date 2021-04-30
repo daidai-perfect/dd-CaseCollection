@@ -10,7 +10,7 @@
             <span @click="fillExam">填写示例</span>
             <span @click="downFile">报告示例</span>
           </div>
-          <el-form  class="demo-form-inline" label-position="left" label-width="80px">
+          <el-form class="demo-form-inline" label-position="left" label-width="80px">
             <!-- <div class="btc_option">
               <img src="@/assets/ETH.png" class="money_img" v-if="form.transferCurrency=='ETH'" />
               <img
@@ -28,7 +28,7 @@
                 <el-option label="USDT(ERC20)" value="USDT(ERC20)"></el-option>
                 <el-option label="USDT(TRC20)" value="USDT(TRC20)"></el-option>
               </el-select>
-            </div> -->
+            </div>-->
             <el-form-item label="ETH" class="w20">
               <template slot="label">
                 <img src="@/assets/ETH.png" class="money_img" />
@@ -43,9 +43,9 @@
                 effect="dark"
                 content="每次查询仅支持一个地址，请添加您所知道的汇往该地址的全部转账，不同地址请分开提交查询"
                 placement="top-start"
-              > -->
-                <!-- <i class="el-icon-question"></i> -->
-              <!-- </el-tooltip> -->
+            >-->
+            <!-- <i class="el-icon-question"></i> -->
+            <!-- </el-tooltip> -->
             <!-- </el-form-item> -->
             <el-form-item label="转账金额" class="w15">
               <el-input v-model="form.transferValue" placeholder="请输入" class="btc_money"></el-input>
@@ -59,15 +59,23 @@
                 class="btc_money"
               ></el-date-picker>
             </el-form-item>
-            <el-form-item label="累计几次" class="w10" >
+            <el-form-item label="累计几次" class="w10">
               <!-- <el-input-number
                 v-model="form.transferCnt"
                 :min="1"
                 :max="10"
                 label="描述文字"
                 class="btc_money"
-              ></el-input-number> -->
-              <el-input-number v-model="num" controls-position="right" @change="handleChange" :min="1" :max="10" class="btc_money" id="btc"></el-input-number>
+              ></el-input-number>-->
+              <el-input-number
+                v-model="num"
+                controls-position="right"
+                @change="handleChange"
+                :min="1"
+                :max="10"
+                class="btc_money"
+                id="btc"
+              ></el-input-number>
             </el-form-item>
             <el-form-item label="转账截图" class="w20">
               <el-upload
@@ -171,7 +179,11 @@
                   @click="addNewTran"
                   icon="el-icon-plus"
                 >增加一笔新的转账</el-button>-->
-                <el-button type="primary" class="startButton" @click="$router.push({path:'/fraud/preparationFile'})">返回上一步</el-button>
+                <el-button
+                  type="primary"
+                  class="startButton"
+                  @click="$router.push({path:'/fraud/preparationFile'})"
+                >返回上一步</el-button>
                 <el-button type="primary" class="startButton" @click="startAnalysis">提交</el-button>
               </el-col>
             </el-row>
@@ -210,11 +222,11 @@
       </el-card>
       <el-dialog title="支付信息" :visible.sync="paymentVisble" width="30%">
         <span>
-          <i class="el-icon-circle-check" />已付款成功
+          <i class="el-icon-circle-check" />
+          <span class="success_txt">付款成功，系统将于24小时内生成报告，届时将给您发送查询报告短信，请注意查收！</span>
         </span>
-        <span>24小时出报告，会给您手机发查询密码，请登录“司法入口”查询。</span>
         <span slot="footer" class="dialog-footer">
-          <el-button type="primary" @click="resetForm">再提交一笔</el-button>
+          <el-button type="primary" @click="resetForm">确认</el-button>
         </span>
       </el-dialog>
     </div>
@@ -240,7 +252,7 @@ export default {
       searchName: "1",
       btc: "1",
       flow: "",
-      num:1,
+      num: 1,
       form: {
         transferCurrency: "ETH",
         transferAddress: "",
@@ -295,8 +307,8 @@ export default {
   },
   methods: {
     handleChange(value) {
-        console.log(value);
-      },
+      console.log(value);
+    },
     // 清空表单
     resetForm() {
       // for (const w in this.form) {
@@ -391,6 +403,10 @@ export default {
 </script>
 
 <style  scoped>
+.success_txt {
+  font-size: 22px;
+  font-weight: 500;
+}
 /deep/ .el-upload-list__item {
   width: 7.708vw;
   height: 7.708vw;
@@ -461,7 +477,7 @@ export default {
   margin-top: 10px;
   height: 80%;
 }
-.demo-form-inline{
+.demo-form-inline {
   width: 750px;
   margin: 50px auto 0;
 }
@@ -544,15 +560,15 @@ export default {
 /deep/ .el-card__body {
   padding: 15px;
 }
-/deep/ .el-input__icon el-icon-date ::after{
+/deep/ .el-input__icon el-icon-date ::after {
   width: 64.302vw;
 }
-/deep/.el-input__prefix .el-icon-date{
+/deep/.el-input__prefix .el-icon-date {
   width: 64.302vw;
-  }
-/deep/.el-input--prefix .el-input__inner{
+}
+/deep/.el-input--prefix .el-input__inner {
   padding-left: 15px;
-  }
+}
 .btc_input {
   width: 280px;
   display: block;
@@ -573,13 +589,13 @@ export default {
 }
 .money_img {
   width: 20px;
-  height:20px;
+  height: 20px;
   vertical-align: middle;
   /* position: absolute;
   top: 8px;
   left: 8px; */
 }
-/deep/ .el-form-item span{
+/deep/ .el-form-item span {
   vertical-align: middle;
 }
 .app-cont {
@@ -629,19 +645,19 @@ export default {
   height: 552px;
   margin-bottom: 25px;
 }
-.address_info{
+.address_info {
   width: 263px;
   height: 90px;
   padding: 21px 84px 39px 32px;
 }
 .address_info span {
   width: 147px;
-height: 30px;
-font-size: 24px;
-font-family: PingFangSC-Medium, PingFang SC;
-font-weight: 600;
-color: #000000;
-line-height: 30px;
+  height: 30px;
+  font-size: 24px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 600;
+  color: #000000;
+  line-height: 30px;
 }
 .address {
   padding-left: 18px;
@@ -653,7 +669,7 @@ line-height: 30px;
   line-height: 3;
 }
 .operation {
-  margin:50px auto;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
 }
@@ -675,14 +691,14 @@ line-height: 30px;
 .w15 {
   width: 22%;
 }
-/deep/.w10 .el-input__inner{
+/deep/.w10 .el-input__inner {
   width: 150px;
 }
-/deep/.w10 .el-input-number{
+/deep/.w10 .el-input-number {
   width: 150px;
 }
-/deep/.w10 .el-input{
-  width: 150px;  
+/deep/.w10 .el-input {
+  width: 150px;
 }
 .clearfix div {
   margin-left: 25px;
@@ -712,10 +728,10 @@ line-height: 30px;
   border: none;
   background: none;
   width: 640px;
-  height:40px;
-  background: #FFFFFF;
+  height: 40px;
+  background: #ffffff;
   border-radius: 4px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
 }
 .btc_select {
   /* width: 105px; */
@@ -730,10 +746,10 @@ line-height: 30px;
   border: none;
   background: none;
   width: 640px;
-  height:40px;
-  background: #FFFFFF;
+  height: 40px;
+  background: #ffffff;
   border-radius: 4px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
 }
 
 /* /deep/.el-input__inner:nth-child(4){
@@ -788,8 +804,8 @@ line-height: 30px;
     width: 82px;
     height: 32px;
     border-radius: 8px;
-    border: 1px solid #0870F1;
-    margin-bottom:20px;
+    border: 1px solid #0870f1;
+    margin-bottom: 20px;
   }
   .editExample span {
     width: 57px;
@@ -797,7 +813,7 @@ line-height: 30px;
     font-size: 14px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
-    color: #0870F1;
+    color: #0870f1;
     line-height: 20px;
   }
   /* /deep/ .el-icon-question {
@@ -909,7 +925,7 @@ line-height: 30px;
   .btc_input {
     width: 280px;
     display: block;
-    height: 40px
+    height: 40px;
   }
   .tran-card {
     /* height: 100%; */

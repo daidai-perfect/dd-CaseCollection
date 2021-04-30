@@ -55,7 +55,6 @@ service.interceptors.request.use(
 // response interceptor
 service.interceptors.response.use(
   response => {
-    console.log(response);
     if (loading) loading.close();
     const res = response.data;
     if (res.code == 401) {
@@ -67,7 +66,6 @@ service.interceptors.response.use(
       store.dispatch("user/logout");
       // removeToken();
     } else {
-      console.log(response.config.isLoading);
       if (res.code != "200" && !response.config.isLoading) {
         Message({
           message: res.msg,

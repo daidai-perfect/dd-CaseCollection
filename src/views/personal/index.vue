@@ -103,7 +103,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .menu {
   margin-top: 50px;
 }
@@ -151,16 +151,16 @@ export default {
   margin: 10px auto;
 }
 .avaImg{
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   padding: 10px;
-  margin: 30px auto 10px;
+  margin: 0 auto 10px;
   border-radius: 50%;
   border: 1px solid #25867C;
 }
 .avaImg img {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 .ordinary_user {
@@ -193,6 +193,7 @@ export default {
   width: 100%;
 }
 .user_info {
+  margin: 40px 0 0;
   text-align: center;
 }
 .browser {
