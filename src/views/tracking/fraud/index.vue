@@ -19,10 +19,10 @@
           <el-col :span="24">
             <div class="move">
               <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
-                <div v-show="!currencyMove" >
-                  <el-card class="operCard operCardOne"  >
+                <div v-show="!currencyMove">
+                  <el-card class="operCard operCardOne">
                     <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
-                    <span class="operCardSpan" >数字货币追踪</span>
+                    <span class="operCardSpan">数字货币追踪</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
                 </div>
@@ -33,34 +33,37 @@
                       <div class="flex-data" >
                         <p class="btn-border" style="font-size:20px," @click="changeStatus('/fraud/preparationFile')">数字货币追踪</p>
                       </div>
-                    </div> -->
+                    </div>-->
                     <p class="flex-desc">电信、网络诈骗案件</p>
                     <p class="flex-desc">数字货币追踪服务</p>
                     <div class="flex-data" style="margin-top:20px">
-                      <p class="btn-border" >数字货币追踪</p>
+                      <p class="btn-border">数字货币追踪</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div @mouseleave="mous(2)" @mouseenter="mous2(2)">
                 <div v-show="!moneyMove">
-                  <el-card class="operCard"  >
+                  <el-card class="operCard">
                     <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
                     <span class="operCardSpan">资产盘监控</span>
                   </el-card>
                   <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
                 </div>
-                <div v-show="moneyMove" >
-                  <div class="flex-cont_hide" @click="changeStatus('/fraud/preparationFileMonitor')" >
+                <div v-show="moneyMove">
+                  <div
+                    class="flex-cont_hide"
+                    @click="changeStatus('/fraud/preparationFileMonitor')"
+                  >
                     <!-- <p class="flex-desc"></p>
                     <p class="flex-desc"></p>
 
                     <div class="flex-data" >
-                      <p class="btn-border" ></p> -->
+                    <p class="btn-border" ></p>-->
                     <p class="flex-desc">网络传销、网络赌博非法集资</p>
                     <p class="flex-desc">等案件的资金定位、监控</p>
                     <div class="flex-data" style="margin-top:20px">
-                      <p class="btn-border" >资金盘监控</p>
+                      <p class="btn-border">资金盘监控</p>
                     </div>
                   </div>
                 </div>
@@ -102,7 +105,7 @@ export default {
       }
     },
     mous2(status) {
-      console.log('chufale')
+      console.log("chufale");
       switch (status) {
         case 1:
           this.currencyMove = true;
@@ -117,7 +120,6 @@ export default {
 </script>
 
 <style scoped>
-
 .btn-border {
   /* height: 50px; */
   margin: 0 auto;
@@ -150,12 +152,12 @@ export default {
   align-items: center;
   text-align: center;
   /* justify-content: space-around; */
-  background: #196DFF;
+  background: #196dff;
 }
 
 .flex-data {
   /* margin-top: 20px; */
-  background: #14469D;
+  background: #14469d;
   padding: 0 24px;
   width: 200px;
   height: 52px;
@@ -169,7 +171,6 @@ export default {
   height: 40px;
 }
 
-
 /deep/ .el-button--text {
   color: #333333;
 }
@@ -178,14 +179,16 @@ export default {
   height: 223px;
   cursor: pointer;
   padding-top: 158px;
-  background:#EAF1FD url('../../../assets/img/iocn2@2x.png') 40px 30px/240px 130px no-repeat;
+  background: #eaf1fd url("../../../assets/img/iocn2@2x.png") 40px 30px/240px
+    130px no-repeat;
 }
-.operCardOne{
-  background:#EAF1FD url('../../../assets/img/icon1@2x.png') 40px 30px/240px 130px no-repeat;
+.operCardOne {
+  background: #eaf1fd url("../../../assets/img/icon1@2x.png") 40px 30px/240px
+    130px no-repeat;
 }
-.operCardSpan{
+.operCardSpan {
   font-size: 20px;
-  font-family:"PingFangSC-Medium";
+  font-family: "PingFangSC-Medium";
   font-weight: 500;
 }
 /* .operCard img {
@@ -280,7 +283,8 @@ export default {
   margin-top: 30px;
   height: 89%;
   font-size: 23px;
-  background: url("../../../assets/smallBack.png") no-repeat 100% 100%/100% 100% white;
+  background: url("../../../assets/smallBack.png") no-repeat 100% 100%/100% 100%
+    white;
   display: flex;
 }
 /deep/ .el-card__header {
@@ -461,10 +465,10 @@ export default {
     vertical-align: middle;
   }
   .app-cont {
-    width: 73%;
+    width: 90%;
     margin: 0 auto;
     color: white;
-    margin-top: 25px;
+    margin-top: 57px;
   }
   .browser {
     width: 100%;
@@ -478,6 +482,18 @@ export default {
     font-size: 23px;
     cursor: pointer;
     color: black;
+  }
+  .operCard {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    padding-top: 87px;
+    background: #eaf1fd url("../../../assets/img/iocn2@2x.png") 10px 20px/100px
+      70px no-repeat;
+  }
+  .operCardOne {
+    background: #eaf1fd url("../../../assets/img/icon1@2x.png") 10px 20px/100px
+      70px no-repeat;
   }
 }
 </style>

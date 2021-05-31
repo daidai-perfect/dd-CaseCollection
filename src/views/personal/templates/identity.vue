@@ -15,24 +15,25 @@
             class="status"
           >{{item.status | getStatus }}</span>
         </p>
-      </div> -->
+      </div>-->
       <el-table
-      :data="idenList"
-      :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
-      class="tables"
-    >
-      <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
-      <el-table-column prop="reportNo" label="提交时间" min-width="100px">
-        <template slot-scope="{ row }">{{row.createTime | getDate}}</template>
-      </el-table-column>
-      <el-table-column prop="reportType" label="证明材料" min-width="100px">
-        <template slot-scope="{ row }">
-          <img :src="row.fileUrl" alt=""></template>
-      </el-table-column>
-      <el-table-column prop="reportStatus" label="当前状态" min-width="100px">
-        <template slot-scope="{ row }">{{row.status | getStatus }}</template>
-      </el-table-column>
-    </el-table>
+        :data="idenList"
+        :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
+        class="tables"
+      >
+        <!-- <el-table-column prop="id" label="报告id"></el-table-column> -->
+        <el-table-column prop="reportNo" label="提交时间" min-width="100px">
+          <template slot-scope="{ row }">{{row.createTime | getDate}}</template>
+        </el-table-column>
+        <el-table-column prop="reportType" label="证明材料">
+          <template slot-scope="{ row }">
+            <img :src="row.fileUrl" alt />
+          </template>
+        </el-table-column>
+        <el-table-column prop="reportStatus" label="当前状态" min-width="100px">
+          <template slot-scope="{ row }">{{row.status | getStatus }}</template>
+        </el-table-column>
+      </el-table>
     </div>
     <Pagination
       v-show="total > 0"
@@ -83,8 +84,8 @@ export default {
       idenList: [],
       params: {
         pageNo: 1,
-        pageSize:10,
-        userId: "",
+        pageSize: 10,
+        userId: ""
       }
     };
   },
@@ -95,26 +96,24 @@ export default {
     Pagination: Pagination
   },
   mounted() {
-    this.getPersonList()
+    this.getPersonList();
   },
   methods: {
     fetchData(val) {
-      console.log(val,'1111111111111')  
-      this.params.pageNo= val.page
-      this.getPersonList()
+      console.log(val, "1111111111111");
+      this.params.pageNo = val.page;
+      this.getPersonList();
     },
-    getPersonList(){
+    getPersonList() {
       this.params.userId = this.sysUser.id;
       Api_person.getPersonList(this.params).then(res => {
         console.log(res, "身份管理");
         this.idenList = res.data.data.list;
         this.total = res.data.data.total;
         // this.tableData = res.data.list;
-        // this.total = res.data.data.total - 0; 
-        
+        // this.total = res.data.data.total - 0;
       });
     }
-
   }
 };
 </script>
@@ -184,5 +183,20 @@ export default {
   width: 30px;
   font-size: 14px;
   font-weight: 500;
+}
+@media screen and (max-width: 750px) {
+  /deep/ .cell img {
+    height: 40%;
+    width: 40%;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .tables {
+    margin-top: 30px;
+  }
+  .contier {
+    padding: 10px;
+    padding-top: 50px;
+  }
 }
 </style>

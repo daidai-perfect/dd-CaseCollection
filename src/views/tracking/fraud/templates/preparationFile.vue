@@ -162,7 +162,7 @@ export default {
   text-align: center;
 }
 .dashLine {
-  border: 1px dashed #0074F8;
+  border: 1px dashed #0074f8;
   display: inline-block;
   position: absolute;
   top: 25px;
@@ -327,6 +327,83 @@ export default {
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
+  .startButton {
+    width: 240px;
+    height: 40px;
+    font-family: PingFang-SC-Bold;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 16px;
+    /* margin-left: 30px; */
+  }
+  .flex-cont {
+    position: relative;
+    top: 45%; /*偏移*/
+    transform: translateY(35%);
+  }
+  .stepIer {
+    height: 300px;
+    text-align: center;
+  }
+  .dashLine {
+    border: 1px dashed #0074f8;
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    /* left: 100px; */
+    right: -34px;
+    width: 65px;
+    height: 0px;
+  }
+  .stepCont {
+    display: inline-block;
+    text-align: center;
+    width: 33%;
+    position: relative;
+  }
+  .stepCont img {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .stepCont p {
+    color: #333333;
+    position: absolute;
+    font-size: 10px;
+    left: 14px;
+  }
+  .numRadius {
+    height: 30px;
+    width: 30px;
+    color: #0074f8;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 24px;
+    border: 1px solid #0074f8;
+    margin: 0px auto;
+  }
+  /* /deep/ .el-step__line {
+  border-style: dashed;
+} */
+  .address_info {
+    margin-bottom: 20px;
+  }
+  .submitRow {
+    text-align: center;
+    padding-right: 140px;
+  }
+  /deep/ .el-form-item__content {
+    float: none;
+    display: inline-block;
+    margin: 0 !important;
+  }
+  /deep/ .el-form-item__label-wrap {
+    display: inline-block;
+    float: none;
+  }
   .explainImg {
     width: 50%;
     height: 800px;
@@ -384,6 +461,8 @@ export default {
     margin-top: 30px;
     height: 89%;
     font-size: 20px;
+    /* display: flex;
+  align-items: center; */
   }
   /deep/ .el-card__header {
     background: #e5e9ef;
@@ -413,10 +492,10 @@ export default {
     vertical-align: middle;
   }
   .app-cont {
-    width: 73%;
+    width: 90%;
     margin: 0 auto;
     color: white;
-    margin-top: 25px;
+    margin-top: 57px;
   }
   .browser {
     width: 100%;

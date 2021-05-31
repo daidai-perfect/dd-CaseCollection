@@ -374,4 +374,30 @@ export default {
 .address {
   padding-left: 18px;
 }
+/* 移动端 */
+@media screen and (max-width: 750px) {
+  .app-cont {
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 25px;
+  }
+  .moneyImg {
+    width: 118px;
+    height: 30px;
+    margin-bottom: 10px;
+    /* margin-top: 20px;
+  position: absolute;
+  top: -10px;
+  right: 25%; */
+  }
+  .form_param p {
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #000000;
+  line-height: 16px;
+  margin-top: 10px;
+}
+}
 </style>

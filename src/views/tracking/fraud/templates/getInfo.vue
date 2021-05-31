@@ -15,7 +15,7 @@
               </el-select>
             </div>
             <el-form-item class="w20">
-              <el-input v-model="form.btcAddress" placeholder="请输入诈骗嫌疑人地址" class="btc_money"></el-input>
+              <el-input v-model="form.btcAddress" placeholder="请输入诈骗嫌疑人地址1" class="btc_money"></el-input>
             </el-form-item>
             <el-form-item label="交易金额(BTC)" class="w20">
               <el-input v-model="form.money" placeholder="请输入" class="btc_money"></el-input>

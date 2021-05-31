@@ -1,5 +1,9 @@
 <template>
   <div class="contier">
+    <div class="title_cont">
+      <p>报告管理</p>
+      <!-- <p>资料提交记录</p> -->
+    </div>
     <div
       v-if="active !== 0"
       style="background:rgb(102, 102, 102);padding-left: 20px;margin-bottom: 30px;cursor: pointer;"
@@ -12,23 +16,23 @@
       style="display: flex;padding: 0 20px;width:100%;margin-bottom: 5px;justify-content: space-between;align-items: center;"
     >
       <div style="display: flex; width: 90%; overflow: auto;white-space: nowrap;">
-          <div
-            v-for="item in dirList"
-            @click="select(item)"
-            :key="item.id"
-            @dragleave="dragleave"
-            class="group"
-            @dragover="allowDrop"
-            @drop="drop"
-            :id="item.id"
-          >
-              <img src="../../../assets/img/文件夹@2x.png" width="30" alt />
-            {{item.name}}
-          </div>
+        <div
+          v-for="item in dirList"
+          @click="select(item)"
+          :key="item.id"
+          @dragleave="dragleave"
+          class="group"
+          @dragover="allowDrop"
+          @drop="drop"
+          :id="item.id"
+        >
+          <img src="../../../assets/img/文件夹@2x.png" width="30" alt />
+          {{item.name}}
+        </div>
       </div>
       <div>
         <!-- <i>+</i> -->
-        <el-button type="primary" @click="dialogVisible = true">+ 添加</el-button>
+        <el-button type="primary" @click="dialogVisible = true" class="addButton">+ 添加</el-button>
       </div>
     </div>
 
@@ -52,7 +56,7 @@
       </el-table-column>
       <el-table-column prop="createTime" label="创建时间" min-width="90px"></el-table-column>
       <el-table-column prop="updateTime" label="更新时间" min-width="90px"></el-table-column>
-      <el-table-column label="操作" fixed="right" min-width="135px">
+      <el-table-column label="操作" min-width="135px">
         <template slot-scope="{row}">
           <el-button type="text" @click="downLoadReport(row)">下载</el-button>
           <el-button type="text" @click="share(row)">分享</el-button>
@@ -123,10 +127,10 @@
     </el-dialog>
 
     <el-dialog title="新建文件夹" :visible.sync="dialogVisible" width="30%">
-      <el-input v-model="fileName" style="width:100%" />
+      <el-input v-model="fileName" style="width:100%" class="form_doms" placeholder="请输入"/>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="clear">取 消</el-button>
-        <el-button type="primary" @click="categoryAdd">确 定</el-button>
+        <el-button @click="clear" class="startButton">取 消</el-button>
+        <el-button type="primary" @click="categoryAdd" class="startButton">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -182,7 +186,7 @@ export default {
       shareTxt: "",
       paymentVisble: false,
       dirList: [],
-      fileName: '',
+      fileName: "",
       postForm: {
         caseDesc: ""
       },
@@ -213,7 +217,7 @@ export default {
   },
   mounted() {
     this.getReportList();
-    this.getAllCategory()
+    this.getAllCategory();
     if (this.$route.params.status) {
       this.paymentVisble = true;
     }
@@ -225,34 +229,34 @@ export default {
         categoryId: parseInt(categoryId),
         reportId: parseInt(reportId),
         userId: this.sysUser.id
-      })
+      });
       this.getReportList();
     },
     clear() {
-      this.dialogVisible = false
-      this.fileName = ''
+      this.dialogVisible = false;
+      this.fileName = "";
     },
     // 新增文件
     async categoryAdd() {
       await Api_person.categoryAdd({
         name: this.fileName,
         userId: this.sysUser.id
-      })
-      this.fileName = ''
-      this.dialogVisible = false
-      this.getAllCategory()
+      });
+      this.fileName = "";
+      this.dialogVisible = false;
+      this.getAllCategory();
     },
     // 获取文件夹列表
     async getAllCategory() {
-      const data = await Api_person.getAllCategory()
-      this.dirList = data.data
+      const data = await Api_person.getAllCategory();
+      this.dirList = data.data;
     },
     dragleave(ev) {
       ev.target.classList.remove("active");
     },
     select(item) {
       this.active = item.id;
-      this.params.categoryId = item.id || undefined
+      this.params.categoryId = item.id || undefined;
       this.getReportList();
     },
     allowDrop(ev) {
@@ -263,7 +267,7 @@ export default {
       ev.preventDefault();
       var reportId = ev.dataTransfer.getData("reportId");
       ev.target.classList.remove("active");
-      this.reportCategory(reportId, ev.target.id)
+      this.reportCategory(reportId, ev.target.id);
     },
     // 提交分析
     startAnalysis() {
@@ -276,10 +280,10 @@ export default {
     },
     // 加载数据
     fetchData() {
-      this.params.pageNo= val.page
-      this.getReportList()
+      this.params.pageNo = val.page;
+      this.getReportList();
     },
-    getReportList(){
+    getReportList() {
       this.params.userId = this.sysUser.id;
       Api_person.getReportList(this.params).then(res => {
         this.tableData = res.data.list;
@@ -291,7 +295,10 @@ export default {
               e.setAttribute("draggable", true);
               e.addEventListener("dragstart", ev => {
                 ev.target.id = "tr" + Math.random();
-                ev.dataTransfer.setData("reportId", this.tableData[k+1].reportId);
+                ev.dataTransfer.setData(
+                  "reportId",
+                  this.tableData[k + 1].reportId
+                );
               });
             }
           });
@@ -366,12 +373,40 @@ export default {
   color: black;
 } */
 .tables {
-  width: 95%;
+  width: 100%;
   margin: 0px auto;
   /* background: #FAFAFA; */
 }
+
 .contier {
-  padding-top: 20px;
+  padding: 30px;
+}
+/* 移动端 */
+@media screen and (max-width: 750px) {
+  .contier {
+    padding: 10px;
+    padding-top: 50px;
+  }
+  /deep/ .el-dialog {
+    width: 60% !important;
+  }
+  .startButton {
+    width: 45px;
+    margin-right: 10px;
+    height: 35px;
+    font-family: PingFang-SC-Bold;
+    font-size: 12px;
+    text-align: center;
+    line-height: 16px;
+    /* margin-left: 30px; */
+  }
+  /deep/ .el-input__inner {
+    height: 20px;
+  }
+  .addButton{
+    height: 25px;
+    width: 50px;
+  }
 }
 /deep/ .cell {
   font-size: 14px;
@@ -397,5 +432,18 @@ export default {
 }
 .active {
   opacity: 0.5;
+}
+.title_cont {
+  width: 100%;
+}
+.title_cont p {
+  /*font-size: 24px;
+  color: #333333;
+  letter-spacing: 0; */
+  /* height: 25px; */
+  font-size: 24px !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
 }
 </style>

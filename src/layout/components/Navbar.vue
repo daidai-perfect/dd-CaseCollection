@@ -25,7 +25,7 @@
                 <el-menu-item index="/fraud">电信诈骗</el-menu-item>
                 <el-menu-item index="/digital">数字货币项目</el-menu-item>
               </el-submenu>-->
-              <!-- <el-menu-item index="/fraud">资产追踪</el-menu-item> -->
+              <el-menu-item index="/fraud">资产追踪</el-menu-item>
               <el-menu-item index="/judicial">司法入口</el-menu-item>
               <el-menu-item index="/complaint">举报骗局</el-menu-item>
               <el-menu-item index="/case">行业案例</el-menu-item>
@@ -437,6 +437,8 @@ li:hover {
   }
   .avaHeadImg {
     cursor: pointer;
+    width: 20px;
+    height: 20px;
   }
   .exit_img {
     width: 18px;

@@ -11,7 +11,7 @@
           value-format="yyy-MM-dd"
         ></el-date-picker>
         <el-button icon="el-icon-search" class="search_button" @click="fetchData"></el-button>
-      </div> -->
+      </div>-->
     </div>
     <div class="table_cont">
       <el-table
@@ -20,12 +20,12 @@
         style="width:100%;"
         :header-cell-style="{background:'#FAFAFA',color:'#000',fontSize: '14px',fontWeight:'500'}"
       >
-        <el-table-column type="index" label="序号" align="center" min-width="100"></el-table-column>
-        <el-table-column prop="createTime" label="提交时间" align="center" min-width="100"></el-table-column>
-        <el-table-column prop="isAuth" label="状态" align="center" min-width="100">
+        <el-table-column type="index" label="序号" align="center" width="55px"></el-table-column>
+        <el-table-column prop="createTime" label="提交时间" align="center"></el-table-column>
+        <el-table-column prop="isAuth" label="状态" align="center">
           <template slot-scope="{row}">{{row.isAuth | getAuth}}</template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" min-width="100">
+        <el-table-column label="操作" min-width="100">
           <template slot-scope="{row}">
             <el-button type="text" @click="toDetail(row)">查看详情</el-button>
           </template>
@@ -139,15 +139,15 @@ export default {
     Pagination: Pagination
   },
   mounted() {
-    this.getJudicialAidList()
+    this.getJudicialAidList();
   },
   methods: {
     fetchData() {
-      console.log(val,'1111111111111')  
-      this.params.pageNo= val.page
-      this.getJudicialAidList()
+      console.log(val, "1111111111111");
+      this.params.pageNo = val.page;
+      this.getJudicialAidList();
     },
-    getJudicialAidList(){
+    getJudicialAidList() {
       this.params.userId = this.sysUser.id;
       Api_person.getJudicialAidList(this.params).then(res => {
         this.tableData = res.data.list;
@@ -237,7 +237,8 @@ export default {
     top: 2px;
   }
   .contier {
-    padding: 30px;
+    padding: 10px;
+    padding-top: 50px;
   }
   .select_date {
     text-align: right;

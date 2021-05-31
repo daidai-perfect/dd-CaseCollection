@@ -124,7 +124,7 @@
         </span>
         <!-- <span>24小时出报告，会给您手机发查询密码，请登录“司法入口”查询。</span> -->
         <span slot="footer" class="dialog-footer">
-          <el-button type="primary" @click="resetForm">确认</el-button>
+          <el-button type="primary" class="confirmButton" @click="resetForm">确认</el-button>
         </span>
       </el-dialog>
     </div>
@@ -292,14 +292,9 @@ export default {
 
 <style scoped>
 .success_txt {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
 }
-/deep/ .el-input {
-  width: 600px;
-  /* margin-left: 5%; */
-}
-
 /deep/ .el-upload-list__item {
   width: 7.708vw;
   height: 7.708vw;
@@ -309,7 +304,7 @@ export default {
   margin: 0;
   /* line-height: 10px; */
   position: relative;
-  /* top: 48px; */
+  top: 48px;
   right: 5px;
 }
 /deep/ .el-icon-circle-check {
@@ -322,35 +317,17 @@ export default {
   cursor: pointer;
   line-height: 0;
 }
-/* .editExample {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  font-size: 16px;
-}
-.editExample span {
-  margin-left: 10px;
-  margin-right: 10px;
-  cursor: pointer;
+/* /deep/ .el-upload-list {
+  position: absolute;
+  left: 120px;
+  bottom: 0px;
 } */
-.demo-form-inline {
-  width: 750px;
-  margin: 50px auto 0;
-}
-
-.form_param {
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-}
 .editExample {
   width: 39.063vw;
   font-size: 16px;
   position: absolute;
   top: -60px;
   left: 845px;
-  font-size: 16px;
 }
 .editExample span {
   font-size: 14px;
@@ -378,9 +355,19 @@ export default {
 .value {
   width: 46%;
 }
+.form_param {
+  /* width: 1200px; */
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
 .box-card {
   margin-top: 10px;
   height: 80%;
+}
+.demo-form-inline {
+  width: 750px;
+  margin: 50px auto 0;
 }
 /deep/ .box-card > .el-card__body {
   padding: 0;
@@ -461,9 +448,15 @@ export default {
 /deep/ .el-card__body {
   padding: 15px;
 }
-/* .btc_money {
-  width: 100%;
-} */
+/deep/ .el-input__icon el-icon-date ::after {
+  width: 64.302vw;
+}
+/deep/.el-input__prefix .el-icon-date {
+  width: 64.302vw;
+}
+/deep/.el-input--prefix .el-input__inner {
+  padding-left: 15px;
+}
 .btc_input {
   width: 280px;
   display: block;
@@ -540,11 +533,6 @@ export default {
   height: 552px;
   margin-bottom: 25px;
 }
-/* .address_info span {
-  font-family: PingFang-SC-Bold;
-  font-size: 20px;
-  vertical-align: middle;
-} */
 .address_info {
   width: 263px;
   height: 90px;
@@ -569,7 +557,7 @@ export default {
   line-height: 3;
 }
 .operation {
-  margin: 140px auto 0;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
 }
@@ -579,20 +567,26 @@ export default {
 /deep/ .el-input__suffix {
   right: 13px;
 }
-/* .btc_option {
+.btc_option {
   position: absolute;
-} */
+}
 .w13 {
-  width: 15%;
+  width: 20%;
 }
 .w20 {
-  width: 60%;
+  width: 35%;
 }
 .w15 {
-  width: 15%;
+  width: 22%;
 }
-.w10 {
-  width: 10%;
+/deep/.w10 .el-input__inner {
+  width: 150px;
+}
+/deep/.w10 .el-input-number {
+  width: 150px;
+}
+/deep/.w10 .el-input {
+  width: 150px;
 }
 .clearfix div {
   margin-left: 25px;
@@ -628,28 +622,33 @@ export default {
   border: 1px solid #d9d9d9;
 }
 .btc_select {
-  width: 180px;
-  right: 8px;
+  /* width: 105px; */
+  /* right: 8px; */
 }
 /deep/ .tran-card > .el-card__body {
   /* height: 100%; */
   height: 100%;
 }
-/deep/ .el-card__header {
-  background: #e5e9ef;
-  font-family: PingFang-SC-Bold;
-  font-size: 16px;
-  color: #151c2c;
-  line-height: 16px;
-}
-/deep/ .el-input__inner {
-  background: #f5f5f5;
+
+/deep/.el-input__inner {
+  border: none;
+  background: none;
   width: 640px;
   height: 40px;
   background: #ffffff;
   border-radius: 4px;
   border: 1px solid #d9d9d9;
 }
+
+/* /deep/.el-input__inner:nth-child(4){
+  border: none;
+  background: none;
+  width: 650px;
+  height:40px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
+} */
 /deep/ .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
@@ -657,9 +656,30 @@ export default {
   color: #151c2c;
   line-height: 16px;
 }
-
+/deep/ .el-card__header {
+  background: #e5e9ef;
+  font-family: PingFang-SC-Bold;
+  font-size: 16px;
+  color: #151c2c;
+  line-height: 16px;
+}
 /* 移动端 */
 @media screen and (max-width: 750px) {
+  .confirmButton{
+    width: 40px;
+    height: 35px;
+  }
+  /deep/ .el-dialog{
+    width: 60% !important;
+  }
+  .success_txt {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  /deep/ .el-upload-list__item {
+    width: 7.708vw;
+    height: 7.708vw;
+  }
   .removeCont {
     float: right;
     margin: 0;
@@ -678,31 +698,36 @@ export default {
     cursor: pointer;
     line-height: 0;
   }
-  /deep/ .el-upload-list {
-    position: absolute;
-    left: 120px;
-    bottom: 0px;
-  }
+  /* /deep/ .el-upload-list {
+  position: absolute;
+  left: 120px;
+  bottom: 0px;
+} */
   .editExample {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+    width: 200px;
     font-size: 16px;
+    position: absolute;
+    top: -60px;
+    left: 125px;
   }
   .editExample span {
+    font-size: 10px;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
+    border: 2px solid rgb(44, 134, 243);
+    border-radius: 8px;
+    color: rgb(44, 134, 243);
+    padding: 5px 10px;
   }
   /* /deep/ .el-icon-question {
-    cursor: pointer;
-    color: black;
-    line-height: 5px;
-    position: absolute;
-    right: 12px;
-    top: 18px;
-  } */
+  cursor: pointer;
+  color: black;
+  line-height: 5px;
+  position: absolute;
+  right: 12px;
+  top: 18px;
+} */
   .solid {
     text-align: center;
     margin-left: 2px;
@@ -712,11 +737,18 @@ export default {
     width: 46%;
   }
   .form_param {
+    /* width: 1200px; */
     height: 100%;
+    margin: 0 auto;
+    position: relative;
   }
   .box-card {
     margin-top: 10px;
     height: 80%;
+  }
+  .demo-form-inline {
+    width: 750px;
+    margin: 50px auto 0;
   }
   /deep/ .box-card > .el-card__body {
     padding: 0;
@@ -797,22 +829,21 @@ export default {
   /deep/ .el-card__body {
     padding: 15px;
   }
-  /* .btc_money {
-    /* width: 100%; 
-  } */
+  /deep/ .el-input__icon el-icon-date ::after {
+    width: 64.302vw;
+  }
+  /deep/.el-input__prefix .el-icon-date {
+    width: 64.302vw;
+  }
+  /deep/.el-input--prefix .el-input__inner {
+    padding-left: 15px;
+  }
   .btc_input {
     width: 280px;
     display: block;
     height: 40px;
   }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
-    width: 640px;
-    height: 40px;
-    background: #ffffff;
-    border-radius: 4px;
-    border: 1px solid #d9d9d9;
-  }
+
   .tran-card {
     /* height: 100%; */
     margin-top: 30px;
@@ -826,12 +857,18 @@ export default {
     line-height: 16px;
   }
   .money_img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    /* position: absolute;
+  top: 8px;
+  left: 8px; */
+  }
+  /deep/ .el-form-item span {
     vertical-align: middle;
   }
   .app-cont {
-    width: 73%;
+    width: 90%;
     margin: 0 auto;
     color: white;
     margin-top: 25px;
@@ -844,9 +881,6 @@ export default {
   .selectType {
     width: 280px;
     height: 40px;
-  }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
   }
   .agree_button {
     display: block;
@@ -880,10 +914,20 @@ export default {
     height: 552px;
     margin-bottom: 25px;
   }
+  .address_info {
+    width: 263px;
+    height: 90px;
+    padding: 21px 84px 39px 32px;
+    padding-left: 0px;
+  }
   .address_info span {
-    font-family: PingFang-SC-Bold;
-    font-size: 20px;
-    vertical-align: middle;
+    width: 147px;
+    height: 30px;
+    font-size: 24px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 600;
+    color: #000000;
+    line-height: 30px;
   }
   .address {
     padding-left: 18px;
@@ -895,7 +939,9 @@ export default {
     line-height: 3;
   }
   .operation {
-    margin-bottom: 20px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
   }
   /deep/ .el-form-item {
     margin-bottom: 15px;
@@ -907,10 +953,22 @@ export default {
     position: absolute;
   }
   .w13 {
-    width: 15%;
+    width: 20%;
   }
   .w20 {
-    width: 20.5%;
+    width: 35%;
+  }
+  .w15 {
+    width: 22%;
+  }
+  /deep/.w10 .el-input__inner {
+    width: 160px;
+  }
+  /deep/.w10 .el-input-number {
+    width: 150px;
+  }
+  /deep/.w10 .el-input {
+    width: 150px;
   }
   .clearfix div {
     margin-left: 25px;
@@ -939,17 +997,46 @@ export default {
   /deep/ .btc_select > .el-input > .el-input__inner {
     border: none;
     background: none;
+    width: 640px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
   }
   .btc_select {
-    width: 100px;
-    right: 8px;
+    /* width: 105px; */
+    /* right: 8px; */
   }
   /deep/ .tran-card > .el-card__body {
     /* height: 100%; */
     height: 100%;
   }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
+
+  /deep/.el-input__inner {
+    border: none;
+    background: none;
+    width: 220px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+  }
+
+  /* /deep/.el-input__inner:nth-child(4){
+  border: none;
+  background: none;
+  width: 650px;
+  height:40px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
+} */
+  /deep/ .el-card__header {
+    background: #e5e9ef;
+    font-family: PingFang-SC-Bold;
+    font-size: 16px;
+    color: #151c2c;
+    line-height: 16px;
   }
   /deep/ .el-card__header {
     background: #e5e9ef;
@@ -958,15 +1045,27 @@ export default {
     color: #151c2c;
     line-height: 16px;
   }
-  /deep/ .el-input__inner {
-    background: #f5f5f5;
+  .money_img {
+    margin-right: 5px;
   }
-  /deep/ .el-card__header {
-    background: #e5e9ef;
+  .startButton {
+    width: 100px;
+    margin-right: 10px;
+    height: 40px;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
-    color: #151c2c;
+    color: #ffffff;
+    text-align: center;
     line-height: 16px;
+    /* margin-left: 30px; */
+  }
+  /deep/ .el-input-number__increase {
+    right: -8px;
+    width: 20px;
+  }
+  /deep/ .el-input-number__decrease {
+    right: -8px !important;
+    width: 20px;
   }
 }
 </style>
