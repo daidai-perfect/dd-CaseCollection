@@ -215,7 +215,8 @@ export default {
     width: 93%;
     margin: 0 auto;
     color: white;
-    margin-top: 35px;
+    margin-top: 75px;
+    height: 79%;
   }
   /deep/ .el-menu-item {
     text-align: center;

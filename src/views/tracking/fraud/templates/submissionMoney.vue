@@ -665,11 +665,11 @@ export default {
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
-  .confirmButton{
+  .confirmButton {
     width: 40px;
     height: 35px;
   }
-  /deep/ .el-dialog{
+  /deep/ .el-dialog {
     width: 60% !important;
   }
   .success_txt {
@@ -1066,6 +1066,13 @@ export default {
   /deep/ .el-input-number__decrease {
     right: -8px !important;
     width: 20px;
+  }
+  /deep/ .el-form-item__label {
+    font-size: 13px;
+  }
+  /deep/ .el-input__inner {
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 </style>

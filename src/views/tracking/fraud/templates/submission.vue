@@ -1175,5 +1175,12 @@ export default {
     right: -8px !important;
     width: 20px;
   }
+  /deep/ .el-form-item__label{
+    font-size: 13px;
+  }
+  /deep/ .el-input__inner{
+    font-size: 13px;
+    line-height: 20px;
+  }
 }
 </style>

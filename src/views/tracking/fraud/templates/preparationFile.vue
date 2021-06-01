@@ -405,7 +405,7 @@ export default {
     float: none;
   }
   .explainImg {
-    width: 50%;
+    width: 100%;
     height: 800px;
   }
   .explainCont {
@@ -413,7 +413,7 @@ export default {
     margin-top: 20px;
   }
   .explain {
-    font-size: 21px;
+    font-size: 18px;
     margin-top: 0;
   }
   /deep/ .el-col-3 {
@@ -486,10 +486,20 @@ export default {
     height: 552px;
     margin-bottom: 25px;
   }
+  .address_info {
+    width: 100%;
+    height: 90px;
+    padding: 21px 84px 39px 32px;
+    padding-left: 10px;
+  }
   .address_info span {
-    font-family: PingFang-SC-Bold;
-    font-size: 20px;
-    vertical-align: middle;
+    width: 147px;
+    height: 30px;
+    font-size: 24px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 600;
+    color: #000000;
+    line-height: 30px;
   }
   .app-cont {
     width: 90%;
@@ -509,9 +519,18 @@ export default {
     font-size: 23px;
   }
   /deep/ .el-icon-question {
-    font-size: 23px;
+    font-size: 16px;
     cursor: pointer;
     color: black;
+  }
+  /deep/ .el-dialog {
+    width: 85% !important;
+  }
+  /deep/ .el-dialog__title{
+    font-size: 16px;
+  }
+  /deep/ .el-dialog__close{
+    font-size: 18px;
   }
 }
 </style>

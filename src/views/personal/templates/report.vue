@@ -127,7 +127,7 @@
     </el-dialog>
 
     <el-dialog title="新建文件夹" :visible.sync="dialogVisible" width="30%">
-      <el-input v-model="fileName" style="width:100%" class="form_doms" placeholder="请输入"/>
+      <el-input v-model="fileName" style="width:100%" class="form_doms" placeholder="请输入" />
       <span slot="footer" class="dialog-footer">
         <el-button @click="clear" class="startButton">取 消</el-button>
         <el-button type="primary" @click="categoryAdd" class="startButton">确 定</el-button>
@@ -202,7 +202,7 @@ export default {
         categoryId: null
       },
       tableData: [],
-      projectVisble: false,
+      projectVisble: true,
       tableData: []
     };
   },
@@ -381,14 +381,64 @@ export default {
 .contier {
   padding: 30px;
 }
+.title_cont p {
+  /*font-size: 24px;
+  color: #333333;
+  letter-spacing: 0; */
+  /* height: 25px; */
+  font-size: 24px !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+}
+/deep/ .cell {
+  font-size: 14px;
+  font-weight: 500;
+}
+.projectCont {
+  width: auto;
+  margin: 0 auto;
+}
 /* 移动端 */
 @media screen and (max-width: 750px) {
+  /deep/ .el-form-item {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  /deep/ .el-textarea__inner {
+    height: 50px;
+    width: 200px;
+  }
+  /deep/ .el-dialog__title {
+    font-size: 16px;
+  }
+  /deep/ .el-form-item__label {
+    font-size: 14px;
+  }
+  .title_cont p {
+    /*font-size: 24px;
+  color: #333333;
+  letter-spacing: 0; */
+    /* height: 25px; */
+    font-size: 20px !important;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #000000;
+  }
   .contier {
     padding: 10px;
     padding-top: 50px;
   }
   /deep/ .el-dialog {
-    width: 60% !important;
+    width: 80% !important;
+    height: 200px;
+  }
+  /deep/ .el-dialog__body {
+    height: 70%;
+  }
+  /deep/ .el-dialog__close {
+    font-size: 18px;
   }
   .startButton {
     width: 45px;
@@ -403,15 +453,26 @@ export default {
   /deep/ .el-input__inner {
     height: 20px;
   }
-  .addButton{
+  /deep/ .el-textarea__inner {
+    font-size: 12px;
+  }
+  /deep/ .el-form-item__error {
+    font-size: 12px;
+  }
+  .addButton {
     height: 25px;
     width: 50px;
   }
+  /deep/ .cell {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  /deep/ .el-button {
+    font-size: 12px;
+    font-weight: 500;
+  }
 }
-/deep/ .cell {
-  font-size: 14px;
-  font-weight: 500;
-}
+
 .group {
   width: 130px;
   height: 50px;
@@ -435,15 +496,5 @@ export default {
 }
 .title_cont {
   width: 100%;
-}
-.title_cont p {
-  /*font-size: 24px;
-  color: #333333;
-  letter-spacing: 0; */
-  /* height: 25px; */
-  font-size: 24px !important;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #000000;
 }
 </style>

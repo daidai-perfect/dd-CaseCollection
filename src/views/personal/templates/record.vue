@@ -51,18 +51,26 @@
         <el-form ref="form" size="mini">
           <el-row :gutter="24">
             <el-col :span="8">
-              <el-form-item label="联系人姓名：">{{perForm.loginName}}</el-form-item>
+              <el-form-item label="联系人姓名：">
+                <span class="form_val">{{perForm.loginName}}</span>
+              </el-form-item>
             </el-col>
             <el-col :span="8">
-              <el-form-item label="执法机关全称：">{{perForm.name}}</el-form-item>
+              <el-form-item label="执法机关全称：">
+                <span class="form_val">{{perForm.name}}</span>
+              </el-form-item>
             </el-col>
             <el-col :span="8">
-              <el-form-item label="所在城市：">{{perForm.provName}}-{{perForm.cityName}}</el-form-item>
+              <el-form-item label="所在城市：">
+                <span class="form_val">{{perForm.provName}}-{{perForm.cityName}}</span>
+              </el-form-item>
             </el-col>
           </el-row>
           <el-row :gutter="24">
             <el-col :span="24">
-              <el-form-item label="简要情况：">{{perForm.cooperationInfo}}</el-form-item>
+              <el-form-item label="简要情况：">
+                <sapn class="form_val">{{perForm.cooperationInfo}}</sapn>
+              </el-form-item>
             </el-col>
           </el-row>
           <el-row :gutter="24">
@@ -76,13 +84,17 @@
                     class="policeImg"
                   />
                 </div>
-                <div v-else>暂无上传</div>
+                <div v-else>
+                  <span class="form_val">暂无上传</span>
+                </div>
               </el-form-item>
             </el-col>
           </el-row>
           <el-row :gutter="24">
             <el-col :span="24">
-              <el-form-item label="联系方式：">{{perForm.mobile}}</el-form-item>
+              <el-form-item label="联系方式：">
+                <span class="form_val">{{perForm.mobile}}</span>
+              </el-form-item>
             </el-col>
           </el-row>
           <!-- <el-form-item class="alignc">
@@ -206,7 +218,7 @@ export default {
   letter-spacing: 0;
   line-height: 26px;
    */
-  font-size: 24px !important;
+  font-size: 24px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #000000;
@@ -219,6 +231,10 @@ export default {
   font-size: 14px;
 }
 @media screen and (max-width: 750px) {
+  .form_val {
+    font-size: 13px;
+    line-height: px;
+  }
   .table_cont {
     margin-top: 30px;
   }
@@ -248,19 +264,42 @@ export default {
   .title_cont {
     width: 100%;
   }
-  .title_cont span {
+  .title_cont p {
     font-family: PingFang-SC-Bold;
-    font-size: 24px;
+    font-size: 20px;
     color: #333333;
     letter-spacing: 0;
     line-height: 26px;
+    font-weight: 500;
   }
   /deep/ .el-input__inner {
     height: 100%;
     background: #f5f5f5;
   }
+  /deep/ .el-dialog__title {
+    font-size: 16px;
+  }
+  /deep/ .el-form-item__label {
+    font-size: 13px;
+    line-height: 20px;
+  }
   /deep/ .cell {
-    font-size: 0.833vw;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  /deep/ .el-button {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  /deep/ .el-dialog {
+    width: 90% !important;
+    height: 200px;
+  }
+  /deep/ .el-dialog__body {
+    height: 70%;
+  }
+  /deep/ .el-dialog__close {
+    font-size: 18px;
   }
 }
 </style>

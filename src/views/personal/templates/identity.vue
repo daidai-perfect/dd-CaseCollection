@@ -159,7 +159,7 @@ export default {
   color: #333333;
   letter-spacing: 0; */
   /* height: 25px; */
-  font-size: 24px !important;
+  font-size: 24px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #000000;
@@ -197,6 +197,22 @@ export default {
   .contier {
     padding: 10px;
     padding-top: 50px;
+  }
+  .title_cont p {
+    font-family: PingFang-SC-Bold;
+    font-size: 20px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 26px;
+    font-weight: 500;
+  }
+  /deep/ .el-input__inner {
+    height: 100%;
+    background: #f5f5f5;
+  }
+  /deep/ .cell {
+    font-size: 12px;
+    font-weight: 500;
   }
 }
 </style>

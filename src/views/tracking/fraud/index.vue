@@ -17,7 +17,7 @@
         <div class="operation">-->
         <el-row>
           <el-col :span="24">
-            <div class="move">
+            <div class="move" v-if="!isMobile">
               <div @mouseleave="mous(1)" @mouseenter="mous2(1)">
                 <div v-show="!currencyMove">
                   <el-card class="operCard operCardOne">
@@ -69,6 +69,22 @@
                 </div>
               </div>
             </div>
+            <div class="move" v-else>
+              <div @click="changeStatus('/fraud/preparationFile')">
+                <el-card class="operCard operCardOne">
+                  <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
+                  <span class="operCardSpan">数字货币追踪</span>
+                </el-card>
+                <!-- <el-button class="operButotn" type="text">数字货币追踪</el-button> -->
+              </div>
+              <div @click="changeStatus('/fraud/preparationFileMonitor')">
+                <el-card class="operCard">
+                  <!-- <img src="@/assets/img/iocn2@2x.png" /> -->
+                  <span class="operCardSpan">资产盘监控</span>
+                </el-card>
+                <!-- <el-button class="operButotn" type="text">资金盘监控</el-button> -->
+              </div>
+            </div>
           </el-col>
         </el-row>
       </el-card>
@@ -77,6 +93,7 @@
 </template>
 
 <script>
+import * as mobile from "@/utils/mobile";
 export default {
   data() {
     return {
@@ -87,6 +104,12 @@ export default {
       currencyMove: false,
       moneyMove: false
     };
+  },
+  computed: {
+    isMobile() {
+      console.log(mobile);
+      return mobile.isMobile();
+    }
   },
   methods: {
     changeStatus(routeName) {
@@ -344,6 +367,9 @@ export default {
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
+  .operCardSpan {
+    font-size: 14px;
+  }
   .address_info {
     position: relative;
     left: 10px;
