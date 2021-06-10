@@ -25,7 +25,7 @@
                 <el-menu-item index="/fraud">电信诈骗</el-menu-item>
                 <el-menu-item index="/digital">数字货币项目</el-menu-item>
               </el-submenu>-->
-              <el-menu-item index="/fraud">资产追踪</el-menu-item>
+              <!-- <el-menu-item index="/fraud">资产追踪</el-menu-item> -->
               <el-menu-item index="/judicial">司法入口</el-menu-item>
               <el-menu-item index="/complaint">举报骗局</el-menu-item>
               <el-menu-item index="/case">行业案例</el-menu-item>
@@ -46,7 +46,7 @@
               </el-dropdown>
             </li>-->
             <!-- 新 -->
-            <li :class="{'active':ulIndex==1}" @click="hopRoute(1,'/fraud')">资产追踪</li>
+            <!-- <li :class="{'active':ulIndex==1}" @click="hopRoute(1,'/fraud')">资产追踪</li> -->
             <li :class="{'active':ulIndex==2}" @click="hopRoute(2,'/judicial')">司法入口</li>
             <li :class="{'active':ulIndex==3}" @click="hopRoute(3,'/complaint')">举报骗局</li>
             <li :class="{'active':ulIndex==4}" @click="hopRoute(4,'/case')">行业案例</li>
