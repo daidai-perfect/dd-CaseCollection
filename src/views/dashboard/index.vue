@@ -230,12 +230,12 @@ export default {};
           </div>
           <p>通过链审的技术梳理，可以从IP、登录设备、支付信息、电话信息、网络使用痕迹等多维度绘画区块链背后的现实操控人画像。</p>
         </li>
-        <li class="bottom">
+        <!-- <li class="bottom">
           <div class="img-box">
             <img src="@/assets/img/star@3x.png" />
           </div>
           <p>通过链审的网络攻防能力，可以获得项目后台登录权限和全部财产、人员、数据等信息。</p>
-        </li>
+        </li> -->
         <li>
           <div class="img-box">
             <img src="@/assets/img/star@3x.png" />
@@ -439,8 +439,8 @@ export default {
     background-image: url("../../assets/img/BG1@3x.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: auto 100%;
-    height: 750px;
+    background-size: 100% 100%;
+    height: 850px;
     .title {
       font-size: 32px;
       color: #3d3d3d;
@@ -449,7 +449,7 @@ export default {
     > ul {
       // padding-top: 63px;
       width: 960px;
-      margin: 0px auto;
+      margin: 50px auto;
       display: flex;
       justify-content: space-between;
       li {
@@ -580,11 +580,11 @@ export default {
   }
   .our-value {
     width: 100%;
-    height: 650px;
+    height: 450px;
     background-image: url("../../assets/img/BG3@3x.png");
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 100% 100%;
     .title {
       font-size: 32px;
       color: #3d3d3d;
@@ -604,9 +604,9 @@ export default {
       padding-top: 30px;
       justify-content: space-between;
       li {
-        width: 200px;
+        width:210px;
         &.bottom {
-          padding-top: 180px;
+          // padding-top: 180px;
         }
         .img-box {
           img {
@@ -624,19 +624,18 @@ export default {
   }
   .team-background {
     width: 100%;
-    height: 700px;
+    height: 650px;
     background-image: url("../../assets/img/BG4@3x.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: auto 100%;
+    background-size: 100% 100%;
     .title {
       font-size: 32px;
       color: #ffffff;
-      padding-top: 100px;
-      padding-bottom: 50px;
+      padding-top: 50px;
     }
     .team-item {
-      padding-top: 20px;
+      padding-top: 50px;
       .img-box {
         img {
           width: 80px;
@@ -646,12 +645,10 @@ export default {
       > h3 {
         font-size: 24px;
         color: #dbdbdb;
-        padding-top: 15px;
       }
       > p {
         font-size: 14px;
         color: #dbdbdb;
-        // padding-top: 20px;
         width: 852px;
         margin: 0 auto;
         line-height: 1.8;
@@ -664,7 +661,7 @@ export default {
     background-image: url("../../assets/img/BG5@3x.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: auto 100%;
+    background-size: 100% 100%;
     .title {
       font-size: 32px;
       color: #ffffff;
@@ -978,6 +975,7 @@ export default {
       padding-bottom: 40px;
       .title {
         font-size: 26px;
+        padding-top: 40px;
       }
       .case-list {
         width: 100%;
