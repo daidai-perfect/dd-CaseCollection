@@ -8,7 +8,7 @@
       v-if="active !== 0"
       style="background:rgb(102, 102, 102);padding-left: 20px;margin-bottom: 30px;cursor: pointer;"
     >
-      <span @click="select({id: 0})" class="management">报告管理</span> /
+      <span @click="select({id: 0})" class="management">报告管理</span> 
       <span>{{selectFile}}</span>
     </div>
     <div
@@ -202,7 +202,7 @@ export default {
         categoryId: null
       },
       tableData: [],
-      projectVisble: true,
+      projectVisble: false,
       tableData: []
     };
   },
@@ -217,7 +217,7 @@ export default {
   },
   mounted() {
     this.getReportList();
-    this.getAllCategory();
+    // this.getAllCategory();
     if (this.$route.params.status) {
       this.paymentVisble = true;
     }
