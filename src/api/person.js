@@ -48,7 +48,7 @@ export function getReportList(params) {
 }
 
 // 司法协助记录列表
-export function getJudicialAidList(params) {
+export function getJudicialAidList1(params) {
   return request({
     url: "/user/getJudicialAidList",
     method: "get",
@@ -56,6 +56,17 @@ export function getJudicialAidList(params) {
     params
   });
 }
+
+// 司法协助记录列表
+export function getJudicialAidList(params) {
+  return request({
+    url: "/file/category/getJudicialAidList",
+    method: "get",
+    isToken:true,
+    params
+  });
+}
+
 
 // 身份管理列表
 export function getPersonList(params) {

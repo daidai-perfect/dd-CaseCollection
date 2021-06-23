@@ -162,8 +162,13 @@ export default {
     getJudicialAidList() {
       this.params.userId = this.sysUser.id;
       Api_person.getJudicialAidList(this.params).then(res => {
-        this.tableData = res.data.list;
-        this.total = res.data.total - 0;
+        console.log(res);
+        if (res.data) {
+          this.tableData = res.data.list;
+          this.total = res.data.total - 0;
+        }else{
+          this.tableData=[];
+        }
       });
     },
     // 查看详情

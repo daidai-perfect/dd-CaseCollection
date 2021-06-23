@@ -207,7 +207,7 @@ export default {
     personal() {
       if (this.sysUser.type == 1) {
         this.$router.push({
-          path: "/personal/identity"
+          path: "/personal/report"
         });
       } else {
         this.$router.push({
