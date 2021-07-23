@@ -181,20 +181,20 @@ export default {
 </script>
 
 <style  scoped>
-/deep/ .el-upload--picture-card {
+::v-deep .el-upload--picture-card {
   width: 100px;
   height: 100px;
   text-align: center;
   line-height: 100px;
 }
-/deep/ .el-upload-list__item {
+::v-deep .el-upload-list__item {
   width: 5.208vw;
   height: 5.208vw;
 }
 .form_doms {
   text-align: left;
 }
-/* /deep/ .el-form-item{
+/* ::v-deep .el-form-item{
   margin-bottom: 0;
 } */
 .address_info span {
@@ -212,10 +212,10 @@ export default {
 /* .citys:nth-child(2) {
   padding-left: 5px;
 } */
-/deep/ .el-col-24 {
+::v-deep .el-col-24 {
   text-align: center;
 }
-/deep/ .el-input--suffix {
+::v-deep .el-input--suffix {
   height: 100%;
 }
 .opButton {
@@ -231,7 +231,7 @@ export default {
   width: 400px;
 }
 
-/* /deep/ .el-input__icon {
+/* ::v-deep .el-input__icon {
   margin-bottom: 20px;
 } */
 /* 移动端 */
@@ -252,14 +252,14 @@ export default {
   height: 50px;
   text-align: center;
 }
-  /deep/ .el-upload--picture-card {
+  ::v-deep .el-upload--picture-card {
     width: 100px;
     height: 100px;
     text-align: center;
     line-height: 100px;
     
   }
-  /deep/ .el-upload-list__item {
+  ::v-deep .el-upload-list__item {
     width: 100px;
     height: 100px;
   }
@@ -277,10 +277,10 @@ export default {
     width: 100px;
     font-size: 14px;
   } */
-  /deep/ .el-col-24 {
+  ::v-deep .el-col-24 {
     text-align: center;
   }
-  /deep/ .el-input--suffix {
+  ::v-deep .el-input--suffix {
     height: 100%;
   }
   /* .opButton {
@@ -295,39 +295,39 @@ export default {
   .form_doms {
     width: 180px;
   }
-  /deep/ .el-row {
+  ::v-deep .el-row {
     margin-bottom: 10px;
   }
-  /deep/ .el-input__suffix {
+  ::v-deep .el-input__suffix {
     right: 1.26vw;
   }
-  /deep/ .el-input__icon {
+  ::v-deep .el-input__icon {
     width: auto;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     /* border-radius: 36px; */
     font-size: 14px;
   }
-  /deep/ .el-textarea__inner {
+  ::v-deep .el-textarea__inner {
     font-size: 14px;
   }
-  /deep/ .el-form-item__error {
+  ::v-deep .el-form-item__error {
     font-size: 14px;
   }
-  /* /deep/ .el-form-item{
+  /* ::v-deep .el-form-item{
     width: 100%;
   } */
-  /deep/ .el-form-item__label {
+  ::v-deep .el-form-item__label {
     font-size: 14px;
   }
   .sub_form {
     position: relative;
     right: 20px;
   }
-  /* /deep/ .el-form-item__content {
+  /* ::v-deep .el-form-item__content {
     width: 60%;
   }
-  /deep/ .el-form-item {
+  ::v-deep .el-form-item {
     width: 100%;
   }
   .city_option {
@@ -339,14 +339,14 @@ export default {
   .city_option2{
     width: 30%;
   } */
-  /* /deep/ .city_option .el-form-item {
+  /* ::v-deep .city_option .el-form-item {
     width: 50%;
   } */
-  /* /deep/ .city_option .el-form-item__content {
+  /* ::v-deep .city_option .el-form-item__content {
     width: 30%;
     display: inline-block;
   }
-  /deep/ .city_option2 .el-form-item__content {
+  ::v-deep .city_option2 .el-form-item__content {
     width: 50%;
     display: inline-block;
   } */

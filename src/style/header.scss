@@ -28,18 +28,18 @@
 .el-menu--horizontal > .el-menu-item.is-active {
   font-family: PingFang-SC-Medium;
   font-size: 18px;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
   /* line-height: 18px; */
   text-shadow: 0 2px 8px rgba(21, 28, 44, 0.6);
   border: none;
   background: none;
 }
-/* /deep/ .el-menu--horizontal>.el-menu-item.is-active */
+/* ::v-deep .el-menu--horizontal>.el-menu-item.is-active */
 .el-menu--horizontal > .el-submenu .el-submenu__title {
   font-family: PingFang-SC-Medium;
   font-size: 18px;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
   /* line-height: 18px; */
   background: none;
@@ -48,7 +48,7 @@
 .el-menu--horizontal > .el-menu-item {
   font-family: PingFang-SC-Medium;
   font-size: 18px;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
   /* line-height: 18px; */
   text-shadow: 0 2px 8px rgba(21, 28, 44, 0.6);
@@ -58,7 +58,7 @@
 .el-menu-item {
   font-family: PingFang-SC-Medium;
   font-size: 18px;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
   /* line-height: 18px; */
   text-shadow: 0 2px 8px rgba(21, 28, 44, 0.6);

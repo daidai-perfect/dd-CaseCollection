@@ -125,7 +125,7 @@ export default {
   /* bottom: 5px; */
   left: 8px;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 14px;
@@ -185,14 +185,14 @@ export default {
   position: relative;
   bottom: 0px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   border: none;
   height: 100%;
   border-radius: 8px;
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 14px;
@@ -253,7 +253,7 @@ export default {
     bottom: 8px;
     margin-top: 10px;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     border: none;
     height: 100%;
     border-radius: 8px;

@@ -38,10 +38,7 @@
 .back {
   /* height: 100%; */
   width: 100%;
-  /* z-index: 1; */
-  margin-top: 55px;
-  /* background: url("../../assets/back.jpg") no-repeat center;
-  background-size: auto auto; */
+  margin-top: 150px;
 }
 @media screen and (max-width: 750px) {
   .back {

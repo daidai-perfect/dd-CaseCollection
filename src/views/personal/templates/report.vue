@@ -356,17 +356,17 @@ export default {
   width: 50%;
   margin: 0 auto;
 }
-/* /deep/ .el-form--inline .el-form-item__content{
+/* ::v-deep .el-form--inline .el-form-item__content{
   display: contents;
   vertical-align: middle;
 } */
-/* /deep/ .el-dialog__body {
+/* ::v-deep .el-dialog__body {
   height: 400px;
 } */
-/deep/ .el-input {
+::v-deep .el-input {
   width: 230px;
 }
-/deep/ .el-dialog__footer {
+::v-deep .el-dialog__footer {
   text-align: center;
 }
 /* span {
@@ -391,7 +391,7 @@ export default {
   font-weight: 500;
   color: #000000;
 }
-/deep/ .cell {
+::v-deep .cell {
   font-size: 14px;
   font-weight: 500;
 }
@@ -401,19 +401,19 @@ export default {
 }
 /* 移动端 */
 @media screen and (max-width: 750px) {
-  /deep/ .el-form-item {
+  ::v-deep .el-form-item {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  /deep/ .el-textarea__inner {
+  ::v-deep .el-textarea__inner {
     height: 50px;
     width: 200px;
   }
-  /deep/ .el-dialog__title {
+  ::v-deep .el-dialog__title {
     font-size: 16px;
   }
-  /deep/ .el-form-item__label {
+  ::v-deep .el-form-item__label {
     font-size: 14px;
   }
   .title_cont p {
@@ -430,14 +430,14 @@ export default {
     padding: 10px;
     padding-top: 50px;
   }
-  /deep/ .el-dialog {
+  ::v-deep .el-dialog {
     width: 80% !important;
     height: 200px;
   }
-  /deep/ .el-dialog__body {
+  ::v-deep .el-dialog__body {
     height: 70%;
   }
-  /deep/ .el-dialog__close {
+  ::v-deep .el-dialog__close {
     font-size: 18px;
   }
   .startButton {
@@ -450,24 +450,24 @@ export default {
     line-height: 16px;
     /* margin-left: 30px; */
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     height: 20px;
   }
-  /deep/ .el-textarea__inner {
+  ::v-deep .el-textarea__inner {
     font-size: 12px;
   }
-  /deep/ .el-form-item__error {
+  ::v-deep .el-form-item__error {
     font-size: 12px;
   }
   .addButton {
     height: 25px;
     width: 50px;
   }
-  /deep/ .cell {
+  ::v-deep .cell {
     font-size: 12px;
     font-weight: 500;
   }
-  /deep/ .el-button {
+  ::v-deep .el-button {
     font-size: 12px;
     font-weight: 500;
   }

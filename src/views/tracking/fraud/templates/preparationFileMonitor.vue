@@ -120,12 +120,12 @@ export default {
 .submitRow {
   text-align: center;
 }
-/deep/ .el-form-item__content {
+::v-deep .el-form-item__content {
   float: none;
   display: inline-block;
   margin: 0 !important;
 }
-/deep/ .el-form-item__label-wrap {
+::v-deep .el-form-item__label-wrap {
   display: inline-block;
   float: none;
 }
@@ -144,10 +144,10 @@ export default {
 /* .startButton {
   width: 100px;
 } */
-/deep/ .el-col-3 {
+::v-deep .el-col-3 {
   width: 10%;
 }
-/deep/ .el-col-10 {
+::v-deep .el-col-10 {
   line-height: 3;
 }
 .operation {
@@ -176,7 +176,7 @@ export default {
   width: 400px;
   height: 40px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
 .agree_button {
@@ -189,7 +189,7 @@ export default {
   margin-top: 30px;
   height: 89%;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -230,10 +230,10 @@ export default {
 .address {
   padding-left: 18px;
 }
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   font-size: 23px;
 }
-/deep/ .el-icon-question {
+::v-deep .el-icon-question {
   font-size: 23px;
   cursor: pointer;
   color: black;
@@ -298,7 +298,7 @@ export default {
     border: 1px solid #0074f8;
     margin: 0px auto;
   }
-  /* /deep/ .el-step__line {
+  /* ::v-deep .el-step__line {
   border-style: dashed;
 } */
   .address_info {
@@ -308,12 +308,12 @@ export default {
     text-align: center;
     /* padding-right: 140px; */
   }
-  /deep/ .el-form-item__content {
+  ::v-deep .el-form-item__content {
     float: none;
     display: inline-block;
     margin: 0 !important;
   }
-  /deep/ .el-form-item__label-wrap {
+  ::v-deep .el-form-item__label-wrap {
     display: inline-block;
     float: none;
   }
@@ -329,10 +329,10 @@ export default {
     font-size: 21px;
     margin-top: 0;
   }
-  /deep/ .el-col-3 {
+  ::v-deep .el-col-3 {
     width: 10%;
   }
-  /deep/ .el-col-10 {
+  ::v-deep .el-col-10 {
     line-height: 3;
   }
   .operation {
@@ -361,7 +361,7 @@ export default {
     width: 400px;
     height: 40px;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     background: #f5f5f5;
   }
   .agree_button {
@@ -377,7 +377,7 @@ export default {
     /* display: flex;
   align-items: center; */
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
@@ -418,21 +418,21 @@ export default {
   .address {
     padding-left: 18px;
   }
-   /deep/ .el-form-item__label {
+   ::v-deep .el-form-item__label {
     font-size: 23px;
   }
-  /deep/ .el-icon-question {
+  ::v-deep .el-icon-question {
     font-size: 16px;
     cursor: pointer;
     color: black;
   }
-  /deep/ .el-dialog {
+  ::v-deep .el-dialog {
     width: 85% !important;
   }
-  /deep/ .el-dialog__title{
+  ::v-deep .el-dialog__title{
     font-size: 16px;
   }
-  /deep/ .el-dialog__close{
+  ::v-deep .el-dialog__close{
     font-size: 18px;
   }
 }

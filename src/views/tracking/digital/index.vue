@@ -86,25 +86,25 @@ export default {
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-form .el-form-item:nth-of-type(2) {
+::v-deep .el-form .el-form-item:nth-of-type(2) {
   vertical-align: bottom;
 }
-/* /deep/ .el-form-item:nth-of-type(1){
+/* ::v-deep .el-form-item:nth-of-type(1){
   vertical-align: bottom;
 } */
-/deep/ .el-form-item:last-child {
+::v-deep .el-form-item:last-child {
   vertical-align: bottom;
 }
 .level {
   width: 100%;
 }
-/* /deep/ .tran-card > .el-card__body:first-of-type {
+/* ::v-deep .tran-card > .el-card__body:first-of-type {
   padding: 15px;
 } */
 .btc_money {
   width: 100%;
 }
-/* /deep/ .el-form-item__label{
+/* ::v-deep .el-form-item__label{
   color: white;
 } */
 /* .demo-form-inline {
@@ -113,7 +113,7 @@ export default {
 .btc_cont {
   display: inline-block;
 } */
-/deep/ .btc_select > .el-input > .el-input__inner {
+::v-deep .btc_select > .el-input > .el-input__inner {
   border: none;
   background: none;
 }
@@ -129,7 +129,7 @@ export default {
 .box-card {
   margin-top: 10px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
 .tran-card {
@@ -137,11 +137,11 @@ export default {
   margin-top: 30px;
   height: 89%;
 }
-/deep/ .tran-card > .el-card__body {
+::v-deep .tran-card > .el-card__body {
   /* height: 100%; */
   height: 100%;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -163,7 +163,7 @@ export default {
   width: 280px;
   height: 40px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
 .agree_button {
@@ -176,7 +176,7 @@ export default {
   margin-top: 30px;
   height: 89%;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;

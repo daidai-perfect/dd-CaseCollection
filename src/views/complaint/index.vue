@@ -283,10 +283,10 @@ export default {
 
 <style lang="scss" scoped>
 
-/deep/ .el-input__icon {
+::v-deep .el-input__icon {
   line-height: 0;
 }
-/deep/ .el-icon-plus {
+::v-deep .el-icon-plus {
   position: relative;
   bottom: 15px;
 }
@@ -304,7 +304,7 @@ export default {
   height: 100%;
   width: 40px;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   padding-bottom: 70px;
 }
 .dynmic_button span {
@@ -334,7 +334,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-/deep/ .el-col-24 {
+::v-deep .el-col-24 {
   text-align: center;
 }
 .hrefTxt {
@@ -343,15 +343,15 @@ export default {
   color: #000000;
   line-height: 14px;
 }
-/deep/ .el-upload--picture-card {
+::v-deep .el-upload--picture-card {
   width: 100px;
   height: 100px;
 }
-/deep/ .el-upload-list__item {
+::v-deep .el-upload-list__item {
   width: 100px;
   height: 100px;
 }
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   font-size: 16px;
 }
 .form_dom {
@@ -379,7 +379,7 @@ export default {
 .box-card {
   margin-top: 10px;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -399,7 +399,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: white;
   line-height: 1;
 }
@@ -411,7 +411,7 @@ export default {
   /* text-align: center; */
   position: relative;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -436,15 +436,15 @@ export default {
   font-size: 20px;
   vertical-align: middle;
 } */
-/* /deep/ .el-input--small .el-input__inner {
+/* ::v-deep .el-input--small .el-input__inner {
     height: 20px;
   }
-    /deep/ .el-input--small .el-input__inner {
+    ::v-deep .el-input--small .el-input__inner {
     height: 3vw !important;
   } */
 /* 移动端 */
 @media screen and (max-width: 750px) {
-  /deep/ .el-icon-plus {
+  ::v-deep .el-icon-plus {
     position: relative;
     top: 36%;
   }
@@ -463,7 +463,7 @@ export default {
     width: 33px;
     position: absolute;
   }
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     height: 100%;
   }
   .dynmic_button span {
@@ -487,7 +487,7 @@ export default {
     height: 50px;
     text-align: center;
   }
-  /deep/ .el-col-24 {
+  ::v-deep .el-col-24 {
     text-align: center;
   }
   .hrefTxt {
@@ -496,15 +496,15 @@ export default {
     color: #000000;
     line-height: 14px;
   }
-  /deep/ .el-upload--picture-card {
+  ::v-deep .el-upload--picture-card {
     width: 100px;
     height: 100px;
   }
-  /deep/ .el-upload-list__item {
+  ::v-deep .el-upload-list__item {
     width: 100px;
     height: 100px;
   }
-  /deep/ .el-form-item__label {
+  ::v-deep .el-form-item__label {
     font-size: 13px;
   }
   .form_dom {
@@ -533,7 +533,7 @@ export default {
   .box-card {
     margin-top: 10px;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
@@ -551,7 +551,7 @@ export default {
     height: 100%;
     display: flex;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     background: white;
     height: 100%;
     font-size: 14px;
@@ -564,7 +564,7 @@ export default {
     /* text-align: center; */
     position: relative;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
@@ -582,25 +582,25 @@ export default {
     font-size: 20px;
     vertical-align: middle;
   }
-  /deep/ .el-input--suffix {
+  ::v-deep .el-input--suffix {
     height: 100%;
     line-height: 0;
   }
-  /deep/ .el-row {
+  ::v-deep .el-row {
     margin-bottom: 10px;
     text-align: center;
   }
-  /deep/ .el-date-editor {
+  ::v-deep .el-date-editor {
     height: 25px;
   }
-  /deep/ .el-input__icon {
+  ::v-deep .el-input__icon {
     width: auto;
     // display: none;
   }
-  /deep/ .el-textarea__inner {
+  ::v-deep .el-textarea__inner {
     font-size: 14px;
   }
-  /deep/ .descRemarkkey {
+  ::v-deep .descRemarkkey {
     /* height: 30%; */
     margin-top: 70px;
   }
@@ -618,13 +618,13 @@ export default {
   /* .select_date .el-input--small .el-input__inner {
     height: 30px;
   } */
-  /deep/ .select_date {
+  ::v-deep .select_date {
     width: 200px;
   }
   /* .descRemark {
     height: 28%;
   } */
-  /deep/.el-input__prefix{
+  ::v-deep.el-input__prefix{
     .el-icon-time{
       display: none;
     }

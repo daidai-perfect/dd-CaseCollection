@@ -148,7 +148,7 @@ export default {
     font-size: 12px;
   }
 }
-/* /deep/ .number{
+/* ::v-deep .number{
   font-size: 14px;
 } */
 </style>

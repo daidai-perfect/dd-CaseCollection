@@ -117,17 +117,17 @@ export default {
   height: 100%;
   padding-top: 30px;
 }
-/deep/ .el-menu-item {
+::v-deep .el-menu-item {
   text-shadow: none;
   text-align: left;
   /* height: 72px; */
   font-size: 0.938vw;
 }
-/deep/ .el-menu-item:first-child {
+::v-deep .el-menu-item:first-child {
   border-bottom: 0.5px solid #dddddd;
   border-top: 0.5px solid #dddddd;
 }
-/deep/ .el-menu-item:last-child {
+::v-deep .el-menu-item:last-child {
   border-bottom: 0.5px solid #dddddd;
   border-top: 0.5px solid #dddddd;
 }
@@ -218,7 +218,7 @@ export default {
     margin-top: 75px;
     height: 79%;
   }
-  /deep/ .el-menu-item {
+  ::v-deep .el-menu-item {
     text-align: center;
   }
   .menu {
@@ -234,11 +234,11 @@ export default {
     height: 100%;
     padding-top: 30px;
   }
-  /deep/ .el-menu-item:first-child {
+  ::v-deep .el-menu-item:first-child {
     border-bottom: 0.5px solid #dddddd;
     border-top: 0.5px solid #dddddd;
   }
-  /deep/ .el-menu-item:last-child {
+  ::v-deep .el-menu-item:last-child {
     border-bottom: 0.5px solid #dddddd;
     border-top: 0.5px solid #dddddd;
   }
@@ -261,7 +261,7 @@ export default {
     line-height: 20px;
     margin: 10px auto;
   }
-  /deep/ .el-col-6 {
+  ::v-deep .el-col-6 {
     padding-right: 0 !important;
   }
   .avaImg {
@@ -316,10 +316,10 @@ export default {
     display: flex;
   }
 }
-/deep/ .el-col {
+::v-deep .el-col {
   height: 96%;
 }
-/deep/ .el-row {
+::v-deep .el-row {
   height: 100%;
 }
 </style>

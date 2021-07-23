@@ -295,7 +295,7 @@ export default {
   font-size: 20px;
   font-weight: 500;
 }
-/deep/ .el-upload-list__item {
+::v-deep .el-upload-list__item {
   width: 7.708vw;
   height: 7.708vw;
 }
@@ -307,7 +307,7 @@ export default {
   top: 48px;
   right: 5px;
 }
-/deep/ .el-icon-circle-check {
+::v-deep .el-icon-circle-check {
   margin-right: 10px;
   font-size: 20px;
 }
@@ -317,7 +317,7 @@ export default {
   cursor: pointer;
   line-height: 0;
 }
-/* /deep/ .el-upload-list {
+/* ::v-deep .el-upload-list {
   position: absolute;
   left: 120px;
   bottom: 0px;
@@ -339,7 +339,7 @@ export default {
   color: rgb(44, 134, 243);
   padding: 5px 10px;
 }
-/* /deep/ .el-icon-question {
+/* ::v-deep .el-icon-question {
   cursor: pointer;
   color: black;
   line-height: 5px;
@@ -369,7 +369,7 @@ export default {
   width: 750px;
   margin: 50px auto 0;
 }
-/deep/ .box-card > .el-card__body {
+::v-deep .box-card > .el-card__body {
   padding: 0;
   /* height: calc(100vh - 48vh); */
   height: 100%;
@@ -433,28 +433,28 @@ export default {
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-form .el-form-item:nth-of-type(2) {
+::v-deep .el-form .el-form-item:nth-of-type(2) {
   vertical-align: bottom;
 }
-/* /deep/ .el-form-item:nth-of-type(1){
+/* ::v-deep .el-form-item:nth-of-type(1){
   vertical-align: bottom;
 } */
-/deep/ .el-form-item:last-child {
+::v-deep .el-form-item:last-child {
   vertical-align: bottom;
 }
 .level {
   width: 100%;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   padding: 15px;
 }
-/deep/ .el-input__icon el-icon-date ::after {
+::v-deep .el-input__icon el-icon-date ::after {
   width: 64.302vw;
 }
-/deep/.el-input__prefix .el-icon-date {
+::v-deep.el-input__prefix .el-icon-date {
   width: 64.302vw;
 }
-/deep/.el-input--prefix .el-input__inner {
+::v-deep.el-input--prefix .el-input__inner {
   padding-left: 15px;
 }
 .btc_input {
@@ -468,7 +468,7 @@ export default {
   margin-top: 30px;
   height: 89%;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 14px;
@@ -483,7 +483,7 @@ export default {
   top: 8px;
   left: 8px; */
 }
-/deep/ .el-form-item span {
+::v-deep .el-form-item span {
   vertical-align: middle;
 }
 .app-cont {
@@ -511,7 +511,7 @@ export default {
   margin-top: 30px;
   height: 89%;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 14px;
@@ -550,10 +550,10 @@ export default {
 .address {
   padding-left: 18px;
 }
-/deep/ .el-col-3 {
+::v-deep .el-col-3 {
   width: 10%;
 }
-/deep/ .el-col-10 {
+::v-deep .el-col-10 {
   line-height: 3;
 }
 .operation {
@@ -561,10 +561,10 @@ export default {
   display: flex;
   justify-content: center;
 }
-/deep/ .el-form-item {
+::v-deep .el-form-item {
   margin-bottom: 15px;
 }
-/deep/ .el-input__suffix {
+::v-deep .el-input__suffix {
   right: 13px;
 }
 .btc_option {
@@ -579,13 +579,13 @@ export default {
 .w15 {
   width: 22%;
 }
-/deep/.w10 .el-input__inner {
+::v-deep.w10 .el-input__inner {
   width: 150px;
 }
-/deep/.w10 .el-input-number {
+::v-deep.w10 .el-input-number {
   width: 150px;
 }
-/deep/.w10 .el-input {
+::v-deep.w10 .el-input {
   width: 150px;
 }
 .clearfix div {
@@ -606,13 +606,13 @@ export default {
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-form .el-form-item:nth-of-type(2) {
+::v-deep .el-form .el-form-item:nth-of-type(2) {
   vertical-align: bottom;
 }
-/deep/ .el-form-item:last-child {
+::v-deep .el-form-item:last-child {
   vertical-align: bottom;
 }
-/deep/ .btc_select > .el-input > .el-input__inner {
+::v-deep .btc_select > .el-input > .el-input__inner {
   border: none;
   background: none;
   width: 640px;
@@ -625,12 +625,12 @@ export default {
   /* width: 105px; */
   /* right: 8px; */
 }
-/deep/ .tran-card > .el-card__body {
+::v-deep .tran-card > .el-card__body {
   /* height: 100%; */
   height: 100%;
 }
 
-/deep/.el-input__inner {
+::v-deep.el-input__inner {
   border: none;
   background: none;
   width: 640px;
@@ -640,7 +640,7 @@ export default {
   border: 1px solid #d9d9d9;
 }
 
-/* /deep/.el-input__inner:nth-child(4){
+/* ::v-deep.el-input__inner:nth-child(4){
   border: none;
   background: none;
   width: 650px;
@@ -649,14 +649,14 @@ export default {
   border-radius: 4px;
   border: 1px solid #D9D9D9;
 } */
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -669,14 +669,14 @@ export default {
     width: 40px;
     height: 35px;
   }
-  /deep/ .el-dialog {
+  ::v-deep .el-dialog {
     width: 60% !important;
   }
   .success_txt {
     font-size: 16px;
     font-weight: 500;
   }
-  /deep/ .el-upload-list__item {
+  ::v-deep .el-upload-list__item {
     width: 7.708vw;
     height: 7.708vw;
   }
@@ -688,7 +688,7 @@ export default {
     top: 48px;
     right: 5px;
   }
-  /deep/ .el-icon-circle-check {
+  ::v-deep .el-icon-circle-check {
     margin-right: 10px;
     font-size: 20px;
   }
@@ -698,7 +698,7 @@ export default {
     cursor: pointer;
     line-height: 0;
   }
-  /* /deep/ .el-upload-list {
+  /* ::v-deep .el-upload-list {
   position: absolute;
   left: 120px;
   bottom: 0px;
@@ -720,7 +720,7 @@ export default {
     color: rgb(44, 134, 243);
     padding: 5px 10px;
   }
-  /* /deep/ .el-icon-question {
+  /* ::v-deep .el-icon-question {
   cursor: pointer;
   color: black;
   line-height: 5px;
@@ -750,7 +750,7 @@ export default {
     width: 750px;
     margin: 50px auto 0;
   }
-  /deep/ .box-card > .el-card__body {
+  ::v-deep .box-card > .el-card__body {
     padding: 0;
     /* height: calc(100vh - 48vh); */
     height: 100%;
@@ -814,28 +814,28 @@ export default {
     color: #151c2c;
     line-height: 16px;
   }
-  /deep/ .el-form .el-form-item:nth-of-type(2) {
+  ::v-deep .el-form .el-form-item:nth-of-type(2) {
     vertical-align: bottom;
   }
-  /* /deep/ .el-form-item:nth-of-type(1){
+  /* ::v-deep .el-form-item:nth-of-type(1){
   vertical-align: bottom;
 } */
-  /deep/ .el-form-item:last-child {
+  ::v-deep .el-form-item:last-child {
     vertical-align: bottom;
   }
   .level {
     width: 100%;
   }
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     padding: 15px;
   }
-  /deep/ .el-input__icon el-icon-date ::after {
+  ::v-deep .el-input__icon el-icon-date ::after {
     width: 64.302vw;
   }
-  /deep/.el-input__prefix .el-icon-date {
+  ::v-deep.el-input__prefix .el-icon-date {
     width: 64.302vw;
   }
-  /deep/.el-input--prefix .el-input__inner {
+  ::v-deep.el-input--prefix .el-input__inner {
     padding-left: 15px;
   }
   .btc_input {
@@ -849,7 +849,7 @@ export default {
     margin-top: 30px;
     height: 89%;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 14px;
@@ -864,7 +864,7 @@ export default {
   top: 8px;
   left: 8px; */
   }
-  /deep/ .el-form-item span {
+  ::v-deep .el-form-item span {
     vertical-align: middle;
   }
   .app-cont {
@@ -892,7 +892,7 @@ export default {
     margin-top: 30px;
     height: 89%;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 14px;
@@ -932,10 +932,10 @@ export default {
   .address {
     padding-left: 18px;
   }
-  /deep/ .el-col-3 {
+  ::v-deep .el-col-3 {
     width: 10%;
   }
-  /deep/ .el-col-10 {
+  ::v-deep .el-col-10 {
     line-height: 3;
   }
   .operation {
@@ -943,10 +943,10 @@ export default {
     display: flex;
     justify-content: center;
   }
-  /deep/ .el-form-item {
+  ::v-deep .el-form-item {
     margin-bottom: 15px;
   }
-  /deep/ .el-input__suffix {
+  ::v-deep .el-input__suffix {
     right: 13px;
   }
   .btc_option {
@@ -961,13 +961,13 @@ export default {
   .w15 {
     width: 22%;
   }
-  /deep/.w10 .el-input__inner {
+  ::v-deep.w10 .el-input__inner {
     width: 160px;
   }
-  /deep/.w10 .el-input-number {
+  ::v-deep.w10 .el-input-number {
     width: 150px;
   }
-  /deep/.w10 .el-input {
+  ::v-deep.w10 .el-input {
     width: 150px;
   }
   .clearfix div {
@@ -988,13 +988,13 @@ export default {
     color: #151c2c;
     line-height: 16px;
   }
-  /deep/ .el-form .el-form-item:nth-of-type(2) {
+  ::v-deep .el-form .el-form-item:nth-of-type(2) {
     vertical-align: bottom;
   }
-  /deep/ .el-form-item:last-child {
+  ::v-deep .el-form-item:last-child {
     vertical-align: bottom;
   }
-  /deep/ .btc_select > .el-input > .el-input__inner {
+  ::v-deep .btc_select > .el-input > .el-input__inner {
     border: none;
     background: none;
     width: 640px;
@@ -1007,12 +1007,12 @@ export default {
     /* width: 105px; */
     /* right: 8px; */
   }
-  /deep/ .tran-card > .el-card__body {
+  ::v-deep .tran-card > .el-card__body {
     /* height: 100%; */
     height: 100%;
   }
 
-  /deep/.el-input__inner {
+  ::v-deep.el-input__inner {
     border: none;
     background: none;
     width: 220px;
@@ -1022,7 +1022,7 @@ export default {
     border: 1px solid #d9d9d9;
   }
 
-  /* /deep/.el-input__inner:nth-child(4){
+  /* ::v-deep.el-input__inner:nth-child(4){
   border: none;
   background: none;
   width: 650px;
@@ -1031,14 +1031,14 @@ export default {
   border-radius: 4px;
   border: 1px solid #D9D9D9;
 } */
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
     color: #151c2c;
     line-height: 16px;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
@@ -1059,18 +1059,18 @@ export default {
     line-height: 16px;
     /* margin-left: 30px; */
   }
-  /deep/ .el-input-number__increase {
+  ::v-deep .el-input-number__increase {
     right: -8px;
     width: 20px;
   }
-  /deep/ .el-input-number__decrease {
+  ::v-deep .el-input-number__decrease {
     right: -8px !important;
     width: 20px;
   }
-  /deep/ .el-form-item__label {
+  ::v-deep .el-form-item__label {
     font-size: 13px;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     font-size: 13px;
     line-height: 20px;
   }

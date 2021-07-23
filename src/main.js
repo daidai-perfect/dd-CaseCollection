@@ -64,7 +64,7 @@ Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(InputNumber);
 import 'element-ui/lib/theme-chalk/index.css';
-import '@/style/index.css';
+import '@/style/index.scss';
 import store from './store'
 // Vue.use(ElementUI);
 Vue.config.productionTip = false;

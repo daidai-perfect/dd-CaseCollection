@@ -138,7 +138,7 @@ export default {
 .blockInfo:last-child {
   border: none;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   padding: 0;
 }
 .overview-card {
@@ -191,7 +191,7 @@ export default {
   .blockInfo:last-child {
     border: none;
   }
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     padding: 0;
   }
   .overview-card {

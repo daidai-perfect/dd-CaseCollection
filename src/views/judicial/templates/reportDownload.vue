@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   font-family: PingFang-SC-Bold;
   font-size: 18px;
   color: #151c2c;
@@ -157,7 +157,7 @@ export default {
   width: 600px;
   height: 64px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   height: 100%;
   background: #f5f5f5 !important;
 }
@@ -175,7 +175,7 @@ export default {
 .report_cont {
   align-items: center;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   width: 100%;
 }
 .report_title {
@@ -193,17 +193,17 @@ export default {
 .box-card {
   margin-top: 10px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-input-group__append {
+::v-deep .el-input-group__append {
   color: white;
   background: #0074f8;
   font-size: 20px;
@@ -219,7 +219,7 @@ export default {
   height: 100%;
   display: flex;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
 .tran-card {
@@ -230,7 +230,7 @@ export default {
   /* background-size: 100% 100%; */
   display: flex;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;

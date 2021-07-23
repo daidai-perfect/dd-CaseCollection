@@ -76,10 +76,10 @@ export default {
 .startButton {
   width: 100px;
 }
-/deep/ .el-col-3 {
+::v-deep .el-col-3 {
   width: 10%;
 }
-/deep/ .el-col-10 {
+::v-deep .el-col-10 {
   line-height: 3;
 }
 .operation {
@@ -108,7 +108,7 @@ export default {
   width: 400px;
   height: 40px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
 .agree_button {
@@ -121,7 +121,7 @@ export default {
   margin-top: 30px;
   height: 89%;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -172,7 +172,7 @@ export default {
   position: relative;
   bottom: 8px;
 } */
-/* /deep/ .el-input__inner {
+/* ::v-deep .el-input__inner {
   border: none;
   height: 100%;
   border-radius: 8px;

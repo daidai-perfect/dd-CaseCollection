@@ -184,19 +184,19 @@ export default {
   vertical-align: middle;
   padding-left: 5px;
 }
-/deep/ .el-col-3 {
+::v-deep .el-col-3 {
   width: 10%;
 }
-/deep/ .el-col-10 {
+::v-deep .el-col-10 {
   line-height: 3;
 }
 .operation {
   margin-bottom: 20px;
 }
-/deep/ .el-form-item {
+::v-deep .el-form-item {
   margin-bottom: 15px;
 }
-/deep/ .el-input__suffix {
+::v-deep .el-input__suffix {
   right: 13px;
 }
 .btc_option {
@@ -272,19 +272,19 @@ export default {
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-form .el-form-item:nth-of-type(2) {
+::v-deep .el-form .el-form-item:nth-of-type(2) {
   vertical-align: bottom;
 }
-/* /deep/ .el-form-item:nth-of-type(1){
+/* ::v-deep .el-form-item:nth-of-type(1){
   vertical-align: bottom;
 } */
-/deep/ .el-form-item:last-child {
+::v-deep .el-form-item:last-child {
   vertical-align: bottom;
 }
 .level {
   width: 100%;
 }
-/deep/ .box-card > .el-card__body {
+::v-deep .box-card > .el-card__body {
   padding: 0;
   /* height: calc(100vh - 48vh); */
   height: 100%;
@@ -292,7 +292,7 @@ export default {
 .btc_money {
   width: 100%;
 }
-/deep/ .btc_select > .el-input > .el-input__inner {
+::v-deep .btc_select > .el-input > .el-input__inner {
   border: none;
   background: none;
 }
@@ -309,20 +309,20 @@ export default {
   margin-top: 10px;
   height: 74%;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;

@@ -273,10 +273,10 @@ export default {
 .blockInfo:last-child {
   border: none;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   padding: 0;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -334,7 +334,7 @@ export default {
   position: relative;
   bottom: 8px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   border: none;
   height: 100%;
   border-radius: 8px;
@@ -421,10 +421,10 @@ export default {
   .blockInfo:last-child {
     border: none;
   }
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     padding: 0;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
@@ -483,7 +483,7 @@ export default {
     bottom: 8px;
     margin-top: 20px;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     border: none;
     height: 100%;
     border-radius: 8px;

@@ -194,7 +194,7 @@ export default {
   height: 40px;
 }
 
-/deep/ .el-button--text {
+::v-deep .el-button--text {
   color: #333333;
 }
 .operCard {
@@ -261,10 +261,10 @@ export default {
 /* .startButton {
   width: 100px;
 } */
-/deep/ .el-col-3 {
+::v-deep .el-col-3 {
   width: 10%;
 }
-/deep/ .el-col-10 {
+::v-deep .el-col-10 {
   line-height: 3;
 }
 .operation {
@@ -293,7 +293,7 @@ export default {
   width: 400px;
   height: 40px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: #f5f5f5;
 }
 .agree_button {
@@ -310,7 +310,7 @@ export default {
     white;
   display: flex;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -357,10 +357,10 @@ export default {
 .address {
   /* padding-left: 18px; */
 }
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   font-size: 23px;
 }
-/deep/ .el-icon-question {
+::v-deep .el-icon-question {
   font-size: 23px;
   cursor: pointer;
   color: black;
@@ -411,10 +411,10 @@ export default {
   /* .startButton {
   width: 100px;
 } */
-  /deep/ .el-col-3 {
+  ::v-deep .el-col-3 {
     width: 10%;
   }
-  /deep/ .el-col-10 {
+  ::v-deep .el-col-10 {
     line-height: 3;
   }
   .operation {
@@ -443,7 +443,7 @@ export default {
     width: 400px;
     height: 40px;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     background: #f5f5f5;
   }
   .agree_button {
@@ -459,7 +459,7 @@ export default {
     font-size: 18px;
     display: flex;
   }
-  /deep/ .el-card__header {
+  ::v-deep .el-card__header {
     background: #e5e9ef;
     font-family: PingFang-SC-Bold;
     font-size: 16px;
@@ -470,7 +470,7 @@ export default {
     width: 100%;
     height: 100%;
   }
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     width: 100%;
   }
   .overview_info {
@@ -501,10 +501,10 @@ export default {
     height: 100%;
     display: flex;
   }
-  /deep/ .el-form-item__label {
+  ::v-deep .el-form-item__label {
     font-size: 23px;
   }
-  /deep/ .el-icon-question {
+  ::v-deep .el-icon-question {
     font-size: 23px;
     cursor: pointer;
     color: black;

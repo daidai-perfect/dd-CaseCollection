@@ -228,11 +228,11 @@ export default {
   font-weight: 500;
   color: #000000;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   height: 100%;
   background: #f5f5f5;
 }
-/deep/ .cell {
+::v-deep .cell {
   font-size: 14px;
 }
 @media screen and (max-width: 750px) {
@@ -277,33 +277,33 @@ export default {
     line-height: 26px;
     font-weight: 500;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     height: 100%;
     background: #f5f5f5;
   }
-  /deep/ .el-dialog__title {
+  ::v-deep .el-dialog__title {
     font-size: 16px;
   }
-  /deep/ .el-form-item__label {
+  ::v-deep .el-form-item__label {
     font-size: 13px;
     line-height: 20px;
   }
-  /deep/ .cell {
+  ::v-deep .cell {
     font-size: 12px;
     font-weight: 500;
   }
-  /deep/ .el-button {
+  ::v-deep .el-button {
     font-size: 12px;
     font-weight: 500;
   }
-  /deep/ .el-dialog {
+  ::v-deep .el-dialog {
     width: 90% !important;
     height: 200px;
   }
-  /deep/ .el-dialog__body {
+  ::v-deep .el-dialog__body {
     height: 70%;
   }
-  /deep/ .el-dialog__close {
+  ::v-deep .el-dialog__close {
     font-size: 18px;
   }
 }

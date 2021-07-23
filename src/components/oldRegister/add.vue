@@ -225,7 +225,7 @@ export default {
   z-index: 9999999999999999999999 !important;
   /* text-align: center; */
 }
-/deep/ .el-dialog__title {
+::v-deep .el-dialog__title {
   width: 120px;
   height: 33px;
   font-size: 24px;
@@ -235,11 +235,11 @@ export default {
   color: #151c2c;
   opacity: 1;
 }
-/* /deep/ .el- */
-/deep/ .el-input__inner {
+/* ::v-deep .el- */
+::v-deep .el-input__inner {
   height: 58px;
 }
-/deep/ .el-row {
+::v-deep .el-row {
   margin-top: 20px;
 }
 .codeButton {

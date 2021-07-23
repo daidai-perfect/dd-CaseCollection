@@ -205,15 +205,15 @@ export default {
   bottom: 5px;
   left: 3px;
 }
-/deep/ .el-table th,
+::v-deep .el-table th,
 .el-table tr {
   border-bottom: 2px solid #e7eaf3;
   border-top: 2px solid #e7eaf3;
 }
-/deep/ .el-table td {
+::v-deep .el-table td {
   padding: 0.625vw 0;
 }
-/deep/ .el-table th {
+::v-deep .el-table th {
   padding: 0.625vw 0;
 }
 .unit {
@@ -276,21 +276,21 @@ export default {
   /* height: 100%; */
   margin-bottom: 50px;
 }
-/deep/ .el-table .warning-row {
+::v-deep .el-table .warning-row {
   background: #f5f5f5;
 }
-/deep/ .el-table td,
+::v-deep .el-table td,
 .el-table th.is-leaf {
   border: none;
 }
-/deep/ .el-table td,
+::v-deep .el-table td,
 .el-table th.is-leaf {
   border: none;
 }
-/deep/ .el-table::before {
+::v-deep .el-table::before {
   height: 0;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   padding: 24px;
 }
 .count {
@@ -300,14 +300,14 @@ export default {
   line-height: 16px;
   opacity: 0.7;
 }
-/deep/ .cell {
+::v-deep .cell {
   font-size: 14px;
 }
 @media screen and (max-width: 750px) {
-  /deep/ .el-table thead {
+  ::v-deep .el-table thead {
     font-size: 14px;
   }
-  /deep/ .el-table th,
+  ::v-deep .el-table th,
   .el-table tr {
     border-bottom: 2px solid #e7eaf3;
     border-top: 2px solid #e7eaf3;
@@ -368,21 +368,21 @@ export default {
     /* height: 100%; */
     margin-bottom: 50px;
   }
-  /deep/ .el-table .warning-row {
+  ::v-deep .el-table .warning-row {
     background: #f5f5f5;
   }
-  /deep/ .el-table td,
+  ::v-deep .el-table td,
   .el-table th.is-leaf {
     border: none;
   }
-  /deep/ .el-table td,
+  ::v-deep .el-table td,
   .el-table th.is-leaf {
     border: none;
   }
-  /deep/ .el-table::before {
+  ::v-deep .el-table::before {
     height: 0;
   }
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     padding: 10px;
   }
   .count {
@@ -392,7 +392,7 @@ export default {
     line-height: 16px;
     opacity: 0.7;
   }
-  /deep/ .el-table .cell {
+  ::v-deep .el-table .cell {
     line-height: normal;
     white-space: nowrap;
     text-overflow: ellipsis;

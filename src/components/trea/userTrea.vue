@@ -188,7 +188,7 @@ h4 {
   text-align: left;
   text-indent: 30;
 }
-/deep/ .el-dialog {
+::v-deep .el-dialog {
   width: 50% !important;
 }
 /* 移动端 */
@@ -207,13 +207,13 @@ h4 {
     line-height: 14px;
     font-size: 13px;
   }
-  /deep/ .el-dialog {
+  ::v-deep .el-dialog {
     width: 85% !important;
   }
-  /deep/ .el-icon {
+  ::v-deep .el-icon {
     font-size: 16px;
   }
-  /deep/ .el-button{
+  ::v-deep .el-button{
     font-size: 16px;
     margin-top: 10px;
   }

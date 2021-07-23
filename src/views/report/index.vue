@@ -436,7 +436,7 @@ li {
 .assets_thumbnail {
   height: 544px;
 }
-/deep/ .outline_card > .el-card__body {
+::v-deep .outline_card > .el-card__body {
   padding-top: 0px;
   padding-bottom: 55px;
 }
@@ -532,14 +532,14 @@ li {
 /* .operationButton img:last-child {
   margin-right: 20px;
 } */
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 14px;
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .title_card > .el-card__header {
+::v-deep .title_card > .el-card__header {
   background: white;
 }
 .title_card {
@@ -596,7 +596,7 @@ li {
   position: relative;
   bottom: 8px;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   border: none;
   height: 100%;
   border-radius: 8px;

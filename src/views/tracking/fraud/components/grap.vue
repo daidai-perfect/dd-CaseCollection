@@ -215,10 +215,10 @@ export default {
   color: #151c2c;
   line-height: 20px;
 }
-/deep/ .address .el-form-item__content {
+::v-deep .address .el-form-item__content {
   line-height: 0 !important;
 }
-/deep/ .address > .el-form-item__label {
+::v-deep .address > .el-form-item__label {
   padding: 0;
 }
 .address {
@@ -234,7 +234,7 @@ export default {
   padding-left: 3px;
   cursor: pointer;
 }
-/deep/ .el-form-item {
+::v-deep .el-form-item {
   margin-bottom: 1px !important;
 }
 .dia_card {
@@ -247,7 +247,7 @@ export default {
   /* left: ; */
   /* margin-top: 10px; */
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: none !important;
   border: none;
 }

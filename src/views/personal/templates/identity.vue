@@ -174,18 +174,18 @@ export default {
 .contier {
   padding: 30px;
 }
-/deep/ .cell {
+::v-deep .cell {
   font-size: 14px;
   font-weight: 500;
 }
-/deep/ .cell img {
+::v-deep .cell img {
   height: 30px;
   width: 30px;
   font-size: 14px;
   font-weight: 500;
 }
 @media screen and (max-width: 750px) {
-  /deep/ .cell img {
+  ::v-deep .cell img {
     height: 40%;
     width: 40%;
     font-size: 14px;
@@ -206,11 +206,11 @@ export default {
     line-height: 26px;
     font-weight: 500;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     height: 100%;
     background: #f5f5f5;
   }
-  /deep/ .cell {
+  ::v-deep .cell {
     font-size: 12px;
     font-weight: 500;
   }

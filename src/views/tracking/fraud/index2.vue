@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-dialog__footer {
+::v-deep .el-dialog__footer {
   padding-bottom: 30px;
 }
 .warning_img {
@@ -85,7 +85,7 @@ export default {
   margin: 0 auto;
   margin-bottom: 50px;
 }
-/deep/ .el-dialog__body {
+::v-deep .el-dialog__body {
   text-align: center;
 }
 .diaCont {
@@ -111,7 +111,7 @@ export default {
   line-height: 28px;
   letter-spacing: 4px;
 }
-/deep/ .el-dialog__footer {
+::v-deep .el-dialog__footer {
   text-align: center;
 }
 </style>

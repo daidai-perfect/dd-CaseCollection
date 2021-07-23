@@ -81,11 +81,11 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-upload-list__item {
+::v-deep .el-upload-list__item {
   width: 5.208vw;
   height: 5.208vw;
 }
-/deep/ .el-upload--picture-card {
+::v-deep .el-upload--picture-card {
   width: 100px;
   height: 100px;
 }
@@ -105,7 +105,7 @@ export default {
   margin-top: 40px;
   position: relative;
 }
-/deep/ .voucher .el-icon-plus{
+::v-deep .voucher .el-icon-plus{
   position:absolute;
   top:36px;
   left: 36px;

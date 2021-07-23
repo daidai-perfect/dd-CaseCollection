@@ -102,7 +102,7 @@ export default {
   color: #666666;
   text-align: center;
 }
-/deep/ .el-card__body {
+::v-deep .el-card__body {
   padding: 30px;
   /* padding-left: 55px; */
   padding-top: 0px;
@@ -111,14 +111,14 @@ export default {
 .box-card {
   margin-top: 10px;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
   color: #151c2c;
   line-height: 16px;
 }
-/deep/ .el-input-group__append {
+::v-deep .el-input-group__append {
   color: white;
   background: #0074f8;
   font-size: 20px;
@@ -134,12 +134,12 @@ export default {
   height: 100%;
   display: flex;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   background: white;
   border-radius: 0 !important;
   border: 1px solid #dcdfe6;
 }
-/deep/ .el-range-input {
+::v-deep .el-range-input {
   background: white;
 }
 .tran-card {
@@ -149,7 +149,7 @@ export default {
   display: flex;
   text-align: center;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   background: #e5e9ef;
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -160,7 +160,7 @@ export default {
   height: 40px !important;
   width: 75%;
 }
-/deep/ .el-date-editor .el-range-input {
+::v-deep .el-date-editor .el-range-input {
   width: 45%;
 }
 </style>

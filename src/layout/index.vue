@@ -21,7 +21,7 @@
 document.title = "链审科技";
 // import { NavBar, AppMian } from "./components";
 // import { Navbar, AppMain} from './components'
-import NavBar from "./components/Navbar";
+import NavBar from "./components/Navbar-new";
 import AppMain from "./components/AppMain";
 export default {
   components: {
@@ -55,12 +55,9 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  height: 64px;
+  height:unset !important;
   width: 100%;
   transition: width 0.28s;
-  padding: 0;
-  margin: 0;
   z-index: 99;
-  /* margin-bottom: 4px; */
 }
 </style>
