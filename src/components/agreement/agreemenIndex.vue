@@ -64,13 +64,37 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.agreeInfoButton{
+  padding-left: 100px;
+}
+.gouxuan{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  left: 80px;
+}
+::v-deep .el-radio__input.is-checked .el-radio__inner{
+  border-color: rgb(20, 211, 145);
+  background: rgb(20, 211, 145);
+}
+::v-deep .el-radio:focus:not(.is-focus):not(:active):not(.is-disabled) .el-radio__inner {
+  box-shadow: 0 0 1px 1px rgb(20, 211, 145);
+}
+::v-deep .el-radio__inner:hover {
+    border-color: rgb(20, 211, 145);
+}
+::v-deep .el-radio__inner{
+  width: 15px;
+  height: 15px;
+}
 .agreement_info {
   font-family: PingFang-SC-Regular;
   font-size: 20px;
-  /* color: #000000; */
   line-height: 20px;
-  color: #999999;
+  color: #fff;
+  position: relative;
 }
 
 @media screen and (max-width: 750px) {

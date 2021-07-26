@@ -7,6 +7,10 @@ body{
 html{
   
 } */
+@font-face {
+  font-family: "Alibaba";
+  src: url("./Alibaba-PuHuiTi-Regular.ttf") format("truetype");
+}
 html,
 body {
   /* background: #151c2c; */
@@ -19,6 +23,7 @@ body {
   /* min-height: 1000px; */
   /* max-height: 1920px; */
   /* position: absolute; */
+  font-family: "Alibaba";
 }
 /* .v-modal {
   z-index: 1 !important;

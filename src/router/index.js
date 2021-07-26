@@ -50,6 +50,18 @@ const routes = [
         meta: { title: "电信诈骗" }
       },
       {
+        path: "/login",
+        name: "login",
+        component: () => import("../../src/components/register/index-new.vue"),
+        meta: { title: "浏览器测试" }
+      },
+      {
+        path: "/register",
+        name: "register",
+        component: () => import("../../src/components/register/register-new.vue"),
+        meta: { title: "浏览器测试" }
+      },
+      {
         path: "/fraud/notGetMoneyAddress",
         name: "notGetMoneyAddress",
         component: () => import("@/views/tracking/fraud/templates/notGetInfo"),

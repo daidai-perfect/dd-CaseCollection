@@ -32,7 +32,8 @@ import {
   Container,
   Header,
   Loading,
-  Message
+  Message,
+  MessageBox
 } from 'element-ui';
 Vue.use(Button);
 Vue.use(Dialog);
@@ -69,6 +70,7 @@ import store from './store'
 // Vue.use(ElementUI);
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;
+Vue.prototype.$confirm = MessageBox.confirm;
 // Vue.prototype.$echarts = echarts;
 
 new Vue({
