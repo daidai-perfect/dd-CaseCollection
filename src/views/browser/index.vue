@@ -1,7 +1,7 @@
 <template>
   <div class="browser">
     <div class="center">
-      <span class="titTop">Welcome to</span>
+      <span class="titTop">WELCOME TO</span>
       <h3 class="tit">CHAINAUDIT</h3>
       <span class="titbom">更适合执法机构的区块链浏览器</span>
       <span class="line"></span>
@@ -106,14 +106,17 @@ export default {
     // justify-content: space-around;
     .titTop{
       font-size: 27px;
+      letter-spacing:10px;
     }
     .tit{
       font-size: 86px;
       margin: 20px 0 ;
+      letter-spacing:10px;
     }
     .titbom{
       height: 38px;
       font-size: 41px;
+      letter-spacing:6px;
     }
     .line{
       display: block;

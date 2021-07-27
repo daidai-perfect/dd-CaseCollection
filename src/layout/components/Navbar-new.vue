@@ -171,6 +171,7 @@ export default {
                     font-weight: normal;
                     color: #FFFFFF;
                     cursor: pointer;
+                    letter-spacing:2px;
                 }
             }
         }

@@ -10,6 +10,8 @@ html{
 @font-face {
   font-family: "Alibaba";
   src: url("./Alibaba-PuHuiTi-Regular.ttf") format("truetype");
+  // src: url("./Alibaba-PuHuiTi-Heavy.ttf") format("truetype");
+  // src: url("./Alibaba-PuHuiTi-Medium.ttf") format("truetype");
 }
 html,
 body {
@@ -29,7 +31,7 @@ body {
   z-index: 1 !important;
 } */
 .el-container:nth-child(2) {
-  background: url("../assets/newimg/背景@2x.png") no-repeat center;
+  background: url("../assets/newimg/背景@2x.png") no-repeat top;
   background-size: cover;
 }
 ::-webkit-scrollbar {

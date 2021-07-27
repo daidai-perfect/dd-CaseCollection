@@ -55,9 +55,13 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  height:unset !important;
+  // height:unset !important;
+  height:150px !important;
   width: 100%;
   transition: width 0.28s;
   z-index: 99;
+  // background: linear-gradient((65, 188, 167), (50, 160, 148));
+  background:rgb(51, 170, 155);
+  padding: 0;
 }
 </style>

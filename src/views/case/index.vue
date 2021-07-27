@@ -14,27 +14,7 @@
                         <div class="right">
                             <div class="tit">数字货币传销</div>
                             <div class="con">Plus Token</div>
-                            <span >START</span>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="left">
-                            <img src="../../assets/newimg/icon_lock2@2x.png" alt="">
-                        </div>
-                        <div class="right">
-                            <div class="tit">数字货币诈骗</div>
-                            <div class="con">HT搬砖套利</div>
                             <span>START</span>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="left">
-                            <img src="../../assets/newimg/icon_lock3@2x.png" alt="">
-                        </div>
-                        <div class="right">
-                            <div class="tit">数字货币洗钱</div>
-                            <div class="con">火币OTC</div>
-                            <span @click="$router.push({name:'case3'})">START</span>
                         </div>
                     </li>
                 </ul>
@@ -44,11 +24,7 @@
 </template>
 
 <script>
-
 export default {
-  name: "case-index",
-  components: {
-  },
     data() {
     return {
 
@@ -61,7 +37,7 @@ export default {
 
   },
   methods: {
-      
+
   }
 };
 </script>
@@ -87,7 +63,7 @@ export default {
                 font-size: 30px;
                 font-weight: normal;
                 color: #344257;
-                letter-spacing:0px;
+                letter-spacing:10px;
             }
             .con1{
                 width:900px;
@@ -99,57 +75,33 @@ export default {
             }
             .content{
                 width: 1200px;
-                margin: 30px auto 0;
-                display: flex;
-                flex-wrap: wrap;
+                margin: 50px auto 0;
                 .card{
                     width: 50%;
-                    height:280px;
+                    height:380px;
                     display: flex;
-                    // flex-wrap: wrap;
-                    // justify-content: flex-start;
-                    // align-items: center;
+                    justify-content: flex-start;
+                    align-items: center;
                     .left{
                         width: 250px;
-                        height: 260px;
+                        height: 300px;
                         background:#D5D5D5;
-                        line-height: 340px;
                         img{
                             width: 85px;
                             height: 113px;
                         }
                     }
                     .right{
-                        width: 250px;
-                        height: 260px;
-                        background:#fff;
-                        border: 1px solid #EAEAEA;
-                        padding-top: 30px;
-                        text-align: left;
-                        padding-left: 30px;
                         .tit{
                             font-size: 24px;
                             font-weight: normal;
                             color: #24344B;
-                            margin-bottom: 20px;
                         }
                         .con{
                             font-size: 16px;
                             font-weight: normal;
                             color: #656A72;
                             line-height: 30px;
-                            margin-bottom: 60px;
-                        }
-                        span{
-                            display: inline-block;
-                            width: 119px;
-                            height: 40px;
-                            background:#3BB094 ;
-                            box-shadow: 0px 11px 24px 0px rgba(59, 176, 148, 0.2);
-                            border-radius: 25px;
-                            color: #fff;
-                            line-height: 40px;
-                            text-align: center;
                         }
                     }
                 }

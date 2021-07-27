@@ -35,9 +35,29 @@ export default {
     name: 'case-3'
 }
 </script>
-<style scoped>
-.case-container .img-box img{
+<style lang="scss" scoped>
+.case-container{
     width: 100%;
+    background: #eee;
+    .main{
+        width: 1200px;
+        margin: 0 auto;
+        .img-box{
+            img{
+                width: 500px;
+            height: 400px;
+            }
+        }
+    }
+    .img-box{
+        width: 500px;
+            height: 400px;
+            margin: 0 auto;
+            img{
+                width: 500px;
+            height: 400px;
+            }
+        }
 }
 .paragraph{
     margin-bottom: 30px;

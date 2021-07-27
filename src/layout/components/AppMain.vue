@@ -39,6 +39,7 @@
   /* height: 100%; */
   width: 100%;
   margin-top: 150px;
+  /* background-color: #eee; */
 }
 @media screen and (max-width: 750px) {
   .back {
