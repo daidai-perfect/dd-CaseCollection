@@ -30,9 +30,31 @@ export default {
     name: 'case-2'
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .case-container .img-box img{
     width: 100%;
+}
+p{
+        font-size: 16px;
+        font-weight: normal;
+        color: #656A72;
+        line-height: 30px;
+    }
+.main{
+    h1{
+        font-size: 36px;
+        font-weight: bold;
+        color: #24344B;
+        line-height: 48px;
+    }
+    h3{
+        font-size: 20px;
+        font-weight: 550;
+        color: #3FBBA6;
+        line-height: 20px;
+        margin-top: 50px;
+    }
+    
 }
 .paragraph{
     margin-bottom: 30px;

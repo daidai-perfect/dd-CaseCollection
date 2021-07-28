@@ -38,7 +38,7 @@
 .back {
   /* height: 100%; */
   width: 100%;
-  margin-top: 150px;
+  margin-top: 125px;
   /* background-color: #eee; */
 }
 @media screen and (max-width: 750px) {

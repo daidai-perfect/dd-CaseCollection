@@ -12,76 +12,58 @@ const routes = [
     hidden: true,
     children: [
       {
-        path: "dashboard",
-        name: "Dashboard",
-        component: () => import("@/views/dashboard/index"),
-        meta: { title: "首页" }
+        path: "aboutUs",
+        name: "aboutUs",
+        component: () => import("@/views/aboutUs/index"),
+        meta: { title: "关于我们" }
       },
       {
         path: "industryCase",
         name: "industryCase",
-        component: () => import("@/views/case/index"),
+        component: () => import("@/views/aboutUs/model/industryCase"),
         meta: { title: "行业案例" }
       },
-      // {
-      //   path: "industryCase",
-      //   name: "industryCase",
-      //   component: () => import("@/views/case/index"),
-      //   meta: { title: "案例1" }
-      // },
-      // {
-      //   path: "industryCase",
-      //   name: "industryCase",
-      //   component: () => import("@/views/case/index"),
-      //   meta: { title: "案例2" }
-      // },
       {
-        path: "case3",
-        name: "case3",
-        component: () => import("@/views/dashboard/components/case3-old"),
+        path: "caseDetail",
+        name: "caseDetail",
+        component: () => import("@/views/aboutUs/caseDetail"),
         meta: { title: "案例3" }
-      },
-      {
-        path: "case",
-        name: "case",
-        component: () => import("@/views/dashboard/header"),
-        meta: { title: "行业案例" }
       },
       {
         path: "feature",
         name: "feature",
-        component: () => import("@/views/dashboard/case/feature"),
+        component: () => import("@/views/aboutUs/model/feature"),
         meta: { title: "案件特点" }
       },
       {
         path: "service",
         name: "service",
-        component: () => import("@/views/dashboard/case/service"),
+        component: () => import("@/views/aboutUs/model/service"),
         meta: { title: "链审服务" }
       },
       {
         path: "value",
         name: "value",
-        component: () => import("@/views/dashboard/case/value"),
+        component: () => import("@/views/aboutUs/model/value"),
         meta: { title: "链审价值" }
       },
       {
         path: "honor",
         name: "honor",
-        component: () => import("@/views/dashboard/case/honor"),
+        component: () => import("@/views/aboutUs/model/honor"),
         meta: { title: "荣誉资质" }
       },
       {
         path: "team",
         name: "team",
-        component: () => import("@/views/dashboard/case/team"),
+        component: () => import("@/views/aboutUs/model/team"),
         meta: { title: "团队背景" }
       },
       {
         path: "/browser",
         name: "browser",
         component: () => import("@/views/browser/index"),
-        meta: { title: "浏览器测试" }
+        meta: { title: "浏览器" }
       },
       {
         path: "/browser/transactionRecoard",

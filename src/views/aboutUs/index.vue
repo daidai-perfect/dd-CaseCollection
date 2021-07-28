@@ -26,7 +26,7 @@
                     <p class="topTit">链审价值</p>
                     <p class="en">VALUE</p>
                 </div>
-                <div class="case" @click="$router.push({name:'case'})">
+                <div class="case" @click="$router.push({name:'industryCase'})">
                     <p class="topTit">行业案例</p>
                     <p class="en">INDUSTRY CASE</p>
                 </div>
@@ -91,7 +91,7 @@ export default {
             height:650px;
             background: #fff;
             text-align: center;
-            padding-top: 30px;
+            padding-top: 50px;
             .tit{
                 font-size: 30px;
                 font-weight: normal;
@@ -265,7 +265,7 @@ export default {
                     cursor: pointer;
                     width: 292px;
                     height: 295px;
-                    background: #D5D5D5;
+                    background: #B0B0B0;
                     position: absolute;
                     top: 150px;
                     left: 595px;display: flex;

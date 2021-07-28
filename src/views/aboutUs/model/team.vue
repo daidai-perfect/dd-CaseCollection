@@ -2,39 +2,30 @@
     <div class="container">
         <div class="center">
             <div class="top">
-                <img src="../../../assets/newimg/英文横logo@2x.png" alt="">
-                <p class="con">资产追踪</p>
+                <h3 class="tit">TEAM CONTEXT</h3>
+                <p class="con">团队背景</p>
                 <span class="line"></span>
-                <p class="con1">链审科技针对利用数字货币进行相关犯罪的案件，提供从区块链地址到实际控制人的全方面追踪。司法机构只需要提供涉案的数字货币信息，链审科技将利用大数据和独有的标签库，锁定涉案资金的去向，以及定位犯罪嫌疑人的真实身份。</p>
                 <ul class="content">
                     <li class="card">
                         <div class="left">
-                            <img src="../../../assets/newimg/icon_Find@2x.png" alt="">
+                            <img src="../../../assets/newimg/icon_Elite@2x.png" alt="">
                         </div>
                         <div class="right">
-                            <div class="tit">找人</div>
-                            <div class="con">寻找涉案地址背后的实际控制人</div>
-                            <span @click="$router.push({name:'caseDetail',query: {identification:1}})">START</span>
+                            <div class="tit">执法部门精英</div>
+                            <div class="con">由多名来自公安经侦、刑侦以及反洗钱监管等部门的离任办案人员组成，拥有丰富的相关业务经验</div>
+                            <!-- <span @click="$router.push({name:'caseDetail',query: {identification:1}})">START</span> -->
+                            <span>START</span>
                         </div>
                     </li>
                     <li class="card">
                         <div class="left">
-                            <img src="../../../assets/newimg/com2x.png" alt="">
+                            <img src="../../../assets/newimg/icon_ace@2x.png" alt="">
                         </div>
                         <div class="right">
-                            <div class="tit">找钱</div>
-                            <div class="con">追踪涉案数字货币的去向</div>
-                            <span @click="$router.push({name:'caseDetail',query: {identification:2}})">START</span>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="left">
-                            <img src="../../../assets/newimg/icon_Level@2x.png" alt="">
-                        </div>
-                        <div class="right">
-                            <div class="tit">画层级</div>
-                            <div class="con">分析项目参与人层级的树状图</div>
-                            <span @click="$router.push({name:'caseDetail',query: {identification:3}})">START</span>
+                            <div class="tit">安防技术高手</div>
+                            <div class="con">由国内安防领域顶级人才构成，多名成员隶属于国家网络安全“红客联盟”，多次在国内外安全竞赛中获取优异成绩，并曾在C S S / I S C 等著名安全会议上发表演讲。</div>
+                            <!-- <span @click="$router.push({name:'caseDetail',query: {identification:2}})">START</span> -->
+                            <span>START</span>
                         </div>
                     </li>
                 </ul>
@@ -78,24 +69,26 @@ export default {
             height:750px;
             background: #fff;
             text-align: center;
-            padding-top: 50px;
-            img{
-                width: 228px;
-                height: 51px;
+            padding-top: 80px;
+            .tit{
+                font-size: 40px;
+                font-weight: normal;
+                color: #D5D5D5;
+                letter-spacing:3px;
+                margin: 0;
             }
             .con{
                 font-size: 30px;
                 font-weight: normal;
                 color: #344257;
-                letter-spacing:0px;
+                letter-spacing:10px;
             }
-            .con1{
-                width:900px;
-                font-size: 16px;
-                font-weight: normal;
-                color: #878888;
-                line-height: 30px;
-                margin: 10px auto;
+            .line{
+                display: inline-block;
+                width: 48px;
+                height: 1px;
+                background:#39AD9D ;
+                margin-top: 25px;
             }
             .content{
                 width: 1200px;
@@ -105,23 +98,24 @@ export default {
                 .card{
                     width: 50%;
                     height:280px;
+                    margin-top: 50px;
                     display: flex;
                     .left{
-                        width: 250px;
-                        height: 260px;
+                        width: 280px;
+                        height: 340px;
                         background:#D5D5D5;
                         line-height: 340px;
                         img{
-                            width: 100px;
-                            height: 85px;
+                            width: 113px;
+                            height: 111px;
                         }
                     }
                     .right{
-                        width: 250px;
-                        height: 260px;
+                        width: 280px;
+                        height: 340px;
                         background:#fff;
                         border: 1px solid #EAEAEA;
-                        padding: 30px 30px;
+                        padding: 30px 20px;
                         text-align: left;
                         display: flex;
                         flex-direction: column;
@@ -132,7 +126,6 @@ export default {
                             color: #24344B;
                         }
                         .con{
-                            width: 180px;
                             font-size: 16px;
                             font-weight: normal;
                             color: #656A72;

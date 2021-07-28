@@ -72,7 +72,7 @@ export default {
             height:750px;
             background: #fff;
             text-align: center;
-            padding-top: 50px;
+            padding-top: 60px;
             .tit{
                 font-size: 40px;
                 font-weight: normal;

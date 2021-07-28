@@ -2,20 +2,20 @@
     <div class="case-container">
         <div class="main">
             <h1>数字货币传销-Plus Token</h1>
-            <h3>案情摘要：</h3>
+            <h3>| 案情摘要：</h3>
             <p>2018年5月，犯罪嫌疑人陈某等人通过架设搭建“Plus Token平台”并开发相关应用程序，开始从事互联网传销犯罪。该平台以区块链技术为噱头、以比特币等数字货币为交易媒介，打着提供数字货币增值服务的幌子，承诺高额返利。参与人员通过上线推荐并缴纳价值500美元以上的数字货币作为“门槛费”后即可获得会员资格，会员按缴纳的数字货币价值获得平台自创的“Plus”币，并按照加入顺序形成上下线和层级关系。平台根据发展下线数量和投入资金数量，将成员分为会员、大户、大咖、大神、创世五个等级，并按等级高低发放相应数量的“Plus”币作为奖励和返利。</p>
             
-            <h3>案件审理：</h3>
+            <h3>| 案件审理：</h3>
             <p>2020年9月22日，江苏省盐城经开区检察院对Plus Token公诉案一审宣判，法院以组织、领导传销活动罪判处陈某、丁某、彭某等16名被告人二年至十一年不等的有期徒刑，并处罚金，涉案赃物、赃款及孳息、犯罪工具依法予以没收上缴国库。</p>
 
-            <h3>案件特点：</h3>
+            <h3>| 案件特点：</h3>
             <p>1.所有受害者都是通过第三方平台入金购买成btc，eth，usdt等数字货币，并没有直接从犯罪分子手中购买，没有直接现金交易
                 <br/>
                 2.犯罪分子将收到的数字货币通过专业工具在上万个地址间混币，极大的增加了统计难度
                 <br />
                 3.犯罪分子最终将数字货币在火币，OK，币安等多个平台最终变现为包括人民币，美元在内的多种国家法币。</p>
         
-            <h3>案件处理：</h3>
+            <h3>| 案件处理：</h3>
             <p>根据区块链和网络公开资料，梳理下图为Plus Token部分数字货币流向示意图：</p>
         </div>
         <div class="img-box">
@@ -29,9 +29,31 @@ export default {
     name: 'case-1'
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .case-container .img-box img{
     width: 100%;
+}
+p{
+        font-size: 16px;
+        font-weight: normal;
+        color: #656A72;
+        line-height: 30px;
+    }
+.main{
+    h1{
+        font-size: 36px;
+        font-weight: bold;
+        color: #24344B;
+        line-height: 48px;
+    }
+    h3{
+        font-size: 20px;
+        font-weight: 550;
+        color: #3FBBA6;
+        line-height: 20px;
+        margin-top: 50px;
+    }
+    
 }
 .paragraph{
     margin-bottom: 30px;

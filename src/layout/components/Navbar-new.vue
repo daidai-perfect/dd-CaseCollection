@@ -8,8 +8,8 @@
                 <li :class="{'active':ulIndex==1}" @click="hopRoute(1,'/fraud')">资产追踪</li>
                 <li :class="{'active':ulIndex==2}" @click="hopRoute(2,'/judicial')">司法入口</li>
                 <li :class="{'active':ulIndex==3}" @click="hopRoute(3,'/complaint')">举报骗局</li>
-                <li :class="{'active':ulIndex==4}" @click="hopRoute(4,'/case')">行业案例</li>
-                <li :class="{'active':ulIndex==5}" @click="hopRoute(5,'/dashboard')">关于我们</li>
+                <li :class="{'active':ulIndex==4}" @click="hopRoute(4,'/industryCase')">行业案例</li>
+                <li :class="{'active':ulIndex==5}" @click="hopRoute(5,'/aboutUs')">关于我们</li>
                 <li :class="{'active':ulIndex==5}">|</li>
                 <li :class="{'active':ulIndex==5}" @click="hopRoute(6,'/login')" v-if="!loginStatus">LOGIN NOW</li>
                 <li :class="{'active':ulIndex==5}" @click="personal" v-if="loginStatus" >Hi，{{sysUser.loginName}}</li>
