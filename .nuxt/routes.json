@@ -1,0 +1,44 @@
+[
+  {
+    "name": "border-color",
+    "path": "/border-color",
+    "component": "C:\\\\Users\\\\dd891\\\\Desktop\\\\lqbz\\\\dd-CaseCollection\\\\pages\\\\border-color.vue",
+    "chunkName": "pages/border-color",
+    "_name": "_62038272"
+  },
+  {
+    "name": "case",
+    "path": "/case",
+    "component": "C:\\\\Users\\\\dd891\\\\Desktop\\\\lqbz\\\\dd-CaseCollection\\\\pages\\\\case.vue",
+    "chunkName": "pages/case",
+    "_name": "_b8dc6d16"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\dd891\\\\Desktop\\\\lqbz\\\\dd-CaseCollection\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_7925e45d"
+  },
+  {
+    "name": "lang",
+    "path": "/:lang",
+    "component": "C:\\\\Users\\\\dd891\\\\Desktop\\\\lqbz\\\\dd-CaseCollection\\\\pages\\\\_lang\\\\index.vue",
+    "chunkName": "pages/_lang/index",
+    "_name": "_35c4beac"
+  },
+  {
+    "name": "lang-border-color",
+    "path": "/:lang/border-color",
+    "component": "C:\\\\Users\\\\dd891\\\\Desktop\\\\lqbz\\\\dd-CaseCollection\\\\pages\\\\_lang\\\\border-color.vue",
+    "chunkName": "pages/_lang/border-color",
+    "_name": "_2a54fc4c"
+  },
+  {
+    "name": "lang-case",
+    "path": "/:lang/case",
+    "component": "C:\\\\Users\\\\dd891\\\\Desktop\\\\lqbz\\\\dd-CaseCollection\\\\pages\\\\_lang\\\\case.vue",
+    "chunkName": "pages/_lang/case",
+    "_name": "_5cbacf88"
+  }
+]
