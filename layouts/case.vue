@@ -2,8 +2,6 @@
   <div class="layout-contianer">
     <PHeader></PHeader>
     <div class="body">
-      <div class="top"></div>
-      <div class="buttom"></div>
       <nuxt />
     </div>
   </div>
@@ -21,10 +19,5 @@ export default {
 .layout-contianer {
   display: flex;
   flex-direction: column;
-  .top {
-    width: 80%;
-    height: 500px;
-    margin: 50px auto;
-  }
 }
 </style>

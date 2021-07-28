@@ -68,9 +68,9 @@
           <div class="center">
             <ul class="list">
               <li><a href="/case">轮播图</a></li>
-              <li><a href="/case">轮播图</a></li>
-              <li><a href="/case">轮播图</a></li>
-              <li><a href="/case">轮播图</a></li>
+              <li><a href="">复制组件</a><Copy :copyInfo ='copyinfo'></Copy></li>
+              <li><a href="/border-color">边框颜色渐变</a></li>
+              <li><a href="">轮播图</a></li>
               <li><a href="/case">轮播图</a></li>
               <li><a href="/case">轮播图</a></li>
             </ul>
@@ -82,6 +82,7 @@
 </template>
 <script>
 import SelectLanguage from "../../components/select-language";
+import Copy from "../../components/copy";
 // import '../../assets/css/index/swiper.css'
 // import {swiper,swiperSlide} from 'vue-awesome-swiper'
 
@@ -89,11 +90,13 @@ export default {
   name: "home",
   components: {
     SelectLanguage,
+    Copy
   },
   data() {
     return {
       timer1: "",
       timer2: "",
+      copyinfo:'复制组件',
       swiperOption: {
         text: this.$t("home.customercon1"),
         watchSlidesVisibility: true,

@@ -1,8 +1,8 @@
 {
-  "name": "ZERONE",
+  "name": "CASE",
   "version": "1.0.0",
-  "description": "ZERONE",
-  "author": "sunny",
+  "description": "CASE",
+  "author": "dd",
   "private": true,
   "scripts": {
     "dev": "backpack dev",
